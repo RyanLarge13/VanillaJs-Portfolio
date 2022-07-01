@@ -1,4 +1,4 @@
-let appID = '496b46a298054d1194dfc43f4095393a';
+let appID = '';
 let uid = String(Math.floor(Math.random() * 132));
 let token = null;
 let channelName = 'main';
