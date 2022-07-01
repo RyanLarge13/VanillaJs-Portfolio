@@ -42,6 +42,61 @@ html {
   transition: 1s ease-in-out;
   z-index: 998;
 }
+.agora-chatbox .channel-form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(45deg, #ffa751, #ffe259);
+  z-index: 1;
+}
+.agora-chatbox .channel-form label {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+.agora-chatbox .channel-form input {
+  width: 60%;
+  height: 5%;
+  border-radius: 1em;
+  padding: 0 1em;
+  text-align: center;
+  border: none;
+  transition: 250ms ease-in-out;
+}
+.agora-chatbox .channel-form input:hover {
+  box-shadow: 0 0 0.5em 0.1em #ffa751;
+}
+.agora-chatbox .channel-form input:focus {
+  outline: none;
+}
+.agora-chatbox .channel-form input:nth-child(2) {
+  margin-bottom: 2em;
+}
+.agora-chatbox .channel-form input:nth-child(4) {
+  width: 30%;
+}
+.agora-chatbox .channel-form #join-channel {
+  all: unset;
+  margin-top: 10em;
+  background-color: #e950f7;
+  padding: 0.8em 1.9em;
+  border-radius: 1em;
+  box-shadow: 0 0 0.5em 0.1em #000;
+  font-weight: 600;
+  transition: 250ms ease-in-out;
+  cursor: pointer;
+}
+.agora-chatbox .channel-form #join-channel:hover {
+  transform: scale(0.98);
+  box-shadow: 0 0 0.3em 0.1em #000;
+}
+.agora-chatbox .channel-form #join-channel.display-none {
+  display: none;
+}
 @media screen and (max-width: 900px) {
   .agora-chatbox {
     width: 75vw;
@@ -50,13 +105,15 @@ html {
 }
 .agora-chatbox i {
   position: absolute;
-  font-size: 2.3em;
+  font-size: 2em;
   color: #000;
   background-color: #fff;
   border-radius: 50%;
   opacity: 0;
   transform: translate(-50%, -50%);
   transition: 750ms ease-in-out;
+  cursor: pointer;
+  z-index: 2;
 }
 .agora-chatbox i:hover {
   opacity: 1;
@@ -179,6 +236,7 @@ html {
   right: 1.5%;
   bottom: 1%;
   opacity: 1;
+  z-index: 0;
 }
 
 .agora-chatbox.scale {

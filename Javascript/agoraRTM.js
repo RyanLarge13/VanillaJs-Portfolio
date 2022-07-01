@@ -1,7 +1,7 @@
 let appID = '496b46a298054d1194dfc43f4095393a';
-let uid = String(Math.floor(Math.random() * 132));
+let uid;
 let token = null;
-let channelName = 'main';
+let channelName;
 
 const messageContainer = document.querySelector('.messages');
 const form = document.querySelector('.input-message-container');
@@ -9,6 +9,10 @@ const userMessageContainer = document.querySelector('.input-message-container in
 const sendButton = document.querySelector('.fa-paper-plane');
 const chatBox = document.querySelector('.agora-chatbox');
 const agoraButton = document.querySelector('.agora-btn');
+const main = document.querySelector('main');
+const channelForm = document.querySelector('.channel-form');
+const userName = document.querySelector('#name');
+const channelNumber = document.querySelector('#channel-number')
 
 //simple chatbox display function for agora RTM 
 export const chatDisplay = () => {
@@ -17,6 +21,28 @@ export const chatDisplay = () => {
         agoraButton.classList.toggle('transform-zero');
     }, 250);
 };
+chatDisplay();
+
+main.addEventListener('click', () => {
+    chatBox.classList.remove('scale');
+    agoraButton.classList.remove('transform-zero');
+});
+
+const createUID = () => {
+    uid = String(Math.floor(Math.random()) * 123);
+}
+
+channelForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (userName.value = '') {
+        createUID();
+    }
+    uid = userName.value;
+    channelName = channelNumber.value;
+    channelForm.reset();
+    initiateRTM();
+    channelForm.style.display = 'none';
+});
 
 const initiateRTM = async () => {
     let client = await AgoraRTM.createInstance(appID);
@@ -47,7 +73,6 @@ const initiateRTM = async () => {
         memberLeft(uid);
     });
 
-    chatDisplay();
 };
 
 const handleChannelMessage = async (message, uid) => {
@@ -101,5 +126,3 @@ const memberLeft = async (uid) => {
     userMessageContainer.value = null;
     userMessageContainer.placeholder = '';
 };
-
-initiateRTM();
