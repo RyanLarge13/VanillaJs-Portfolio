@@ -95,7 +95,7 @@ const addMessageToDom = async (message, uid) => {
 const memberLeft = async (uid) => {
     let memberleftMessage = document.createElement('div');
     let leftMessage = `User: ${uid} left the chat.`;
-    memberleftMessage.className = 'welcome-message';
+    memberleftMessage.className = 'user-left';
     memberleftMessage.innerText = `${leftMessage}`;
     messageContainer.insertAdjacentElement('afterbegin', memberleftMessage);
     userMessageContainer.value = null;

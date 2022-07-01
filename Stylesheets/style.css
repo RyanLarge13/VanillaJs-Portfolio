@@ -109,6 +109,22 @@ html {
   border-radius: 1em;
   word-wrap: break-word;
 }
+.agora-chatbox .messages .user-left {
+  max-width: 60%;
+  align-self: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.8em;
+  margin: 0.8em;
+  box-shadow: 0 0 0.5em 0.1em #000;
+  background-color: #e950f7;
+  border-radius: 1em;
+  word-wrap: break-word;
+}
 .agora-chatbox .messages .my-message {
   max-width: 60%;
   height: -webkit-fit-content;

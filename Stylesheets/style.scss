@@ -126,6 +126,19 @@ $trans: 250ms ease-in-out;
             word-wrap: break-word;
         }
 
+        .user-left {
+            max-width: 60%;
+            align-self: center;
+            width: fit-content;
+            height: fit-content;
+            padding: .8em;
+            margin: 0.8em;
+            box-shadow: $black-shadow;
+            background-color: $light-purple;
+            border-radius: 1em;
+            word-wrap: break-word;
+        }
+
         .my-message {
             max-width: 60%;
             height: fit-content;
