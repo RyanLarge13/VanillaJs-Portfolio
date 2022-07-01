@@ -28,16 +28,13 @@ main.addEventListener('click', () => {
     agoraButton.classList.remove('transform-zero');
 });
 
-const createUID = () => {
-    uid = String(Math.floor(Math.random()) * 123);
-}
-
 channelForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (userName.value = '') {
-        createUID();
+    if (userName.value.type === undefined) {
+        uid = String(Math.floor(Math.random() * 123));
+    } else {
+        uid = String(userName.value);
     }
-    uid = userName.value;
     channelName = channelNumber.value;
     channelForm.reset();
     initiateRTM();
