@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My Personal Portfolio">
+    <link rel="shortcut icon" href="./images/FB_IMG_1519453604508.jpg" >
+    <!-- main script -->
+    <script async src="./Javascript/script.js" type="module"></script>
+    <!--agora rtm -->
+    <script defer src="./Javascript/agora-rtm-sdk-1.4.5.js"></script>
+    <script type="module" src="./Javascript/agoraRTM.js"></script>
+    <!-- Link to style sheet -->
+    <link rel="stylesheet" href="./Stylesheets/style.css">
+    <!-- link to google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+    <!-- link to font awesome -->
+    <script async src="https://kit.fontawesome.com/a673862905.js" crossorigin="anonymous"></script>
+    <title>Ryan Large</title>
+</head>
+<body>
+    <!-- Messaging platform with Ably API -->
+    <div class="agora-chatbox">
+        <i class="fa-solid fa-circle-xmark"></i>
+        <div class="chat-header">
+            <h2>Say, Hello!</h2>
+        </div>
+        <div class="messages">
+
+        </div>
+        <form class="input-message-container">
+            <input type="text" placeholder="Message me!"/>
+            <i class="fa-regular fa-paper-plane"></i>
+        </form>
+    </div>
+    <div class="agora-btn"><i class="fa-solid fa-message"></i></div>
+    <!-- navigation side dots -->
+    <div class="nav-dot-container">
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+    </div>
+    <!-- Header section with navigation links -->
+    <header>
+        <!-- Mobile nav -->
+        <div class="nav-toggle-body">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- Desktop nav -->
+        <a href="#" class="skip-nav-link">Skip Nav</a>
+        <nav>
+            <ul>
+                <li><a href="#Resume">Resume</a></li>
+                <li><a href="#Projects">Projects</a></li>
+                <li><a href="#Home"><strong>Ryan Large</strong></a></li>
+                <li><a href="#Contact">Contact</a></li>
+                <li><a href="#About">About</a></li>
+            </ul>
+        </nav>
+        <div class="progress-bar"></div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+
+        <h1>Ryan Large</h1>
+
+        <section class="intro-container" data-section id="Home">
+            <div class="introduction">
+                <h2>Hello!</h2>
+                <p data-type-text>Welcome to my profile. I am a fullstack UI/UX web developer...</p>
+            </div>
+            <img src="./images/FB_IMG_1519453604508.jpg" alt="Me" />
+            <!-- design circles -->
+            <div class="intro-circle"></div>
+            <div class="intro-circle"></div>
+        </section>
+
+        <section class="sec-2 sec" data-section id="Resume">
+            <div class="background-box"></div>
+            <div class="resume-container">
+                <div class="skill-holder">
+                    <h2>FullStack Web Developer</h2>
+                    <ul>
+                        <li><i class="fa-brands fa-js-square"></i></li>
+                        <li><i class="fa-brands fa-react"></i></li>
+                        <li><i class="fa-brands fa-node"></i></li>
+                        <li><i class="fa-brands fa-python"></i></li>
+                        <li><i class="fa-brands fa-sass"></i></li>
+                        <li><i class="fa-brands fa-html5"></i></li>
+                        <li><i class="fa-brands fa-css3-alt"></i></li>
+                    </ul>
+                </div>
+                <div class="skill-detail-holder"></div>
+            </div>
+            <!-- we will consider this ...... <div class="sec-2-footer"></div> -->
+        </section>
+
+        <section class="sec-3 sec" data-section id="Projects">
+
+        </section>
+
+        <section class="sec-4 sec" data-section id="About">
+
+        </section>
+
+        <section class="sec-5 sec" data-section id="Contact">
+
+        </section>
+
+    </main>
+
+</body>
+</html>
