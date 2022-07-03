@@ -577,15 +577,12 @@ main {
 
     @media screen and (max-width: 900px) {
         h1 {
-<<<<<<< Updated upstream
             display: flex;
             justify-content: center;
-=======
             width: 85%;
             position: absolute;
             display: block;
             left: 50%;
->>>>>>> Stashed changes
             font-size: $heading1;
         }
 
