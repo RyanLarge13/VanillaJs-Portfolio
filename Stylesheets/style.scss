@@ -78,6 +78,7 @@ $trans: 250ms ease-in-out;
         input {
             width: 60%;
             height: 5%;
+            min-height: 35px;
             border-radius: 1em;
             padding: 0 1em;
             text-align: center;
@@ -171,7 +172,6 @@ $trans: 250ms ease-in-out;
     .messages {
         display: flex;
         flex-direction: column-reverse;
-        // justify-content: flex-end;
         width: 100%;
         max-height: 600px;
         min-height: 0px;
@@ -339,7 +339,6 @@ $trans: 250ms ease-in-out;
 }
 
 //styling the header nav and list items
-
 header {
 
     position: relative;
@@ -387,7 +386,6 @@ header {
 
                 a {
                     font-size: 1.5em;
-                    //padding: 2em;
                     color: black;
                     background-image: linear-gradient(to right, #ffe259, #ffa751);
                     background-size: 0% .15em;
@@ -465,7 +463,6 @@ header {
             width: 40px;
             z-index: 999;
             cursor: pointer;
-            // background-color: #000;
 
             span {
                 position: absolute;
@@ -512,7 +509,6 @@ header {
 }
 
 //Main content
-
 main {
 
     h1 {
@@ -581,8 +577,15 @@ main {
 
     @media screen and (max-width: 900px) {
         h1 {
+<<<<<<< Updated upstream
             display: flex;
             justify-content: center;
+=======
+            width: 85%;
+            position: absolute;
+            display: block;
+            left: 50%;
+>>>>>>> Stashed changes
             font-size: $heading1;
         }
 
@@ -635,6 +638,7 @@ main {
     max-width: 100%;
 }
 
+//going into resume section
 .sec-2 {
     position: relative;
     background-color: #eeeeee;
@@ -652,7 +656,15 @@ main {
         z-index: 0;
     }
 
+    .caret {
+        padding: 2em;
+        font-size: 1.5em;
+        z-index: 990;
+        cursor: pointer;
+    }
+
     .resume-container {
+        display: flex;
         position: relative;
         width: 60%;
         height: 50%;
@@ -661,32 +673,62 @@ main {
         background-image: linear-gradient(45deg, $light-pink, #eee 76%);
 
         .skill-holder {
-            position: absolute;
+            position: relative;
             width: 50%;
             height: 100%;
+            padding-left: 0.5em;
+            overflow: hidden;
+            // outline: 1px solid red;
 
-            h2 {
-                font-size: $heading2;
-                padding: 1em 0 1em 1em;
-            }
+            .skill-parent {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+                transform: translateX(-10%);
+                transition: $trans;
 
-            ul {
-                margin: 0 0 0 2em;
+                i {
+                    font-size: 20em;
+                    padding: 0 .5em;
+                    width: 100%;
+                    transform: translateX(-50px);
+                    opacity: 0;
+                    transition: 1s 250ms ease-in-out;
+                }
 
-                li {
+                #last-copy {
+                    transform: translateX(-500px);
+                }
+                #first-copy {
+                    transform: translateX(500px);
+                }
 
-                    i {
-                        font-size: 3em;
-                    }
+                .skill-detail-mobile {
+                    display: none;
                 }
             }
         }
 
         .skill-detail-holder {
-            position: absolute;
+            position: relative;
+            display: flex;
+            align-items: center;
             right: 0;
             width: 50%;
             height: 100%;
+
+            p {
+                width: 80%;
+                font-size: 2em;
+                transform: translateY(-50%) translateX(10em);
+                position: absolute;
+                opacity: 0;
+                transition: 1s ease-in-out;
+                pointer-events: none;
+            }
         }
     }
 
@@ -694,6 +736,53 @@ main {
     // .sec-2-footer {
 
     // }
+
+    @media screen and (max-width: 900px) {
+        .caret {
+            display: none;
+        }
+
+        .resume-container {
+            width: 80%;
+            margin-right: 10em;
+
+            .skill-holder {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .skill-parent {
+                    
+                    i {
+                        font-size: 10em;
+                        transform: translateX(-1%);
+
+                        &:nth-child(4) {
+                            transform: translateX(-5%);
+                        }
+
+                        &:nth-child(5) {
+                            transform: translateX(-10%);
+                        }
+
+                        &:nth-child(6) {
+                            transform: translateX(-10%);
+                        }
+                        &:nth-child(7) {
+                            transform: translateX(-10%);
+                        }
+                    }
+
+                }
+            }
+
+            .skill-detail-holder {
+                display: none;
+            }
+        }
+    }
 }
 
 .sec-4 {

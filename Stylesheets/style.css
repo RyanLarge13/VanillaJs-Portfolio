@@ -61,6 +61,7 @@ html {
 .agora-chatbox .channel-form input {
   width: 60%;
   height: 5%;
+  min-height: 35px;
   border-radius: 1em;
   padding: 0 1em;
   text-align: center;
@@ -504,8 +505,15 @@ main .intro-container .intro-circle:nth-child(3) {
 }
 @media screen and (max-width: 900px) {
   main h1 {
+<<<<<<< Updated upstream
     display: flex;
     justify-content: center;
+=======
+    width: 85%;
+    position: absolute;
+    display: block;
+    left: 50%;
+>>>>>>> Stashed changes
     font-size: 3em;
   }
   main .intro-container .introduction {
@@ -558,7 +566,14 @@ main .intro-container .intro-circle:nth-child(3) {
   background-color: #ffa751;
   z-index: 0;
 }
+.sec-2 .caret {
+  padding: 2em;
+  font-size: 1.5em;
+  z-index: 990;
+  cursor: pointer;
+}
 .sec-2 .resume-container {
+  display: flex;
   position: relative;
   width: 60%;
   height: 50%;
@@ -567,25 +582,90 @@ main .intro-container .intro-circle:nth-child(3) {
   background-image: linear-gradient(45deg, #f864ae, #eee 76%);
 }
 .sec-2 .resume-container .skill-holder {
-  position: absolute;
+  position: relative;
   width: 50%;
   height: 100%;
+  padding-left: 0.5em;
+  overflow: hidden;
 }
-.sec-2 .resume-container .skill-holder h2 {
-  font-size: 2.5em;
-  padding: 1em 0 1em 1em;
+.sec-2 .resume-container .skill-holder .skill-parent {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  transform: translateX(-10%);
+  transition: 250ms ease-in-out;
 }
-.sec-2 .resume-container .skill-holder ul {
-  margin: 0 0 0 2em;
+.sec-2 .resume-container .skill-holder .skill-parent i {
+  font-size: 20em;
+  padding: 0 0.5em;
+  width: 100%;
+  transform: translateX(-50px);
+  opacity: 0;
+  transition: 1s 250ms ease-in-out;
 }
-.sec-2 .resume-container .skill-holder ul li i {
-  font-size: 3em;
+.sec-2 .resume-container .skill-holder .skill-parent #last-copy {
+  transform: translateX(-500px);
+}
+.sec-2 .resume-container .skill-holder .skill-parent #first-copy {
+  transform: translateX(500px);
+}
+.sec-2 .resume-container .skill-holder .skill-parent .skill-detail-mobile {
+  display: none;
 }
 .sec-2 .resume-container .skill-detail-holder {
-  position: absolute;
+  position: relative;
+  display: flex;
+  align-items: center;
   right: 0;
   width: 50%;
   height: 100%;
+}
+.sec-2 .resume-container .skill-detail-holder p {
+  width: 80%;
+  font-size: 2em;
+  transform: translateY(-50%) translateX(10em);
+  position: absolute;
+  opacity: 0;
+  transition: 1s ease-in-out;
+  pointer-events: none;
+}
+@media screen and (max-width: 900px) {
+  .sec-2 .caret {
+    display: none;
+  }
+  .sec-2 .resume-container {
+    width: 80%;
+    margin-right: 10em;
+  }
+  .sec-2 .resume-container .skill-holder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .sec-2 .resume-container .skill-holder .skill-parent i {
+    font-size: 10em;
+    transform: translateX(-1%);
+  }
+  .sec-2 .resume-container .skill-holder .skill-parent i:nth-child(4) {
+    transform: translateX(-5%);
+  }
+  .sec-2 .resume-container .skill-holder .skill-parent i:nth-child(5) {
+    transform: translateX(-10%);
+  }
+  .sec-2 .resume-container .skill-holder .skill-parent i:nth-child(6) {
+    transform: translateX(-10%);
+  }
+  .sec-2 .resume-container .skill-holder .skill-parent i:nth-child(7) {
+    transform: translateX(-10%);
+  }
+  .sec-2 .resume-container .skill-detail-holder {
+    display: none;
+  }
 }
 
 .sec-4 {
