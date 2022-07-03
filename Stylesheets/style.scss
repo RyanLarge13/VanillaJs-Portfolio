@@ -577,13 +577,12 @@ main {
 
     @media screen and (max-width: 900px) {
         h1 {
-            display: flex;
-            justify-content: center;
             width: 85%;
             position: absolute;
             display: block;
             left: 50%;
             font-size: $heading1;
+            transform: translateX(-50%);
         }
 
         .intro-container {
@@ -591,6 +590,7 @@ main {
 
             .introduction {
                 position: absolute;
+                top: 80%;
                 width: 100%;
                 
 

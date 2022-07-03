@@ -505,16 +505,16 @@ main .intro-container .intro-circle:nth-child(3) {
 }
 @media screen and (max-width: 900px) {
   main h1 {
-    display: flex;
-    justify-content: center;
     width: 85%;
     position: absolute;
     display: block;
     left: 50%;
     font-size: 3em;
+    transform: translateX(-50%);
   }
   main .intro-container .introduction {
     position: absolute;
+    top: 80%;
     width: 100%;
   }
   main .intro-container .introduction h2 {
