@@ -21,7 +21,7 @@ export const chatDisplay = () => {
         agoraButton.classList.toggle('transform-zero');
     }, 250);
 };
-chatDisplay();
+// chatDisplay();
 
 main.addEventListener('click', () => {
     chatBox.classList.remove('scale');
@@ -30,7 +30,7 @@ main.addEventListener('click', () => {
 
 channelForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (userName.value.type === undefined) {
+    if (userName.value === '') {
         uid = String(Math.floor(Math.random() * 123));
     } else {
         uid = String(userName.value);
