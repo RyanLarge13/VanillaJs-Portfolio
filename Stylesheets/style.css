@@ -144,9 +144,7 @@ html {
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
-  max-height: 600px;
-  min-height: 0px;
-  height: 600px;
+  height: 100%;
   margin: 0 auto;
   z-index: -1;
   overflow-y: auto;
