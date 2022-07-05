@@ -637,6 +637,7 @@ main {
     width: 100vw;
     height: 100vh;
     max-width: 100%;
+    overflow-x: hidden;
 }
 
 //going into resume section
@@ -646,6 +647,13 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    h2 {
+        z-index: 1;
+        font-size: 5em;
+        position: absolute;
+        top: 5%;
+    }
 
     .background-box {
         position: absolute;
@@ -780,7 +788,15 @@ main {
             }
 
             .skill-detail-holder {
-                display: none;
+                position: absolute;
+                right: -55%;
+                bottom: -35%;
+                width: 75%;
+
+                p {
+                    font-size: 1em;
+                    font-weight: 600;
+                }
             }
         }
     }
