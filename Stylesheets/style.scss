@@ -104,7 +104,7 @@ $trans: 250ms ease-in-out;
 
         #join-channel {
             all: unset;
-            margin-top: 10em;
+            margin-top: 40%;
             background-color: $light-purple;
             padding: .8em 1.9em;
             border-radius: 1em;
@@ -116,6 +116,10 @@ $trans: 250ms ease-in-out;
             &:hover {
                 transform: scale(.98);
                 box-shadow: 0 0 .3em .1em #000;
+            }
+
+            @media screen and (max-height: 500px) {
+                margin-top: 15%;
             }
         }
 

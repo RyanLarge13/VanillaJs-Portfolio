@@ -82,7 +82,7 @@ html {
 }
 .agora-chatbox .channel-form #join-channel {
   all: unset;
-  margin-top: 10em;
+  margin-top: 40%;
   background-color: #e950f7;
   padding: 0.8em 1.9em;
   border-radius: 1em;
@@ -94,6 +94,11 @@ html {
 .agora-chatbox .channel-form #join-channel:hover {
   transform: scale(0.98);
   box-shadow: 0 0 0.3em 0.1em #000;
+}
+@media screen and (max-height: 500px) {
+  .agora-chatbox .channel-form #join-channel {
+    margin-top: 15%;
+  }
 }
 .agora-chatbox .channel-form #join-channel.display-none {
   display: none;
