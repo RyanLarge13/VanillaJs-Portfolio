@@ -113,6 +113,12 @@ let start;
 let move;
 const skillParagraphs = document.querySelectorAll('.skill-detail p');
 
+const displayIcons = () => {
+    skillIcons[4].style.opacity = '1';
+    skillParagraphs[3].style.opacity = '1';
+    skillParagraphs[3].style.transform = 'translateX(0) translateY(-50%)';
+}
+
 const slider = (e) => {
     if (e.target === rightArrow) {
         count++;
@@ -230,10 +236,10 @@ skillParent.addEventListener('touchend', sliderMobile);
 const scroll = () => {
     let scrollY = window.scrollY;
     navIndicate(navItemsArr);
-    if (scrollY < 500) {
+    if (scrollY < vh) {
         circleScale();
     }
-    if (scrollY > 500) {
+    if (scrollY > vh) {
         scaleScroll();
     }
 };
@@ -243,6 +249,7 @@ window.onload = () => {
     introTextSlide();
     highlightName();
     navIndicate(navItemsArr);
+    displayIcons();
 }
 window.addEventListener('scroll', scroll);
 window.addEventListener('resize', navlistSwitch);
