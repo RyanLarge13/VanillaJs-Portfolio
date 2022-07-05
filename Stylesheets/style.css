@@ -559,15 +559,9 @@ main .intro-container .intro-circle:nth-child(3) {
   justify-content: center;
 }
 .sec-2 h2 {
-<<<<<<< Updated upstream
-  z-index: 1;
-  font-size: 5em;
-  position: absolute;
-=======
   position: absolute;
   font-size: 5em;
   z-index: 1;
->>>>>>> Stashed changes
   top: 5%;
 }
 .sec-2 .background-box {
