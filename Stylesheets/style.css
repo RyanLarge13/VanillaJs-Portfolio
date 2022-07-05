@@ -670,4 +670,13 @@ main .intro-container .intro-circle:nth-child(3) {
 
 .sec-4 {
   background-color: #eeeeee;
+}
+
+.to-top-btn {
+  position: fixed;
+  bottom: 0;
+  font-size: 1.5em;
+  padding: 1em;
+  opacity: 0;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

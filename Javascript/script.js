@@ -231,6 +231,22 @@ skillParent.addEventListener('touchmove', (e) => {
 });
 skillParent.addEventListener('touchend', sliderMobile);
 
+// implementing a button that will take you to the top of the page
+const toTopBtn = document.querySelector('.to-top-btn');
+toTopBtn.style.transition = '1s ease-in-out';
+const toTop = () => {
+    if (scrollY > vh) {
+        toTopBtn.style.opacity = '1';
+        toTopBtn.style.pointerEvents = 'unset';
+    } else {
+        toTopBtn.style.opacity = '0';
+        toTopBtn.style.pointerEvents = 'none';
+    }
+};
+
+toTopBtn.addEventListener('click', () => {
+    window.scrollTo(0, 0);
+});
 
 // handling eventlisteners and scroll function calling
 const scroll = () => {
@@ -238,9 +254,11 @@ const scroll = () => {
     navIndicate(navItemsArr);
     if (scrollY < vh) {
         circleScale();
+        toTop();
     }
     if (scrollY > vh) {
         scaleScroll();
+        toTop();
     }
 };
 
@@ -250,6 +268,7 @@ window.onload = () => {
     highlightName();
     navIndicate(navItemsArr);
     displayIcons();
+    toTop();
 }
 window.addEventListener('scroll', scroll);
 window.addEventListener('resize', navlistSwitch);
