@@ -185,6 +185,29 @@ const paraSlider = (count, e) => {
 rightArrow.addEventListener('click', slider);
 leftArrow.addEventListener('click', slider);
 
+const paraSliderMobile = () => {
+    if (start > move) {
+        if (count === -3) {
+            skillParagraphs[skillParagraphs.length - 1].style.opacity = '0';
+            skillParagraphs[skillParagraphs.length - 1].style.transform = 'translateX(10em)';
+        }
+        skillParagraphs[count + 3].style.opacity = '1';
+        skillParagraphs[count + 3].style.transform = 'translateX(0) translateY(-50%)';
+        skillParagraphs[count + 2].style.opacity = '0';
+        skillParagraphs[count + 2].style.transform = 'translateX(10em)';
+    }
+    if (start < move) {
+        if (count === 3) {
+            skillParagraphs[0].style.opacity = '0';
+            skillParagraphs[0].style.transform = 'translateX(10em)';
+        }
+        skillParagraphs[count + 3].style.opacity = '1';
+        skillParagraphs[count + 3].style.transform = 'translateX(0) translateY(-50%)';
+        skillParagraphs[count + 4].style.opacity = '0';
+        skillParagraphs[count + 4].style.transform = 'translateX(10em)';
+    }
+};
+
 const sliderMobile = () => {
     if (start > move) {
         count++;
@@ -221,6 +244,7 @@ const sliderMobile = () => {
             }
         });
     }
+    paraSliderMobile();
 }
 
 skillParent.addEventListener('touchstart', (e) => {

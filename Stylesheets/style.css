@@ -548,6 +548,7 @@ main .intro-container .intro-circle:nth-child(3) {
   width: 100vw;
   height: 100vh;
   max-width: 100%;
+  overflow-x: hidden;
 }
 
 .sec-2 {
@@ -556,6 +557,12 @@ main .intro-container .intro-circle:nth-child(3) {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.sec-2 h2 {
+  z-index: 1;
+  font-size: 5em;
+  position: absolute;
+  top: 5%;
 }
 .sec-2 .background-box {
   position: absolute;
@@ -664,7 +671,14 @@ main .intro-container .intro-circle:nth-child(3) {
     transform: translateX(-10%);
   }
   .sec-2 .resume-container .skill-detail-holder {
-    display: none;
+    position: absolute;
+    right: -55%;
+    bottom: -35%;
+    width: 75%;
+  }
+  .sec-2 .resume-container .skill-detail-holder p {
+    font-size: 1em;
+    font-weight: 600;
   }
 }
 
