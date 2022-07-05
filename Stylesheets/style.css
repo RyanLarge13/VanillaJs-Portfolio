@@ -640,6 +640,9 @@ main .intro-container .intro-circle:nth-child(3) {
   pointer-events: none;
 }
 @media screen and (max-width: 900px) {
+  .sec-2 h2 {
+    font-size: 3em;
+  }
   .sec-2 .caret {
     display: none;
   }
