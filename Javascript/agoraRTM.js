@@ -21,7 +21,6 @@ export const chatDisplay = () => {
         agoraButton.classList.toggle('transform-zero');
     }, 250);
 };
-// chatDisplay();
 
 main.addEventListener('click', () => {
     chatBox.classList.remove('scale');
@@ -61,8 +60,8 @@ const initiateRTM = async () => {
         sendMessage({text: message});  
     });
 
-    channel.on('MemberJoined', (message) => {
-        sendMessage(message);
+    channel.on('MemberJoined', () => {
+        welcome();
     });
     channel.on('ChannelMessage', handleChannelMessage);
 
@@ -76,16 +75,15 @@ const handleChannelMessage = async (message, uid) => {
     addMessageToDom(message, uid);
 };
 
+const welcome = async () => {
+    let greetingMessage = `Someone new joined the channel!!!`;
+    let welcomeMessage = document.createElement('div');
+    welcomeMessage.className = 'welcome-message';
+    welcomeMessage.innerText = `${greetingMessage}`;
+    messageContainer.insertAdjacentElement('afterbegin', welcomeMessage);
+}
+
 const sendMessage = async (message) => {
-    let greetingMessage = 'Someone new joined the channel!!!';
-    if (message.text === undefined && message.text !== '') {
-        let welcomeMessage = document.createElement('div');
-        welcomeMessage.className = 'welcome-message';
-        welcomeMessage.innerText = `${greetingMessage}`;
-        messageContainer.insertAdjacentElement('afterbegin', welcomeMessage);
-        userMessageContainer.value = null;
-        userMessageContainer.placeholder = '';
-    }
     if (message.text === '') {
         return;
     }
@@ -94,9 +92,9 @@ const sendMessage = async (message) => {
         myMessage.className = 'my-message';
         myMessage.innerText = `${message.text}`;
         messageContainer.insertAdjacentElement('afterbegin', myMessage);
-        userMessageContainer.value = null;
-        userMessageContainer.placeholder = '';
         myMessage.scrollIntoView({ behavior: 'smooth' });
+        form.reset();
+        userMessageContainer.placeholder = '';
     }
 };
 
@@ -109,17 +107,14 @@ const addMessageToDom = async (message, uid) => {
     memberMessage.innerText = `${message.text} 
     user: ${uid}`;
     messageContainer.insertAdjacentElement('afterbegin', memberMessage);
-    userMessageContainer.value = null;
-    userMessageContainer.placeholder = '';
     memberMessage.scrollIntoView({ behavior: 'smooth' });
 };
 
 const memberLeft = async (uid) => {
     let memberleftMessage = document.createElement('div');
-    let leftMessage = `User: ${uid} left the chat.`;
+    let leftMessage = `${uid}
+    left the chat.`;
     memberleftMessage.className = 'user-left';
     memberleftMessage.innerText = `${leftMessage}`;
     messageContainer.insertAdjacentElement('afterbegin', memberleftMessage);
-    userMessageContainer.value = null;
-    userMessageContainer.placeholder = '';
 };
