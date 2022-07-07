@@ -272,10 +272,34 @@ toTopBtn.addEventListener('click', () => {
     window.scrollTo(0, 0);
 });
 
+//resume skills section scroll function
+const skillsDisplay = () => {
+    let height = vh - (vh / 2);
+    let resumeContainer = document.querySelector('.resume-container');
+    let carets = document.querySelectorAll('.caret');
+    if (scrollY > height) {
+        resumeContainer.style.transition = 'all 2s ease-in-out'
+        resumeContainer.style.transform = 'translateX(0)';
+        resumeContainer.style.opacity = '1';
+        carets.forEach((caret) => {
+            caret.style.opacity = '1';
+        });
+    } 
+    if (scrollY > vh * 1.75) {
+        resumeContainer.style.transition = 'all 250ms ease-in-out';
+        resumeContainer.style.transform = 'translateX(-100em)';
+        resumeContainer.style.opacity = '0';
+        carets.forEach((caret) => {
+            caret.style.opacity = '0';
+        });
+    }
+}
+
 // handling eventlisteners and scroll function calling
 const scroll = () => {
     let scrollY = window.scrollY;
     navIndicate(navItemsArr);
+    skillsDisplay();
     if (scrollY < vh) {
         circleScale();
         toTop();

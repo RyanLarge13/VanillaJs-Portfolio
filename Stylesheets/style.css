@@ -578,6 +578,8 @@ main .intro-container .intro-circle:nth-child(3) {
   font-size: 1.5em;
   z-index: 990;
   cursor: pointer;
+  opacity: 0;
+  transition: 1s ease-in-out;
 }
 .sec-2 .resume-container {
   display: flex;
@@ -587,6 +589,8 @@ main .intro-container .intro-circle:nth-child(3) {
   z-index: 1;
   border-radius: 3em 0 3em 0;
   background-image: linear-gradient(45deg, #f864ae, #eee 76%);
+  transform: translateX(-100em);
+  opacity: 0;
 }
 .sec-2 .resume-container .skill-holder {
   position: relative;
