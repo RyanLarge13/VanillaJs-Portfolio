@@ -696,4 +696,5 @@ main .intro-container .intro-circle:nth-child(3) {
   padding: 1em;
   opacity: 0;
   cursor: pointer;
+  z-index: 999;
 }/*# sourceMappingURL=style.css.map */
