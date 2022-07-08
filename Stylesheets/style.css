@@ -242,6 +242,13 @@ html {
   opacity: 1;
   z-index: 0;
 }
+@media screen and (max-width: 400px) {
+  .agora-chatbox .input-message-container i {
+    font-size: 1.2em;
+    bottom: 1.5%;
+    right: 0;
+  }
+}
 
 .agora-chatbox.scale {
   transform: scale(1);
@@ -255,7 +262,7 @@ html {
   position: fixed;
   bottom: 2%;
   right: 1%;
-  z-index: 999;
+  z-index: 998;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -679,9 +686,9 @@ main .intro-container .intro-circle:nth-child(3) {
   }
   .sec-2 .resume-container .skill-detail-holder {
     position: absolute;
-    right: -55%;
+    left: 15%;
     bottom: -35%;
-    width: 75%;
+    width: 150%;
   }
   .sec-2 .resume-container .skill-detail-holder p {
     font-size: 1em;
