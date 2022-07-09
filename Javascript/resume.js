@@ -1,5 +1,6 @@
 // going into script for Resume section
 const vh = document.querySelector('.intro-container').clientHeight;
+const skillContainer = document.querySelector('.resume-container');
 const skillParent = document.querySelector('.skill-parent');
 const skillIcons = document.querySelectorAll('.skill-icon');
 const leftArrow = document.querySelector('.fa-caret-left');
@@ -104,6 +105,9 @@ const paraSliderMobile = () => {
 
 const sliderMobile = () => {
     if (start > move) {
+        if ((start - move) < 50) {
+            return;
+        }
         count++;
         skillParent.style.transition = '250ms ease-in-out';
         skillParent.style.transform = `translateX(${-width * count}px)`;
@@ -111,6 +115,9 @@ const sliderMobile = () => {
         skillIcons[count + 4].style.opacity = '1';
     }
     if (start < move) {
+        if ((move - start) < 50) {
+            return;
+        }
         count--;
         skillParent.style.transition = '250ms ease-in-out';
         skillParent.style.transform = `translateX(${-width * count}px)`;
@@ -160,10 +167,10 @@ rightArrow.addEventListener('click', slider);
 leftArrow.addEventListener('click', slider);
 
 //mobile event listeners
-skillParent.addEventListener('touchstart', (e) => {
+skillContainer.addEventListener('touchstart', (e) => {
     start = e.touches[0].clientX;
 });
-skillParent.addEventListener('touchmove', (e) => {
+skillContainer.addEventListener('touchmove', (e) => {
     move = e.touches[0].clientX;
 });
-skillParent.addEventListener('touchend', sliderMobile);
+skillContainer.addEventListener('touchend', sliderMobile);

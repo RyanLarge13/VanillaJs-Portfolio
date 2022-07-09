@@ -226,6 +226,7 @@ html {
   align-items: center;
 }
 .agora-chatbox .input-message-container input {
+  word-wrap: break-word;
   margin: 0 0 0 1em;
   padding: 0 1em;
   width: 75%;
@@ -596,7 +597,7 @@ main .intro-container .intro-circle:nth-child(3) {
   z-index: 1;
   border-radius: 3em 0 3em 0;
   background-image: linear-gradient(45deg, #f864ae, #eee 76%);
-  transform: translateX(-100em);
+  transform: translateX(-50em);
   opacity: 0;
 }
 .sec-2 .resume-container .skill-holder {
@@ -688,7 +689,7 @@ main .intro-container .intro-circle:nth-child(3) {
     position: absolute;
     left: 15%;
     bottom: -35%;
-    width: 150%;
+    width: 140%;
   }
   .sec-2 .resume-container .skill-detail-holder p {
     font-size: 1em;
