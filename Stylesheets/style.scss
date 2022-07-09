@@ -135,19 +135,13 @@ $trans: 250ms ease-in-out;
 
     i {
         position: absolute;
-        font-size: 2em;
+        font-size: 1em;
         color: #000;
         background-color: #fff;
         border-radius: 50%;
-        opacity: 0;
-        transform: translate(-50%, -50%);
+        transform: translate(50%, 50%);
         transition: 750ms ease-in-out;
         cursor: pointer;
-        z-index: 2;
-
-        &:hover {
-            opacity: 1;
-        }
     }
 
     .chat-header {
@@ -182,8 +176,20 @@ $trans: 250ms ease-in-out;
         z-index: -1;
         overflow-y: auto;
 
+        p {
+            padding: 0.5em 1em;
+            position: fixed;
+            top: 10%;
+            right: 3%;
+            border-radius: 1em 0 1em 0;
+            opacity: 0;
+            transition-delay: 250ms;
+            transition: $trans;
+        }
+
         .welcome-message {
             max-width: 60%;
+            text-align: center;
             align-self: center;
             width: fit-content;
             height: fit-content;
@@ -233,6 +239,37 @@ $trans: 250ms ease-in-out;
             border-radius: 1em 1em 1em 0;
             word-wrap: break-word;
         }
+
+        .leave-channel {
+            align-self: center;
+            width: 75%;
+            height: 25%;
+            margin-bottom: 1em;
+            border-radius: 1em;
+            background-color: #000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            button {
+                cursor: pointer;
+                padding: 1em 1.5em;
+                border-radius: .5em;
+                transition: $trans;
+                font-weight: 600;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+
+            .leave-btn {
+                background-color: rgb(212, 81, 81);
+            }
+            .cancel-btn {
+                background-color: rgb(92, 212, 81);
+            }
+        }
     }
 
     .input-message-container {
@@ -259,15 +296,13 @@ $trans: 250ms ease-in-out;
             color: #000;
             background-color: transparent;
             font-size: 1.5em;
-            right: 1.5%;
-            bottom: 1%;
+            right: 8%;
+            bottom: 4.5%;
             opacity: 1;
             z-index: 0;
 
             @media screen and (max-width: 500px) {
                 font-size: 1.2em;
-                bottom: 1.5%;
-                right: 0;
             }
         }
     }

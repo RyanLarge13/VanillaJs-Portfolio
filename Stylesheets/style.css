@@ -111,18 +111,13 @@ html {
 }
 .agora-chatbox i {
   position: absolute;
-  font-size: 2em;
+  font-size: 1em;
   color: #000;
   background-color: #fff;
   border-radius: 50%;
-  opacity: 0;
-  transform: translate(-50%, -50%);
+  transform: translate(50%, 50%);
   transition: 750ms ease-in-out;
   cursor: pointer;
-  z-index: 2;
-}
-.agora-chatbox i:hover {
-  opacity: 1;
 }
 .agora-chatbox .chat-header {
   display: flex;
@@ -154,8 +149,19 @@ html {
   z-index: -1;
   overflow-y: auto;
 }
+.agora-chatbox .messages p {
+  padding: 0.5em 1em;
+  position: fixed;
+  top: 10%;
+  right: 3%;
+  border-radius: 1em 0 1em 0;
+  opacity: 0;
+  transition-delay: 250ms;
+  transition: 250ms ease-in-out;
+}
 .agora-chatbox .messages .welcome-message {
   max-width: 60%;
+  text-align: center;
   align-self: center;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -216,6 +222,33 @@ html {
   border-radius: 1em 1em 1em 0;
   word-wrap: break-word;
 }
+.agora-chatbox .messages .leave-channel {
+  align-self: center;
+  width: 75%;
+  height: 25%;
+  margin-bottom: 1em;
+  border-radius: 1em;
+  background-color: #000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.agora-chatbox .messages .leave-channel button {
+  cursor: pointer;
+  padding: 1em 1.5em;
+  border-radius: 0.5em;
+  transition: 250ms ease-in-out;
+  font-weight: 600;
+}
+.agora-chatbox .messages .leave-channel button:hover {
+  transform: scale(1.05);
+}
+.agora-chatbox .messages .leave-channel .leave-btn {
+  background-color: rgb(212, 81, 81);
+}
+.agora-chatbox .messages .leave-channel .cancel-btn {
+  background-color: rgb(92, 212, 81);
+}
 .agora-chatbox .input-message-container {
   width: 100%;
   min-height: 60px;
@@ -238,16 +271,14 @@ html {
   color: #000;
   background-color: transparent;
   font-size: 1.5em;
-  right: 1.5%;
-  bottom: 1%;
+  right: 8%;
+  bottom: 4.5%;
   opacity: 1;
   z-index: 0;
 }
 @media screen and (max-width: 500px) {
   .agora-chatbox .input-message-container i {
     font-size: 1.2em;
-    bottom: 1.5%;
-    right: 0;
   }
 }
 

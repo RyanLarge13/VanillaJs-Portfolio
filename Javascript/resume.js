@@ -105,7 +105,7 @@ const paraSliderMobile = () => {
 
 const sliderMobile = () => {
     if (start > move) {
-        if ((start - move) < 50) {
+        if ((start - move || start === move) < 75) {
             return;
         }
         count++;
@@ -115,7 +115,7 @@ const sliderMobile = () => {
         skillIcons[count + 4].style.opacity = '1';
     }
     if (start < move) {
-        if ((move - start) < 50) {
+        if ((move - start || start === move) < 75) {
             return;
         }
         count--;

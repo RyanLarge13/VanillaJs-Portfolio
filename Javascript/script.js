@@ -1,4 +1,4 @@
-import { chatDisplay } from './agoraRTM.js';
+import { chatDisplay, chatBox } from './agoraRTM.js';
 import { skillsDisplay, displayIcons } from './resume.js';
 
 const navToggle = document.querySelector('.nav-toggle-body');
@@ -121,6 +121,9 @@ toTopBtn.addEventListener('click', () => {
     if (nav.classList.contains('transform-scale')) {
         navDisplay();
     }
+    if (chatBox.classList.contains('scale')) {
+        chatDisplay();
+    }
 });
 
 // handling eventlisteners and scroll function calling
@@ -145,6 +148,7 @@ window.onload = () => {
     navIndicate(navItemsArr);
     displayIcons();
     toTop();
+    skillsDisplay();
 }
 window.addEventListener('scroll', scroll);
 window.addEventListener('resize', navlistSwitch);
