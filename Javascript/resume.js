@@ -6,7 +6,7 @@ const skillIcons = document.querySelectorAll('.skill-icon');
 const leftArrow = document.querySelector('.fa-caret-left');
 const rightArrow = document.querySelector('.fa-caret-right');
 let count = 0;
-let width = skillIcons[0].clientWidth * 2;
+let width;
 let start;
 let move;
 const skillParagraphs = document.querySelectorAll('.skill-detail p');
@@ -18,6 +18,10 @@ export const displayIcons = () => {
 }
 
 const slider = (e) => {
+    skillIcons.forEach(icon => {
+        icon.style.transition = '250ms ease-in-out';
+    });
+    width = 640;
     if (e.target === rightArrow) {
         count++;
         skillParent.style.transition = '250ms ease-in-out';
@@ -58,6 +62,9 @@ const slider = (e) => {
 };
 
 const paraSlider = (count, e) => {
+    skillParagraphs.forEach(paragraph => {
+        paragraph.style.transition = '1s ease-in-out';
+    });
     if (e.target === rightArrow) {
         if (count === -3) {
             skillParagraphs[skillParagraphs.length - 1].style.opacity = '0';
@@ -81,6 +88,9 @@ const paraSlider = (count, e) => {
 };
 
 const paraSliderMobile = () => {
+    skillParagraphs.forEach(paragraph => {
+        paragraph.style.transition = '1s ease-in-out';
+    });
     if (start > move) {
         if (count === -3) {
             skillParagraphs[skillParagraphs.length - 1].style.opacity = '0';
@@ -104,8 +114,12 @@ const paraSliderMobile = () => {
 };
 
 const sliderMobile = () => {
+    width = 320;
+    skillIcons.forEach(icon => {
+        icon.style.transition = '250ms ease-in-out';
+    });
     if (start > move) {
-        if ((start - move || start === move) < 75) {
+        if ((start - move) < 75) {
             return;
         }
         count++;
@@ -115,7 +129,7 @@ const sliderMobile = () => {
         skillIcons[count + 4].style.opacity = '1';
     }
     if (start < move) {
-        if ((move - start || start === move) < 75) {
+        if ((move - start) < 75) {
             return;
         }
         count--;

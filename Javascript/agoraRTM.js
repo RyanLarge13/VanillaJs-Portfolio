@@ -18,8 +18,10 @@ const channelNumber = document.querySelector('#channel-number')
 
 //simple chatbox display function for agora RTM 
 export const chatDisplay = () => {
+    chatBox.style.transition = 'transform 1s ease-in-out';
     chatBox.classList.toggle('scale');
     setTimeout(() => {
+        agoraButton.style.transition = 'transform 250ms ease-in-out';
         agoraButton.classList.toggle('transform-zero');
     }, 250);
 };

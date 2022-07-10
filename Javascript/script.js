@@ -29,6 +29,7 @@ const navDisplay = () => {
     spans.forEach(line => {
         line.classList.toggle('span-toggled');
     });
+    nav.style.transition = 'transform 250ms ease-in-out';
     nav.classList.toggle('transform-scale');
     setTimeout(() => {
         navListItems.forEach(item => {
@@ -48,10 +49,10 @@ const highlightName = () => {
 
 
 const circleScale = () => {
-    setTimeout(() => {
-        introCircles.forEach(circle => {
-            circle.style.transform = 'scale(1)';
-        }, 500);
+    introCircles.forEach((circle, index, circleArr) => {
+        circleArr[0].style.transition = 'transform 2s ease-in-out';
+        circleArr[1].style.transition = 'transform 3s ease-in-out';
+        circle.style.transform = 'scale(1)';
     });
     introTextSlide();
 };
@@ -69,7 +70,9 @@ const scaleScroll = () => {
 };
 
 const introTextSlide = () => {
-    introText.forEach(elem => {
+    introText.forEach((elem, index, elemArr) => {
+        elemArr[0].style.transition = '1.5s ease-in-out';
+        elemArr[1].style.transition = '1s ease-in-out';
         elem.style.transform = 'translateX(0)';
         elem.style.opacity = '1';
     });
@@ -149,7 +152,7 @@ window.onload = () => {
     displayIcons();
     toTop();
     skillsDisplay();
-}
+};
 window.addEventListener('scroll', scroll);
 window.addEventListener('resize', navlistSwitch);
 agoraButton.addEventListener('click', chatDisplay);

@@ -43,6 +43,8 @@ $trans: 250ms ease-in-out;
 
 //styling message platform for Ably API
 .agora-chatbox {
+    transform: scale(0);
+    transform-origin: bottom right;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -53,9 +55,6 @@ $trans: 250ms ease-in-out;
     border-radius: 1em;
     box-shadow: $black-shadow;
     background-color: #eeeeee;
-    transform: scale(0, 0);
-    transform-origin: bottom right;
-    transition: 1s ease-in-out;
     z-index: 998;
 
     .channel-form {
@@ -307,7 +306,7 @@ $trans: 250ms ease-in-out;
         }
     }
 }
-//JS classlist for chatbox scaling
+// JS classlist for chatbox scaling
 .agora-chatbox.scale {
     transform: scale(1);
 }
@@ -324,7 +323,6 @@ $trans: 250ms ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: $trans;
 
     i {
         font-size: 1.5em;
@@ -473,7 +471,6 @@ header {
             position: fixed;
             top: 0;
             transform: scale(0, 1);
-            transition: 250ms ease-in-out;
             transform-origin: left;
             background-color: #fff;
             width: 100%;
@@ -576,14 +573,12 @@ main {
                 font-size: $heading2;
                 transform: translateX(-6em);
                 opacity: 0;
-                transition: 1.5s ease-in-out;
             }
     
             p {
                 padding-right: 20em;
                 transform: translateX(-6em);
                 opacity: 0;
-                transition: 1s ease-in-out;
             }
         }
 
@@ -597,7 +592,8 @@ main {
         .intro-circle {
             position: absolute;
             z-index: -1;
-            transform: scale(0);
+            transform: scale(0, 0);
+            // transition: transform 3s ease-in-out;
 
             &:nth-child(4) {
                 width: 600px;
@@ -606,7 +602,7 @@ main {
                 background-color: $light-yellow;
                 top: 0;
                 right: 0;
-                transition: 2s ease-in-out;
+                // transition: transform 2s ease-in-out;
             }
             &:nth-child(3) {
                 width: 300px;
@@ -614,7 +610,7 @@ main {
                 border-radius: 50%;
                 background-color: $light-orange;
                 bottom: 15%;
-                transition: 3s ease-in-out;
+                // transition: transform 3s ease-in-out;
             }
         }
     }
@@ -655,7 +651,7 @@ main {
             }
 
             .intro-circle {
-                
+                transform: scale(0);
 
                 &:nth-child(4) {
                     width: 300px;
@@ -733,22 +729,21 @@ main {
             overflow: hidden;
 
             .skill-parent {
+                height: 100%;
+                width: 100%;
                 position: absolute;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 100%;
-                width: 100%;
                 transform: translateX(-10%);
                 transition: $trans;
 
                 i {
+                    width: 100%;
                     font-size: 20em;
                     padding: 0 .5em;
-                    width: 100%;
                     transform: translateX(-50px);
                     opacity: 0;
-                    transition: 1s 250ms ease-in-out;
                 }
 
                 #last-copy {
@@ -778,7 +773,7 @@ main {
                 transform: translateY(-50%) translateX(10em);
                 position: absolute;
                 opacity: 0;
-                transition: 1s ease-in-out;
+                // transition: 1s ease-in-out;
                 pointer-events: none;
             }
         }

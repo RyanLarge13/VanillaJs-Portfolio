@@ -27,6 +27,8 @@ html {
 }
 
 .agora-chatbox {
+  transform: scale(0);
+  transform-origin: bottom right;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -37,9 +39,6 @@ html {
   border-radius: 1em;
   box-shadow: 0 0 0.5em 0.1em #000;
   background-color: #eeeeee;
-  transform: scale(0, 0);
-  transform-origin: bottom right;
-  transition: 1s ease-in-out;
   z-index: 998;
 }
 .agora-chatbox .channel-form {
@@ -298,7 +297,6 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 250ms ease-in-out;
 }
 .agora-btn i {
   font-size: 1.5em;
@@ -421,7 +419,6 @@ header .progress-bar {
     position: fixed;
     top: 0;
     transform: scale(0, 1);
-    transition: 250ms ease-in-out;
     transform-origin: left;
     background-color: #fff;
     width: 100%;
@@ -509,13 +506,11 @@ main .intro-container .introduction h2 {
   font-size: 2.5em;
   transform: translateX(-6em);
   opacity: 0;
-  transition: 1.5s ease-in-out;
 }
 main .intro-container .introduction p {
   padding-right: 20em;
   transform: translateX(-6em);
   opacity: 0;
-  transition: 1s ease-in-out;
 }
 main .intro-container img {
   width: 400px;
@@ -526,7 +521,7 @@ main .intro-container img {
 main .intro-container .intro-circle {
   position: absolute;
   z-index: -1;
-  transform: scale(0);
+  transform: scale(0, 0);
 }
 main .intro-container .intro-circle:nth-child(4) {
   width: 600px;
@@ -535,7 +530,6 @@ main .intro-container .intro-circle:nth-child(4) {
   background-color: #ffe259;
   top: 0;
   right: 0;
-  transition: 2s ease-in-out;
 }
 main .intro-container .intro-circle:nth-child(3) {
   width: 300px;
@@ -543,7 +537,6 @@ main .intro-container .intro-circle:nth-child(3) {
   border-radius: 50%;
   background-color: #ffa751;
   bottom: 15%;
-  transition: 3s ease-in-out;
 }
 @media screen and (max-width: 900px) {
   main h1 {
@@ -570,6 +563,9 @@ main .intro-container .intro-circle:nth-child(3) {
     height: 200px;
     position: absolute;
     top: 50%;
+  }
+  main .intro-container .intro-circle {
+    transform: scale(0);
   }
   main .intro-container .intro-circle:nth-child(4) {
     width: 300px;
@@ -639,22 +635,21 @@ main .intro-container .intro-circle:nth-child(3) {
   overflow: hidden;
 }
 .sec-2 .resume-container .skill-holder .skill-parent {
+  height: 100%;
+  width: 100%;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
   transform: translateX(-10%);
   transition: 250ms ease-in-out;
 }
 .sec-2 .resume-container .skill-holder .skill-parent i {
+  width: 100%;
   font-size: 20em;
   padding: 0 0.5em;
-  width: 100%;
   transform: translateX(-50px);
   opacity: 0;
-  transition: 1s 250ms ease-in-out;
 }
 .sec-2 .resume-container .skill-holder .skill-parent #last-copy {
   transform: translateX(-500px);
@@ -679,7 +674,6 @@ main .intro-container .intro-circle:nth-child(3) {
   transform: translateY(-50%) translateX(10em);
   position: absolute;
   opacity: 0;
-  transition: 1s ease-in-out;
   pointer-events: none;
 }
 @media screen and (max-width: 900px) {
