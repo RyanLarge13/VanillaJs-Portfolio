@@ -6,7 +6,7 @@ const skillIcons = document.querySelectorAll('.skill-icon');
 const leftArrow = document.querySelector('.fa-caret-left');
 const rightArrow = document.querySelector('.fa-caret-right');
 let count = 0;
-let width;
+let width = skillIcons[0].clientWidth * 2;
 let start;
 let move;
 const skillParagraphs = document.querySelectorAll('.skill-detail p');
@@ -21,7 +21,7 @@ const slider = (e) => {
     skillIcons.forEach(icon => {
         icon.style.transition = '250ms ease-in-out';
     });
-    width = 640;
+    // width = 640;
     if (e.target === rightArrow) {
         count++;
         skillParent.style.transition = '250ms ease-in-out';
@@ -114,7 +114,7 @@ const paraSliderMobile = () => {
 };
 
 const sliderMobile = () => {
-    width = 320;
+    // width = 320;
     skillIcons.forEach(icon => {
         icon.style.transition = '250ms ease-in-out';
     });
