@@ -629,6 +629,11 @@ main .intro-container .intro-circle:nth-child(3) {
   transform: scale(0.99);
   box-shadow: 0.1em 0.1em 0.2em 0 #000;
 }
+@media screen and (max-width: 900px) {
+  .sec-2 .background-box .skills-more {
+    display: none;
+  }
+}
 .sec-2 .caret {
   padding: 2em;
   font-size: 1.5em;

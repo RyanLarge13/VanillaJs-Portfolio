@@ -723,6 +723,10 @@ main {
                 transform: scale(.99);
                 box-shadow: .1em .1em .2em 0 #000;
             }
+
+            @media screen and (max-width: 900px) {
+                display: none;
+            }
         }
     }
 
