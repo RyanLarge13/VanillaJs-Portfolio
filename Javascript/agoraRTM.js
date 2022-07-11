@@ -59,7 +59,7 @@ const initiateRTM = async () => {
     sendButton.addEventListener('click', async (e) => {
         e.preventDefault();
         let message = userMessageContainer.value;
-        if (message === 'leave chat') {
+        if (message === 'leave chat' || message === 'Leave chat' || message === 'leavechat' || message === 'Leavechat') {
             return leaveChannelMessage(channel, client);
         } else {
             await channel.sendMessage({text: message, type: 'text'});
@@ -69,7 +69,7 @@ const initiateRTM = async () => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         let message = userMessageContainer.value;
-        if (message === 'leave chat') {
+        if (message === 'leave chat' || message === 'Leave chat' || message === 'leavechat' || message === 'Leavechat') {
             return leaveChannelMessage(channel, client);
         } else {
             await channel.sendMessage({text: message, type: 'text'});

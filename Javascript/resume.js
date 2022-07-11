@@ -186,3 +186,66 @@ skillContainer.addEventListener('touchmove', (e) => {
     move = e.touches[0].clientX;
 });
 skillContainer.addEventListener('touchend', sliderMobile);
+
+// goiung into the view more functionality
+const moreSkillsBtn = document.querySelector('.skills-more');
+
+let showMoreSkills = (() => {
+    let skillSection = document.querySelector('.sec-2');
+    let backgroundBox = document.querySelector('.background-box');
+    let skillContainer = document.querySelector('.resume-container');
+    let carrets = document.querySelectorAll('.caret');
+
+    const moveSkill = async (e) => {
+        e.preventDefault();
+        let obj = {
+            'height': '100%',
+            'left': '5%',
+            'position': 'absolute',
+            'flex-direction': 'column',
+        }
+        if (skillContainer.parentNode === backgroundBox) {
+            return;
+        }
+        carrets.forEach((caret) => {
+            caret.style.opacity = '0';
+            setTimeout(() => {
+                caret.style.display = 'none';
+            }, 750);
+        });
+        skillContainer.style.opacity = '0';
+        setTimeout(() => {
+            backgroundBox.appendChild(skillContainer);
+            Object.assign(skillContainer.style, obj);
+            skillContainer.children.forEach((child, index, arr) => {
+                arr[1].style.transform = 'translateX(5em)';
+                child.style.width = '100%';
+            });
+            setTimeout(() => {
+                skillContainer.style.opacity = '1';
+            }, 100);
+        }, 750);
+    };
+
+    const appendData = () => {
+        console.log('appending now');
+    }
+
+    const read = () => {
+        console.log(skillContainer.children);
+    };
+
+    return {
+        read: read,
+        moveSkill: moveSkill,
+        appendData: appendData,
+    }
+})();
+
+moreSkillsBtn.addEventListener('click', (e) => {
+    showMoreSkills.moveSkill(e).then(() => {
+        showMoreSkills.appendData();
+    });
+});
+
+// showMoreSkills.read();

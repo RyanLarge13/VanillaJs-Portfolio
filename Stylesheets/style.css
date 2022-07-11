@@ -614,6 +614,21 @@ main .intro-container .intro-circle:nth-child(3) {
   background-color: #ffa751;
   z-index: 0;
 }
+.sec-2 .background-box .skills-more {
+  padding: 1em 2em;
+  margin: 1em;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.4em;
+  background-image: linear-gradient(45deg, #f864ae, #ffe259);
+  transition: 100ms ease-in-out;
+  box-shadow: 0.1em 0.1em 0.4em 0 #000;
+  cursor: pointer;
+}
+.sec-2 .background-box .skills-more:hover {
+  transform: scale(0.99);
+  box-shadow: 0.1em 0.1em 0.2em 0 #000;
+}
 .sec-2 .caret {
   padding: 2em;
   font-size: 1.5em;
