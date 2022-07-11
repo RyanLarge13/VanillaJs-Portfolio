@@ -158,6 +158,11 @@ html {
   transition-delay: 250ms;
   transition: 250ms ease-in-out;
 }
+@media screen and (max-height: 500px) {
+  .agora-chatbox .messages p {
+    top: 20%;
+  }
+}
 .agora-chatbox .messages .welcome-message {
   max-width: 60%;
   text-align: center;
@@ -225,6 +230,7 @@ html {
   align-self: center;
   width: 75%;
   height: 25%;
+  min-height: 80px;
   margin-bottom: 1em;
   border-radius: 1em;
   background-color: #000;
@@ -235,6 +241,7 @@ html {
 .agora-chatbox .messages .leave-channel button {
   cursor: pointer;
   padding: 1em 1.5em;
+  margin: 0.2em;
   border-radius: 0.5em;
   transition: 250ms ease-in-out;
   font-weight: 600;
@@ -278,6 +285,11 @@ html {
 @media screen and (max-width: 500px) {
   .agora-chatbox .input-message-container i {
     font-size: 1.2em;
+  }
+}
+@media screen and (max-height: 600px) {
+  .agora-chatbox .input-message-container i {
+    bottom: 7.5%;
   }
 }
 
@@ -407,12 +419,6 @@ header .progress-bar {
   background-color: #ffa751;
   position: fixed;
   z-index: 999;
-}
-@media screen and (max-height: 500px) {
-  header nav ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 @media screen and (max-width: 900px) {
   header nav {

@@ -50,8 +50,8 @@ const highlightName = () => {
 
 const circleScale = () => {
     introCircles.forEach((circle, index, circleArr) => {
-        circleArr[0].style.transition = 'transform 2s ease-in-out';
-        circleArr[1].style.transition = 'transform 3s ease-in-out';
+        circleArr[0].style.transition = 'transform 3s ease-in-out';
+        circleArr[1].style.transition = 'transform 2s ease-in-out';
         circle.style.transform = 'scale(1)';
     });
     introTextSlide();

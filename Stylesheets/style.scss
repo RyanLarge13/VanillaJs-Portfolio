@@ -184,6 +184,10 @@ $trans: 250ms ease-in-out;
             opacity: 0;
             transition-delay: 250ms;
             transition: $trans;
+
+            @media screen and (max-height: 500px) {
+                top: 20%;
+            }
         }
 
         .welcome-message {
@@ -243,6 +247,7 @@ $trans: 250ms ease-in-out;
             align-self: center;
             width: 75%;
             height: 25%;
+            min-height: 80px;
             margin-bottom: 1em;
             border-radius: 1em;
             background-color: #000;
@@ -253,6 +258,7 @@ $trans: 250ms ease-in-out;
             button {
                 cursor: pointer;
                 padding: 1em 1.5em;
+                margin: .2em;
                 border-radius: .5em;
                 transition: $trans;
                 font-weight: 600;
@@ -302,6 +308,9 @@ $trans: 250ms ease-in-out;
 
             @media screen and (max-width: 500px) {
                 font-size: 1.2em;
+            }
+            @media screen and (max-height: 600px) {
+                bottom: 7.5%;
             }
         }
     }
@@ -453,15 +462,14 @@ header {
         z-index: 999;
     }
 
-    @media screen and (max-height: 500px) {
-        nav {
+    // @media screen and (max-height: 500px) {
+    //     nav {
             
-            ul {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    }
+    //         ul {
+                
+    //         }
+    //     }
+    // }
 
 
 

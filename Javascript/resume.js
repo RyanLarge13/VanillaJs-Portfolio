@@ -19,9 +19,8 @@ export const displayIcons = () => {
 
 const slider = (e) => {
     skillIcons.forEach(icon => {
-        icon.style.transition = '250ms ease-in-out';
+        icon.style.transition = '1s ease-in-out';
     });
-    // width = 640;
     if (e.target === rightArrow) {
         count++;
         skillParent.style.transition = '250ms ease-in-out';
@@ -114,9 +113,8 @@ const paraSliderMobile = () => {
 };
 
 const sliderMobile = () => {
-    // width = 320;
     skillIcons.forEach(icon => {
-        icon.style.transition = '250ms ease-in-out';
+        icon.style.transition = '1s ease-in-out';
     });
     if (start > move) {
         if ((start - move) < 75) {
