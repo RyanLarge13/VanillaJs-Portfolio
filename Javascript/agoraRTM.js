@@ -158,8 +158,12 @@ const addMessageToDom = async (message, uid) => {
         messageCount = null;
     } else {
         notify.style.transform = 'translate(-90%, -180%) scale(1)';
-        messageCount++;
-        notify.innerHTML = messageCount;
+        if (messageCount >= 9) {
+            return notify.innerHTML = `${9}+`;
+        } else {
+            messageCount++;
+            notify.innerHTML = messageCount;
+        }
     }
 };
 
