@@ -91,12 +91,6 @@ const initiateRTM = async () => {
             sendMessage({text: message});  
         }
     });
-    form.addEventListener('keyup', async (e) => {
-        e.preventDefault();
-        let key = e.key;   
-        await channel.sendMessage({text: key, type: 'text'});
-        sendMessage({text: key});
-    });
 
     channel.on('MemberJoined', async () => {
         memberTotal = await channel.getMembers();
@@ -136,9 +130,6 @@ const welcome = async (members, name) => {
 }
 
 const sendMessage = async (message) => {
-    if (message !== 'Enter') {
-        return;
-    }
     if (message.text === '') {
         return;
     }
@@ -154,12 +145,12 @@ const sendMessage = async (message) => {
 };
 
 const addMessageToDom = async (message, uid) => {
-    if (message !== 'Enter') {
-        return showTyping();
-    }
     if (message.text === '') {
         return;
     }
+    // if (message !== 'Enter') {
+    //     return showTyping();
+    // }
     let memberMessage = document.createElement('div');
     memberMessage.className = 'user-message';
     memberMessage.innerText = `${message.text} 
@@ -179,14 +170,17 @@ const addMessageToDom = async (message, uid) => {
     }
 };
 
-const showTyping = async () => {
-    let typingDiv = document.querySelector('.typing-indicator');
-    messageContainer.insertAdjacentElement('afterbegin', typingDiv);
-    typingDiv.style.display = 'flex';
-    setTimeout(() => {
-        typingDiv.style.display = 'none';
-    }, 3000);
-};
+// const showTyping = async () => {
+//     let typingDiv = document.querySelector('.typing-indicator');
+//     if (typingDiv.style.display === 'flex') {
+//         return;
+//     }
+//     messageContainer.insertAdjacentElement('afterbegin', typingDiv);
+//     typingDiv.style.display = 'flex';
+//     setTimeout(() => {
+//         typingDiv.style.display = 'none';
+//     }, 2000);
+// };
 
 const memberLeft = async (uid, members) => {
     userCountIndicator.style.backgroundColor = '#e950f7';
