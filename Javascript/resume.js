@@ -113,11 +113,12 @@ const paraSliderMobile = () => {
 };
 
 const sliderMobile = () => {
+    console.log(start, move)
     skillIcons.forEach(icon => {
         icon.style.transition = '1s ease-in-out';
     });
     if (start > move) {
-        if ((start - move) < 75) {
+        if ((start - move) < 75 || move === undefined) {
             return;
         }
         count++;
@@ -127,7 +128,7 @@ const sliderMobile = () => {
         skillIcons[count + 4].style.opacity = '1';
     }
     if (start < move) {
-        if ((move - start) < 75) {
+        if ((move - start) < 75 || move === undefined) {
             return;
         }
         count--;
@@ -158,12 +159,12 @@ const sliderMobile = () => {
         });
     }
     paraSliderMobile();
+    move = undefined;
 };
 
 //resume skills section scroll function
 export const skillsDisplay = () => {
     let skillData = document.querySelector('.skill-data');
-    console.log(skillData)
     let height = vh - (vh / 2);
     let resumeContainer = document.querySelector('.resume-container');
     let carets = document.querySelectorAll('.caret');

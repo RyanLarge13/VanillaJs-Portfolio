@@ -3,6 +3,7 @@ let uid;
 let token = null;
 let channelName;
 let memberTotal;
+let messageCount;
 
 const messageContainer = document.querySelector('.messages');
 let userCountIndicator = document.querySelector('.messages p');
@@ -14,16 +15,23 @@ const agoraButton = document.querySelector('.agora-btn');
 const main = document.querySelector('main');
 const channelForm = document.querySelector('.channel-form');
 const userName = document.querySelector('#name');
-const channelNumber = document.querySelector('#channel-number')
+const channelNumber = document.querySelector('#channel-number');
+const notify = document.querySelector('.notify');
 
 //simple chatbox display function for agora RTM 
 export const chatDisplay = () => {
+    const contains = chatBox.classList.contains('scale');
     chatBox.style.transition = 'transform 1s ease-in-out';
     chatBox.classList.toggle('scale');
+    messageCount = null;
     setTimeout(() => {
+        notify.innerHTML = messageCount;
         agoraButton.style.transition = 'transform 250ms ease-in-out';
         agoraButton.classList.toggle('transform-zero');
-    }, 250);
+    }, 300);
+    if (!contains) {
+        notify.style.transform = 'scale(0)';
+    }
 };
 
 main.addEventListener('click', () => {
@@ -38,7 +46,11 @@ channelForm.addEventListener('submit', (e) => {
     } else {
         uid = String(userName.value);
     }
-    channelName = channelNumber.value;
+    if (channelNumber.value === '') {
+        channelName = 'Main';
+    } else {
+        channelName = channelNumber.value;
+    }
     channelForm.reset();
     initiateRTM();
     channelForm.style.display = 'none';
@@ -50,10 +62,13 @@ const initiateRTM = async () => {
 
     let channel = await client.createChannel(channelName);
     await channel.join().then(() => {
+        let name = uid;
         let helloMessage = document.createElement('div');
         helloMessage.className = 'welcome-message';
-        helloMessage.innerHTML = 'Welcome to your chat!! if you want to logout of the chat, type in <strong>"leave chat"</strong> and options will appear';
+        helloMessage.innerHTML = `Welcome <strong>${name}</strong>!! To logout, type in <strong>"leave chat"</strong> or close the browser`;
         messageContainer.appendChild(helloMessage);
+    }).catch(() => {
+        alert('Failed to join channel, refresh the page and try again');
     });
 
     sendButton.addEventListener('click', async (e) => {
@@ -79,7 +94,8 @@ const initiateRTM = async () => {
 
     channel.on('MemberJoined', async () => {
         memberTotal = await channel.getMembers();
-        welcome(memberTotal);
+        let name = memberTotal[0];
+        welcome(memberTotal, name);
     });
     channel.on('ChannelMessage', handleChannelMessage);
 
@@ -94,7 +110,7 @@ const handleChannelMessage = async (message, uid) => {
     addMessageToDom(message, uid);
 };
 
-const welcome = async (members) => {
+const welcome = async (members, name) => {
     userCountIndicator.style.backgroundColor = '#f864ae';
     if (members.length === 1) {
         userCountIndicator.innerHTML = `There is ${members.length} person in this chatroom`;
@@ -105,11 +121,12 @@ const welcome = async (members) => {
     setTimeout(() => {
         userCountIndicator.style.opacity = '0';
     }, 5000);
-    let greetingMessage = `Someone new joined the channel!!!`;
+    let greetingMessage = `${name} joined the channel!!!`;
     let welcomeMessage = document.createElement('div');
     welcomeMessage.className = 'welcome-message';
     welcomeMessage.innerText = `${greetingMessage}`;
     messageContainer.insertAdjacentElement('afterbegin', welcomeMessage);
+    welcomeMessage.scrollIntoView({ behavior: 'smooth' });
 }
 
 const sendMessage = async (message) => {
@@ -137,6 +154,13 @@ const addMessageToDom = async (message, uid) => {
     ${uid}`;
     messageContainer.insertAdjacentElement('afterbegin', memberMessage);
     memberMessage.scrollIntoView({ behavior: 'smooth' });
+    if (chatBox.classList.contains('scale')) {
+        messageCount = null;
+    } else {
+        notify.style.transform = 'translate(-90%, -180%) scale(1)';
+        messageCount++;
+        notify.innerHTML = messageCount;
+    }
 };
 
 const memberLeft = async (uid, members) => {
@@ -156,10 +180,15 @@ const memberLeft = async (uid, members) => {
     memberleftMessage.className = 'user-left';
     memberleftMessage.innerText = `${leftMessage}`;
     messageContainer.insertAdjacentElement('afterbegin', memberleftMessage);
+    memberleftMessage.scrollIntoView({ behavior: 'smooth' });
 };
 
 const leaveChannelMessage = (channel, client) => {
     form.reset();
+    let theLeaveBox = document.querySelector('.leave-channel');
+    if (theLeaveBox !== null) {
+        return;
+    }
     let leaveChannelBox = document.createElement('div');
     let leaveButton = document.createElement('button');
     let cancelButton = document.createElement('button');
@@ -171,6 +200,7 @@ const leaveChannelMessage = (channel, client) => {
     leaveChannelBox.appendChild(leaveButton);
     leaveChannelBox.appendChild(cancelButton);
     messageContainer.insertAdjacentElement('afterbegin', leaveChannelBox);
+    leaveChannelBox.scrollIntoView({ behavior: 'smooth' });
 
     leaveButton.addEventListener('click', () => {
         leaveChannel(channel, client);

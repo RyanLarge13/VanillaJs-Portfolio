@@ -157,6 +157,7 @@ html {
   opacity: 0;
   transition-delay: 250ms;
   transition: 250ms ease-in-out;
+  pointer-events: none;
 }
 @media screen and (max-height: 500px) {
   .agora-chatbox .messages p {
@@ -309,14 +310,21 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .agora-btn i {
   font-size: 1.5em;
   color: #000;
 }
-.agora-btn:hover {
-  box-shadow: 0 0 0.5em 0.1em #ffe259;
-  transform: scale(1.1);
+.agora-btn .notify {
+  position: absolute;
+  text-align: center;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #f864ae;
+  transform: translate(-90%, -180%) scale(0);
+  transition: all 250ms ease-in-out;
 }
 
 .nav-dot-container {

@@ -184,6 +184,7 @@ $trans: 250ms ease-in-out;
             opacity: 0;
             transition-delay: 250ms;
             transition: $trans;
+            pointer-events: none;
 
             @media screen and (max-height: 500px) {
                 top: 20%;
@@ -332,15 +333,22 @@ $trans: 250ms ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     i {
         font-size: 1.5em;
         color: #000;
     }
 
-    &:hover {
-        box-shadow: $yellow-shadow;
-        transform: scale(1.1);
+    .notify {
+        position: absolute;
+        text-align: center;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        background-color: $light-pink;
+        transform: translate(-90%, -180%) scale(0);
+        transition: all 250ms ease-in-out;
     }
 
 }
@@ -809,7 +817,6 @@ main {
                 transform: translateY(-50%) translateX(10em);
                 position: absolute;
                 opacity: 0;
-                // transition: 1s ease-in-out;
                 pointer-events: none;
             }
         }
