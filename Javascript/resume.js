@@ -162,9 +162,14 @@ const sliderMobile = () => {
 
 //resume skills section scroll function
 export const skillsDisplay = () => {
+    let skillData = document.querySelector('.skill-data');
+    console.log(skillData)
     let height = vh - (vh / 2);
     let resumeContainer = document.querySelector('.resume-container');
     let carets = document.querySelectorAll('.caret');
+    if (skillData !== null) {
+        return;
+    } // need to find a new condition that is more reliable
     if (scrollY > height) {
         resumeContainer.style.transition = 'all 1s ease-in-out'
         resumeContainer.style.transform = 'translateX(0)';
@@ -249,3 +254,102 @@ moreSkillsBtn.addEventListener('click', (e) => {
 });
 
 // showMoreSkills.read();
+
+
+//this section with contain functions specifically for mobile devices registering
+// a double tap for the screen to view more information on skills
+
+const sectionTwoBody = document.querySelector('.sec-2');
+let timeout;
+let lastTap = 0;
+
+let moveMobileSkills = (() => {
+    let backgroundBox = document.querySelector('.background-box');
+    let skillContainer = document.querySelector('.resume-container');
+
+    const moveMobileSkillContainer = async () => {
+        backgroundBox.style.transition = '250ms ease-in-out';
+        backgroundBox.style.transform = 'translateX(1em)';
+        setTimeout(() => {
+            backgroundBox.style.transition = '500ms';
+            backgroundBox.style.transform = 'translateX(-15em)';
+        }, 250);
+
+        setTimeout(() => {
+            skillContainer.style.transition = '250ms ease-in-out';
+            skillContainer.style.transform = 'translateX(-20em)';
+        }, 250);
+    };
+
+    const moveMobileSkillContainerBack = async (dataContainer) => {
+        dataContainer.remove();
+        skillContainer.style.transition = 'all 500ms ease-in-out'
+        skillContainer.style.transform = 'translateX(0)';
+        setTimeout(() => {
+            backgroundBox.style.transition = '500ms ease-in-out';
+            backgroundBox.style.transform = 'translateX(0)';
+        }, 250);
+    };
+
+    //for fetching resume data from server once inplemented
+    const bringInData = async () => {
+        let dataContainer = document.createElement('div');
+        dataContainer.className = 'skill-data';
+        sectionTwoBody.appendChild(dataContainer);
+        
+        dataContainer.addEventListener('touchend', (e) => {
+            doubleTap(e);
+        });
+    };
+
+
+    return {
+        moveMobileSkillContainer: moveMobileSkillContainer,
+        moveMobileSkillContainerBack: moveMobileSkillContainerBack,
+        bringInData: bringInData,
+    }
+})();
+
+const doubleTap = async (e) => {
+    e.preventDefault();
+    let dataContainer = document.querySelector('.skill-data');
+
+    let currentTime = new Date().getSeconds();
+    let tapLength = currentTime - lastTap;
+
+    clearTimeout(timeout);
+
+    if (tapLength < 750 && tapLength > 0) {
+       //throw in a notification for directing a double tap; 
+    } else {
+        if (e.target === sectionTwoBody) {
+            timeout = setTimeout(() => {
+                moveMobileSkills.moveMobileSkillContainer().then(() => {
+                    setTimeout(() => {
+                        moveMobileSkills.bringInData();
+                    }, 1000);
+                });
+                clearTimeout(timeout);
+            }, 500);
+        }
+        if (e.target === dataContainer) {
+            timeout = setTimeout(() => {
+                moveMobileSkills.moveMobileSkillContainerBack(dataContainer).then(() => {
+                    setTimeout(() => {
+                        console.log('got it');
+                    }, 500);
+                });
+                clearTimeout(timeout);
+            }, 500);
+        }
+    }
+    lastTap = currentTime;
+};
+
+sectionTwoBody.addEventListener('touchend', (e) => {
+    if (e.target !== sectionTwoBody) {
+        return;
+    } else {
+        doubleTap(e)
+    }
+});

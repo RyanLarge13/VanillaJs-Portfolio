@@ -599,6 +599,12 @@ main .intro-container .intro-circle:nth-child(3) {
   align-items: center;
   justify-content: center;
 }
+.sec-2 .skill-data {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+}
 .sec-2 h2 {
   position: absolute;
   font-size: 5em;
