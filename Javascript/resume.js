@@ -261,8 +261,6 @@ moreSkillsBtn.addEventListener('click', (e) => {
 // a double tap for the screen to view more information on skills
 
 const sectionTwoBody = document.querySelector('.sec-2');
-let timeout;
-let lastTap = 0;
 
 let moveMobileSkills = (() => {
     let backgroundBox = document.querySelector('.background-box');
@@ -303,46 +301,64 @@ let moveMobileSkills = (() => {
         });
     };
 
+    const displayHelp = () => {
+        let theHelpMessage = document.querySelector('.help-message');
+        if (theHelpMessage === null) {
+            let helpMessage = document.createElement('div');
+            helpMessage.classList.add('help-message');
+            helpMessage.innerHTML = 'double tap to view more about each skill';
+            sectionTwoBody.appendChild(helpMessage);
+            setTimeout(() => {
+                helpMessage.style.opacity = '0';
+            }, 4000)
+        } else {
+            return;
+        }
+    };
+
 
     return {
         moveMobileSkillContainer: moveMobileSkillContainer,
         moveMobileSkillContainerBack: moveMobileSkillContainerBack,
         bringInData: bringInData,
+        displayHelp: displayHelp,
     }
 })();
+
+let lastTap = 0;
+let timeout;
 
 const doubleTap = async (e) => {
     e.preventDefault();
     let dataContainer = document.querySelector('.skill-data');
-
-    let currentTime = new Date().getSeconds();
+    let currentTime = new Date().getTime();
     let tapLength = currentTime - lastTap;
 
     clearTimeout(timeout);
 
-    if (tapLength < 750 && tapLength > 0) {
-       //throw in a notification for directing a double tap; 
-    } else {
+    if (tapLength < 150 && tapLength > 0) {
         if (e.target === sectionTwoBody) {
             timeout = setTimeout(() => {
                 moveMobileSkills.moveMobileSkillContainer().then(() => {
                     setTimeout(() => {
                         moveMobileSkills.bringInData();
-                    }, 1000);
+                    }, 100);
                 });
                 clearTimeout(timeout);
-            }, 500);
+            }, 100);
         }
         if (e.target === dataContainer) {
             timeout = setTimeout(() => {
                 moveMobileSkills.moveMobileSkillContainerBack(dataContainer).then(() => {
                     setTimeout(() => {
-                        console.log('got it');
-                    }, 500);
+                        // console.log('got it');
+                    }, 100);
                 });
                 clearTimeout(timeout);
-            }, 500);
+            }, 100);
         }
+    } else {
+        moveMobileSkills.displayHelp();
     }
     lastTap = currentTime;
 };

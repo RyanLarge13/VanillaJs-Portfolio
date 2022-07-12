@@ -700,6 +700,17 @@ main {
     align-items: center;
     justify-content: center;
 
+    .help-message {
+        position: absolute;
+        top: 0;
+        width: 70%;
+        max-width: 400px;
+        height: 25%;
+        min-height: 300px;
+        transition: 500ms ease-in-out;
+        pointer-events: none;
+    }
+
     .skill-data {
         position: absolute;
         width: 100%;
@@ -810,6 +821,7 @@ main {
             right: 0;
             width: 50%;
             height: 100%;
+            pointer-events: none;
 
             p {
                 width: 80%;

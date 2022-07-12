@@ -607,6 +607,16 @@ main .intro-container .intro-circle:nth-child(3) {
   align-items: center;
   justify-content: center;
 }
+.sec-2 .help-message {
+  position: absolute;
+  top: 0;
+  width: 70%;
+  max-width: 400px;
+  height: 25%;
+  min-height: 300px;
+  transition: 500ms ease-in-out;
+  pointer-events: none;
+}
 .sec-2 .skill-data {
   position: absolute;
   width: 100%;
@@ -707,6 +717,7 @@ main .intro-container .intro-circle:nth-child(3) {
   right: 0;
   width: 50%;
   height: 100%;
+  pointer-events: none;
 }
 .sec-2 .resume-container .skill-detail-holder p {
   width: 80%;
