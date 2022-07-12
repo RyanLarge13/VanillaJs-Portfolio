@@ -1,3 +1,5 @@
+import { scroll } from "./script.js";
+
 // going into script for Resume section
 const vh = document.querySelector('.intro-container').clientHeight;
 const skillContainer = document.querySelector('.resume-container');
@@ -336,26 +338,29 @@ const doubleTap = async (e) => {
 
     clearTimeout(timeout);
 
-    if (tapLength < 150 && tapLength > 0) {
+    if (tapLength < 250 && tapLength > 0) {
         if (e.target === sectionTwoBody) {
+            window.removeEventListener('scroll', scroll);
             timeout = setTimeout(() => {
                 moveMobileSkills.moveMobileSkillContainer().then(() => {
                     setTimeout(() => {
-                        moveMobileSkills.bringInData();
-                    }, 100);
+                        moveMobileSkills.bringInData().then(() => {
+                            window.addEventListener('scroll', scroll);
+                        });
+                    }, 500);
                 });
                 clearTimeout(timeout);
-            }, 100);
+            }, 500);
         }
         if (e.target === dataContainer) {
             timeout = setTimeout(() => {
                 moveMobileSkills.moveMobileSkillContainerBack(dataContainer).then(() => {
                     setTimeout(() => {
                         // console.log('got it');
-                    }, 100);
+                    }, 500);
                 });
                 clearTimeout(timeout);
-            }, 100);
+            }, 500);
         }
     } else {
         moveMobileSkills.displayHelp();

@@ -130,7 +130,7 @@ toTopBtn.addEventListener('click', () => {
 });
 
 // handling eventlisteners and scroll function calling
-const scroll = () => {
+export const scroll = () => {
     let scrollY = window.scrollY;
     navIndicate(navItemsArr);
     skillsDisplay();
