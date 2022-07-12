@@ -164,6 +164,63 @@ html {
     top: 20%;
   }
 }
+.agora-chatbox .messages .typing-indicator {
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  width: 50px;
+  height: 20px;
+  background-color: #000;
+  border-radius: 1em;
+  margin: 1em;
+}
+.agora-chatbox .messages .typing-indicator .dot {
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  -webkit-animation-name: type;
+          animation-name: type;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  opacity: 0;
+}
+.agora-chatbox .messages .typing-indicator .dot:nth-child(1) {
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
+}
+.agora-chatbox .messages .typing-indicator .dot:nth-child(2) {
+  -webkit-animation-delay: 500ms;
+          animation-delay: 500ms;
+}
+.agora-chatbox .messages .typing-indicator .dot:nth-child(3) {
+  -webkit-animation-delay: 750ms;
+          animation-delay: 750ms;
+}
+@-webkit-keyframes type {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+}
+@keyframes type {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+}
 .agora-chatbox .messages .welcome-message {
   max-width: 60%;
   text-align: center;

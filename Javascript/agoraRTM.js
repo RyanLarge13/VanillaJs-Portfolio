@@ -91,6 +91,12 @@ const initiateRTM = async () => {
             sendMessage({text: message});  
         }
     });
+    form.addEventListener('keyup', async (e) => {
+        e.preventDefault();
+        let key = e.key;   
+        await channel.sendMessage({text: key, type: 'text'});
+        sendMessage({text: key});
+    });
 
     channel.on('MemberJoined', async () => {
         memberTotal = await channel.getMembers();
@@ -130,6 +136,9 @@ const welcome = async (members, name) => {
 }
 
 const sendMessage = async (message) => {
+    if (message !== 'Enter') {
+        return;
+    }
     if (message.text === '') {
         return;
     }
@@ -145,6 +154,9 @@ const sendMessage = async (message) => {
 };
 
 const addMessageToDom = async (message, uid) => {
+    if (message !== 'Enter') {
+        return showTyping();
+    }
     if (message.text === '') {
         return;
     }
@@ -165,6 +177,15 @@ const addMessageToDom = async (message, uid) => {
             notify.innerHTML = messageCount;
         }
     }
+};
+
+const showTyping = async () => {
+    let typingDiv = document.querySelector('.typing-indicator');
+    messageContainer.insertAdjacentElement('afterbegin', typingDiv);
+    typingDiv.style.display = 'flex';
+    setTimeout(() => {
+        typingDiv.style.display = 'none';
+    }, 3000);
 };
 
 const memberLeft = async (uid, members) => {
