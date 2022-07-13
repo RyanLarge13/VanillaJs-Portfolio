@@ -122,9 +122,9 @@ const handleChannelMessage = async (message, uid) => {
     if (message.text === 'keydown') {
         message = null;
         addMessageToDom(message);
+    } else {
+        addMessageToDom(message, uid);
     }
-    console.log(message)
-    addMessageToDom(message, uid);
 };
 
 const welcome = async (members, name) => {
@@ -191,6 +191,7 @@ const addMessageToDom = async (message, uid) => {
 };
 
 const showTyping = async () => {
+    
     let typingDiv = document.querySelector('.typing-indicator');
     if (typingDiv.style.display === 'flex') {
         return;
