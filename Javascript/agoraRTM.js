@@ -130,18 +130,17 @@ const handleChannelMessage = async (message, uid) => {
 const welcome = async (members, name) => {
     userCountIndicator.style.backgroundColor = '#f864ae';
     if (members.length === 1) {
-        userCountIndicator.innerHTML = `There is ${members.length} person in this chatroom`;
+        userCountIndicator.innerHTML = `There is <strong>${members.length}</strong> person in this chatroom`;
     } else {
-        userCountIndicator.innerHTML = `There are ${members.length} people in this chatroom`;
+        userCountIndicator.innerHTML = `There are <strong>${members.length}</strong> people in this chatroom`;
     }
     userCountIndicator.style.opacity = '1';
     setTimeout(() => {
         userCountIndicator.style.opacity = '0';
     }, 5000);
-    let greetingMessage = `${name} joined the channel!!!`;
     let welcomeMessage = document.createElement('div');
     welcomeMessage.className = 'welcome-message';
-    welcomeMessage.innerText = `${greetingMessage}`;
+    welcomeMessage.innerHTML = `<strong>${name}</strong> joined the channel!!`;
     messageContainer.insertAdjacentElement('afterbegin', welcomeMessage);
     welcomeMessage.scrollIntoView({ behavior: 'smooth' });
 }
@@ -156,7 +155,7 @@ const sendMessage = async (message) => {
     if (message.text !== undefined || message.text !== 'Enter') {
         let myMessage = document.createElement('div');
         myMessage.className = 'my-message';
-        myMessage.innerText = `${message.text}`;
+        myMessage.innerHTML = `${message.text}`;
         messageContainer.insertAdjacentElement('afterbegin', myMessage);
         myMessage.scrollIntoView({ behavior: 'smooth' });
         form.reset();
@@ -173,8 +172,7 @@ const addMessageToDom = async (message, uid) => {
     }
     let memberMessage = document.createElement('div');
     memberMessage.className = 'user-message';
-    memberMessage.innerText = `${message.text} 
-    ${uid}`;
+    memberMessage.innerHTML = `${message.text}<br><strong>${uid}</strong>`;
     messageContainer.insertAdjacentElement('afterbegin', memberMessage);
     memberMessage.scrollIntoView({ behavior: 'smooth' });
     if (chatBox.classList.contains('scale')) {
@@ -206,19 +204,17 @@ const showTyping = async () => {
 const memberLeft = async (uid, members) => {
     userCountIndicator.style.backgroundColor = '#e950f7';
     if (members.length === 1) {
-        userCountIndicator.innerHTML = `There is ${members.length} person left in the chatroom`;
+        userCountIndicator.innerHTML = `There is <strong>${members.length}</strong> person left in the chatroom`;
     } else {
-        userCountIndicator.innerHTML = `There are ${members.length} people left in this chatroom`;
+        userCountIndicator.innerHTML = `There are <strong>${members.length}</strong> people left in this chatroom`;
     }
     userCountIndicator.style.opacity = '1';
     setTimeout(() => {
         userCountIndicator.style.opacity = '0';
     }, 5000);
     let memberleftMessage = document.createElement('div');
-    let leftMessage = `${uid}
-    left the chat.`;
     memberleftMessage.className = 'user-left';
-    memberleftMessage.innerText = `${leftMessage}`;
+    memberleftMessage.innerText = `<strong>${uid}</strong> left the chat..`;
     messageContainer.insertAdjacentElement('afterbegin', memberleftMessage);
     memberleftMessage.scrollIntoView({ behavior: 'smooth' });
 };
