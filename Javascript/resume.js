@@ -189,10 +189,10 @@ leftArrow.addEventListener('click', slider);
 //mobile event listeners
 skillContainer.addEventListener('touchstart', (e) => {
     start = e.touches[0].clientX;
-});
+}, { passive: true });
 skillContainer.addEventListener('touchmove', (e) => {
     move = e.touches[0].clientX;
-});
+}, { passive: true });
 skillContainer.addEventListener('touchend', sliderMobile);
 
 // goiung into the view more functionality
@@ -203,6 +203,7 @@ let showMoreSkills = (() => {
     let backgroundBox = document.querySelector('.background-box');
     let skillContainer = document.querySelector('.resume-container');
     let carrets = document.querySelectorAll('.caret');
+    const moreSkillsBtn = document.querySelector('.skills-more');
 
     const moveSkill = async (e) => {
         e.preventDefault();
@@ -222,6 +223,7 @@ let showMoreSkills = (() => {
             }, 750);
         });
         skillContainer.style.opacity = '0';
+        moreSkillsBtn.style.opacity = '0';
         setTimeout(() => {
             backgroundBox.appendChild(skillContainer);
             Object.assign(skillContainer.style, obj);
@@ -235,9 +237,11 @@ let showMoreSkills = (() => {
         }, 750);
     };
 
-    const appendData = () => {
-        console.log('appending now');
-    }
+    const appendData = async () => {
+        let data = document.createElement('div');
+        data.classList.add('skill-data-pc');
+        skillSection.appendChild(data);
+    };
 
     const read = () => {
         console.log(skillContainer.children);
@@ -252,7 +256,9 @@ let showMoreSkills = (() => {
 
 moreSkillsBtn.addEventListener('click', (e) => {
     showMoreSkills.moveSkill(e).then(() => {
-        showMoreSkills.appendData();
+        setTimeout(() => {
+            showMoreSkills.appendData(); 
+        }, 1250);
     });
 });
 

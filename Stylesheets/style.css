@@ -678,6 +678,13 @@ main .intro-container .intro-circle:nth-child(3) {
   transition: 500ms ease-in-out;
   pointer-events: none;
 }
+.sec-2 .skill-data-pc {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #eee;
+}
 .sec-2 .skill-data {
   position: absolute;
   width: 100%;
@@ -688,7 +695,7 @@ main .intro-container .intro-circle:nth-child(3) {
   position: absolute;
   font-size: 5em;
   z-index: 1;
-  top: 5%;
+  top: 10%;
 }
 .sec-2 .background-box {
   position: absolute;
@@ -790,6 +797,7 @@ main .intro-container .intro-circle:nth-child(3) {
 }
 @media screen and (max-width: 900px) {
   .sec-2 h2 {
+    top: 5%;
     font-size: 3em;
   }
   .sec-2 .caret {
