@@ -58,10 +58,10 @@ channelForm.addEventListener('submit', (e) => {
 
 const initiateRTM = async () => {
     let client = await AgoraRTM.createInstance(appID);
-    await client.login({uid, token});
-
     let channel = await client.createChannel(channelName);
-    await channel.join().then(() => {
+    
+    await client.login({uid, token});
+    await channel.join().then( async () => {
         let name = uid;
         let helloMessage = document.createElement('div');
         helloMessage.className = 'welcome-message';
@@ -92,7 +92,6 @@ const initiateRTM = async () => {
         }
     });
     form.addEventListener('keydown', async (e) => {
-        console.log(e)
         if (e.key === 'Enter') {
             return;
         } else {
@@ -170,27 +169,34 @@ const addMessageToDom = async (message, uid) => {
     if (message.text === '') {
         return;
     }
-    let memberMessage = document.createElement('div');
-    memberMessage.className = 'user-message';
-    memberMessage.innerHTML = `${message.text}<br><strong>${uid}</strong>`;
-    messageContainer.insertAdjacentElement('afterbegin', memberMessage);
-    memberMessage.scrollIntoView({ behavior: 'smooth' });
-    if (chatBox.classList.contains('scale')) {
-        messageCount = null;
-    } else {
-        notify.style.transform = 'translate(-90%, -180%) scale(1)';
-        if (messageCount >= 9) {
-            return notify.innerHTML = `${9}+`;
+    if (message !== null && message !== '') {
+        let memberMessage = document.createElement('div');
+        let messages = Array.from(document.querySelectorAll('.messages div'));
+        memberMessage.className = 'user-message';
+        memberMessage.innerHTML = `${message.text}<br><strong>${uid}</strong>`;
+        messageContainer.insertAdjacentElement('afterbegin', memberMessage);
+        memberMessage.scrollIntoView({ behavior: 'smooth' });
+        showTyping(message, messages)
+        if (chatBox.classList.contains('scale')) {
+            messageCount = null;
         } else {
-            messageCount++;
-            notify.innerHTML = messageCount;
+            notify.style.transform = 'translate(-90%, -180%) scale(1)';
+            if (messageCount >= 9) {
+                return notify.innerHTML = `${9}+`;
+            } else {
+                messageCount++;
+                notify.innerHTML = messageCount;
+            }
         }
     }
 };
 
-const showTyping = async () => {
-    
+const showTyping = async (messages) => {
     let typingDiv = document.querySelector('.typing-indicator');
+    
+    if (messages !== undefined) {
+        typingDiv.style.display = 'none';
+    } 
     if (typingDiv.style.display === 'flex') {
         return;
     }
@@ -214,7 +220,7 @@ const memberLeft = async (uid, members) => {
     }, 5000);
     let memberleftMessage = document.createElement('div');
     memberleftMessage.className = 'user-left';
-    memberleftMessage.innerText = `<strong>${uid}</strong> left the chat..`;
+    memberleftMessage.innerHTML = `<strong>${uid}</strong> left the chat..`;
     messageContainer.insertAdjacentElement('afterbegin', memberleftMessage);
     memberleftMessage.scrollIntoView({ behavior: 'smooth' });
 };
@@ -255,4 +261,6 @@ const leaveChannel = async (channel, client) => {
     }
 };
 
-window.addEventListener('beforeunload', leaveChannel);
+window.addEventListener('beforeunload', () => {
+    leaveChannel();
+});
