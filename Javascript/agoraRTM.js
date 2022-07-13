@@ -91,6 +91,18 @@ const initiateRTM = async () => {
             sendMessage({text: message});  
         }
     });
+    form.addEventListener('keydown', async (e) => {
+        console.log(e)
+        if (e.key === 'Enter') {
+            return;
+        } else {
+            let key = e.type;
+            await channel.sendMessage({text: key, type: 'text'}).then(() => {
+                key = '45832927443';
+                sendMessage({text: key});
+            }); 
+        }
+    });
 
     channel.on('MemberJoined', async () => {
         memberTotal = await channel.getMembers();
@@ -107,6 +119,11 @@ const initiateRTM = async () => {
 };
 
 const handleChannelMessage = async (message, uid) => {
+    if (message.text === 'keydown') {
+        message = null;
+        addMessageToDom(message);
+    }
+    console.log(message)
     addMessageToDom(message, uid);
 };
 
@@ -130,10 +147,13 @@ const welcome = async (members, name) => {
 }
 
 const sendMessage = async (message) => {
+    if (message.text === '45832927443') {
+        return;
+    }
     if (message.text === '') {
         return;
     }
-    if (message.text !== undefined) {
+    if (message.text !== undefined || message.text !== 'Enter') {
         let myMessage = document.createElement('div');
         myMessage.className = 'my-message';
         myMessage.innerText = `${message.text}`;
@@ -145,12 +165,12 @@ const sendMessage = async (message) => {
 };
 
 const addMessageToDom = async (message, uid) => {
+    if (message === null) {
+        return showTyping();
+    }
     if (message.text === '') {
         return;
     }
-    // if (message !== 'Enter') {
-    //     return showTyping();
-    // }
     let memberMessage = document.createElement('div');
     memberMessage.className = 'user-message';
     memberMessage.innerText = `${message.text} 
@@ -170,17 +190,17 @@ const addMessageToDom = async (message, uid) => {
     }
 };
 
-// const showTyping = async () => {
-//     let typingDiv = document.querySelector('.typing-indicator');
-//     if (typingDiv.style.display === 'flex') {
-//         return;
-//     }
-//     messageContainer.insertAdjacentElement('afterbegin', typingDiv);
-//     typingDiv.style.display = 'flex';
-//     setTimeout(() => {
-//         typingDiv.style.display = 'none';
-//     }, 2000);
-// };
+const showTyping = async () => {
+    let typingDiv = document.querySelector('.typing-indicator');
+    if (typingDiv.style.display === 'flex') {
+        return;
+    }
+    messageContainer.insertAdjacentElement('afterbegin', typingDiv);
+    typingDiv.style.display = 'flex';
+    setTimeout(() => {
+        typingDiv.style.display = 'none';
+    }, 2000);
+};
 
 const memberLeft = async (uid, members) => {
     userCountIndicator.style.backgroundColor = '#e950f7';
