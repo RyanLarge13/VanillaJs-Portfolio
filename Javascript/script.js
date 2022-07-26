@@ -12,8 +12,108 @@ const navDots = Array.from(document.querySelectorAll('.nav-dot'));
 const sections = Array.from(document.querySelectorAll('[data-section]'));
 const agoraButton = document.querySelector('.agora-btn');
 const closeChatBox = document.querySelector('.agora-chatbox i');
+const hiddenMenu = document.querySelector('.hidden-menu');
+const dragLine = document.querySelector('.drag-line');
+const main = document.querySelector('main');
 let navItemsArr = Array.from(navListItems);
 let screenWidth = window.innerWidth;
+let newScroll;
+let menuTime;
+
+export const menuListen = (e) => {
+    e.preventDefault();
+    menuTime = false;
+    let time = setTimeout(() => {
+        menuTime = true;
+        if (e.touches > 1) {
+            if (hiddenMenu.style.top === '65%') {
+                return;
+            }
+            menuOpen();
+        } else {
+            menuTime = false;
+            return clearTimeout(time);
+        }
+    }, 1500);
+    window.addEventListener('touchend', () => {
+        if (menuTime === false) {
+            clearTimeout(time);
+        }
+    });
+};
+
+const menuOpen = () => {
+    window.navigator.vibrate(50);
+    hiddenMenu.style.transition = '250ms ease-in-out';
+    hiddenMenu.style.top = '65%';
+};
+
+dragLine.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    let top = e.touches[0].clientY;
+    console.log(top)
+    if (top > 550 && top < 700) {
+        hiddenMenu.style.transition = 'none';
+        hiddenMenu.style.top = `${top}px`;
+    }
+    else if (top <= 550) {
+        return;
+    } 
+    else if (top >= 700) {
+        hiddenMenu.style.transition = '250ms ease-in-out';
+        window.navigator.vibrate(50);
+        return hiddenMenu.style.top = `${top + 400}px`;
+    }
+});
+
+const hideNav = (prevScroll) => {
+    setTimeout(() => {
+        newScroll = window.scrollY;
+    }, 10);
+    if (prevScroll > newScroll) {
+        nav.style.transition = '500ms ease-in-out';
+        nav.style.opacity = '0';
+    } else {
+        nav.style.transition = '500ms ease-in-out';
+        nav.style.opacity = '1';
+    }
+};
+
+const hideNavMobile = (prevScroll) => {
+    setTimeout(() => {
+        newScroll = window.scrollY;
+    }, 10);
+    if (prevScroll > newScroll) {
+        nav.style.transition = '500ms ease-in-out';
+        nav.style.opacity = '0';
+        setTimeout(() => {
+            if (nav.style.opacity === '0') {
+                nav.style.opacity = '.001';
+            } else {
+                nav.style.opacity = '1';
+            }
+        }, 1000);
+    } else {
+        nav.style.transition = '500ms ease-in-out';
+        nav.style.opacity = '1';
+    }
+};
+
+const welcomeMessage = () => {
+    let messageContainer = document.querySelector('.intro-logo');
+    let message = document.querySelector('.intro-logo-text');
+    messageContainer.style.transition = '500ms ease-in-out';
+    message.style.transition = '500ms ease-in-out';
+    setTimeout(() => {
+        message.style.opacity = '1';
+    }, 500);
+    setTimeout(() => {
+        messageContainer.style.opacity = '0';
+    }, 2000);  
+    setTimeout(() => {
+        messageContainer.style.display = 'none';
+    }, 2500);  
+};
 
 const navlistSwitch = () => {
     if (screenWidth <= 900) {
@@ -132,6 +232,12 @@ toTopBtn.addEventListener('click', () => {
 // handling eventlisteners and scroll function calling
 export const scroll = () => {
     let scrollY = window.scrollY;
+    if (window.innerWidth > 1000) {
+        hideNav(scrollY);
+    }
+    if (window.innerWidth < 1000) {
+        hideNavMobile(scrollY);
+    }
     navIndicate(navItemsArr);
     skillsDisplay();
     if (scrollY < vh) {
@@ -145,15 +251,22 @@ export const scroll = () => {
 };
 
 window.onload = () => {
-    circleScale();
+    welcomeMessage();
+    setTimeout(() => {
+        circleScale();
     introTextSlide();
     highlightName();
     navIndicate(navItemsArr);
     displayIcons();
     toTop();
     skillsDisplay();
+    }, 2500);
 };
 window.addEventListener('scroll', scroll);
 window.addEventListener('resize', navlistSwitch);
-agoraButton.addEventListener('click', chatDisplay);
+main.addEventListener('touchstart', menuListen, { passive: false });
+agoraButton.addEventListener('click', () => {
+    main.removeEventListener('touchstart', menuListen);
+    chatDisplay();
+});
 closeChatBox.addEventListener('click', chatDisplay);

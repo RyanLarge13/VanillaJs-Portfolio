@@ -1,3 +1,5 @@
+import { menuListen } from './script.js'
+
 let appID = '496b46a298054d1194dfc43f4095393a';
 let uid;
 let token = null;
@@ -37,6 +39,7 @@ export const chatDisplay = () => {
 main.addEventListener('click', () => {
     chatBox.classList.remove('scale');
     agoraButton.classList.remove('transform-zero');
+    main.addEventListener('touchstart', menuListen, { passive: false });
 });
 
 channelForm.addEventListener('submit', (e) => {

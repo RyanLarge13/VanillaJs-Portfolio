@@ -41,6 +41,64 @@ $trans: 250ms ease-in-out;
     background-size: 100% .15em;
 }
 
+//intro logo when page loads
+.intro-logo {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 1000;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .intro-logo-text {
+        font-size: 10em;
+        opacity: 0;
+    }
+
+    @media screen and (max-width: 900px) {
+        font-size: .5em;
+    }
+}
+
+.hidden-menu {
+    text-align: center;
+    position: fixed;
+    right: 50%;
+    top: 100%;
+    transform: translate(50%);
+    width: 85%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    border-radius: 1em 1em 0 0;
+    z-index: 1000;
+
+    .drag-line {
+        position: absolute;
+        top: 5%;
+        border-radius: 1em;
+        width: 15%;
+        height: 3%;
+        background-color: $light-orange;
+    }
+
+    ul {
+        transform: translateY(15%);
+
+        li {
+            justify-self: space-between;
+            padding: 1em 2em;
+            border-top: 1px solid black;
+        }
+    }
+}
+
 //styling message platform for Ably API
 .agora-chatbox {
     transform: scale(0);
@@ -378,6 +436,7 @@ $trans: 250ms ease-in-out;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    user-select: none;
 
     i {
         font-size: 1.5em;

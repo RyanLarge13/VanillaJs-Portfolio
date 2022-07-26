@@ -213,6 +213,11 @@ let showMoreSkills = (() => {
             'position': 'absolute',
             'flex-direction': 'column',
         }
+        let returnObj = {
+            'height': '50%',
+            'position': 'relative',
+            'flex-direction': 'row',
+        }
         if (skillContainer.parentNode === backgroundBox) {
             return;
         }
