@@ -195,14 +195,13 @@ skillContainer.addEventListener('touchmove', (e) => {
 skillContainer.addEventListener('touchend', sliderMobile);
 
 // goiung into the view more functionality
-const moreSkillsBtn = document.querySelector('.skills-more');
+const sectionTwoBody = document.querySelector('.sec-2');
 
 let showMoreSkills = (() => {
     let skillSection = document.querySelector('.sec-2');
     let backgroundBox = document.querySelector('.background-box');
     let skillContainer = document.querySelector('.resume-container');
     let carrets = document.querySelectorAll('.caret');
-    const moreSkillsBtn = document.querySelector('.skills-more');
 
     const moveSkill = async (e) => {
         e.preventDefault();
@@ -227,7 +226,6 @@ let showMoreSkills = (() => {
             }, 750);
         });
         skillContainer.style.opacity = '0';
-        moreSkillsBtn.style.opacity = '0';
         setTimeout(() => {
             backgroundBox.appendChild(skillContainer);
             Object.assign(skillContainer.style, obj);
@@ -258,7 +256,7 @@ let showMoreSkills = (() => {
     }
 })();
 
-moreSkillsBtn.addEventListener('click', (e) => {
+sectionTwoBody.addEventListener('dblclick', (e) => {
     showMoreSkills.moveSkill(e).then(() => {
         setTimeout(() => {
             showMoreSkills.appendData(); 
@@ -271,8 +269,6 @@ moreSkillsBtn.addEventListener('click', (e) => {
 
 //this section with contain functions specifically for mobile devices registering
 // a double tap for the screen to view more information on skills
-
-const sectionTwoBody = document.querySelector('.sec-2');
 
 let moveMobileSkills = (() => {
     let backgroundBox = document.querySelector('.background-box');

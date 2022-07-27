@@ -25,7 +25,7 @@ export const menuListen = (e) => {
     menuTime = false;
     setTimeout(() => {
         e.preventDefault();
-    }, 100)
+    }, 100);
     let time = setTimeout(() => {
         menuTime = true;
         if (touchNum > 0) {
@@ -69,19 +69,6 @@ dragLine.addEventListener('touchmove', (e) => {
 });
 
 const hideNav = (prevScroll) => {
-    setTimeout(() => {
-        newScroll = window.scrollY;
-    }, 10);
-    if (prevScroll > newScroll) {
-        nav.style.transition = '500ms ease-in-out';
-        nav.style.opacity = '0';
-    } else {
-        nav.style.transition = '500ms ease-in-out';
-        nav.style.opacity = '1';
-    }
-};
-
-const hideNavMobile = (prevScroll) => {
     setTimeout(() => {
         newScroll = window.scrollY;
     }, 10);
@@ -234,12 +221,7 @@ toTopBtn.addEventListener('click', () => {
 // handling eventlisteners and scroll function calling
 export const scroll = () => {
     let scrollY = window.scrollY;
-    if (window.innerWidth > 1000) {
-        hideNav(scrollY);
-    }
-    if (window.innerWidth < 1000) {
-        hideNavMobile(scrollY);
-    }
+    hideNav(scrollY);
     navIndicate(navItemsArr);
     skillsDisplay();
     if (scrollY < vh) {
