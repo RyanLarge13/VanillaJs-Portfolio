@@ -22,6 +22,9 @@ let menuTime;
 
 export const menuListen = (e) => {
     menuTime = false;
+    setTimeout(() => {
+        e.preventDefault();
+    }, 100)
     let time = setTimeout(() => {
         menuTime = true;
         if (e.touches.length > 0) {
@@ -262,7 +265,9 @@ window.onload = () => {
 };
 window.addEventListener('scroll', scroll);
 window.addEventListener('resize', navlistSwitch);
-main.addEventListener('touchstart', menuListen, { passive: false });
+main.addEventListener('touchstart', (e) => {
+    menuListen(e);
+}, { passive: false });
 agoraButton.addEventListener('click', () => {
     main.removeEventListener('touchstart', menuListen);
     chatDisplay();
