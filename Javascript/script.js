@@ -34,6 +34,7 @@ export const menuListen = (e) => {
             }
             menuOpen();
         } else {
+            menuOpen();
             menuTime = false;
             return clearTimeout(time);
         }
@@ -54,18 +55,22 @@ const menuOpen = () => {
 dragLine.addEventListener('touchmove', (e) => {
     e.preventDefault();
     let top = e.touches[0].clientY;
-    if (top > 550 && top < 700) {
+    console.log(top);
+    if (top > 600 && top < 800) {
         hiddenMenu.style.transition = 'none';
         hiddenMenu.style.top = `${top}px`;
     }
-    else if (top <= 550) {
-        return;
-    } 
-    else if (top >= 700) {
-        hiddenMenu.style.transition = '250ms ease-in-out';
-        window.navigator.vibrate(50);
-        return hiddenMenu.style.top = `${top + 400}px`;
-    }
+    dragLine.addEventListener('touchend', () => {
+        if (top <= 600) {
+            hiddenMenu.style.transition = '250ms ease-in-out';
+            hiddenMenu.style.top = '65%';
+        } 
+        else if (top >= 800) {
+            hiddenMenu.style.transition = '250ms ease-in-out';
+            window.navigator.vibrate(50);
+            return hiddenMenu.style.top = `${top + 400}px`;
+        }
+    })
 });
 
 const hideNav = (prevScroll) => {
