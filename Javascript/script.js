@@ -34,7 +34,6 @@ export const menuListen = (e) => {
             }
             menuOpen();
         } else {
-            menuOpen();
             menuTime = false;
             return clearTimeout(time);
         }
