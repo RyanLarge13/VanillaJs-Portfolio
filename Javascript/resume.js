@@ -115,7 +115,6 @@ const paraSliderMobile = () => {
 };
 
 const sliderMobile = () => {
-    console.log(start, move)
     skillIcons.forEach(icon => {
         icon.style.transition = '1s ease-in-out';
     });
