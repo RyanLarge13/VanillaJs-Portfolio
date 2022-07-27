@@ -263,9 +263,9 @@ window.onload = () => {
 };
 window.addEventListener('scroll', scroll);
 window.addEventListener('resize', navlistSwitch);
-main.addEventListener('touchstart', menuListen, { passive: false });
+// main.addEventListener('touchstart', menuListen, { passive: false });
 agoraButton.addEventListener('click', () => {
-    main.removeEventListener('touchstart', menuListen);
+    // main.removeEventListener('touchstart', menuListen);
     chatDisplay();
 });
 closeChatBox.addEventListener('click', chatDisplay);

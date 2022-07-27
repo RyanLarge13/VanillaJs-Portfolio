@@ -39,7 +39,7 @@ export const chatDisplay = () => {
 main.addEventListener('click', () => {
     chatBox.classList.remove('scale');
     agoraButton.classList.remove('transform-zero');
-    main.addEventListener('touchstart', menuListen, { passive: false });
+    // main.addEventListener('touchstart', menuListen, { passive: false });
 });
 
 channelForm.addEventListener('submit', (e) => {
