@@ -75,6 +75,19 @@ const hideNav = (prevScroll) => {
     if (prevScroll > newScroll) {
         nav.style.transition = '500ms ease-in-out';
         nav.style.opacity = '0';
+    } else {
+        nav.style.transition = '500ms ease-in-out';
+        nav.style.opacity = '1';
+    }
+};
+
+const hideNavMobile = (prevScroll) => {
+    setTimeout(() => {
+        newScroll = window.scrollY;
+    }, 10);
+    if (prevScroll > newScroll) {
+        nav.style.transition = '500ms ease-in-out';
+        nav.style.opacity = '0';
         setTimeout(() => {
             if (nav.style.opacity === '0') {
                 nav.style.opacity = '.001';
@@ -221,7 +234,12 @@ toTopBtn.addEventListener('click', () => {
 // handling eventlisteners and scroll function calling
 export const scroll = () => {
     let scrollY = window.scrollY;
-    hideNav(scrollY);
+    if (window.innerWidth > 1000) {
+        hideNav(scrollY);
+    }
+    if (window.innerWidth < 1000) {
+        hideNavMobile(scrollY);
+    }
     navIndicate(navItemsArr);
     skillsDisplay();
     if (scrollY < vh) {
