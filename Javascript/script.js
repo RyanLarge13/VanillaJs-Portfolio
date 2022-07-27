@@ -24,7 +24,7 @@ export const menuListen = (e) => {
     menuTime = false;
     let time = setTimeout(() => {
         menuTime = true;
-        if (e.touches > 1) {
+        if (e.touches.length === 1) {
             if (hiddenMenu.style.top === '65%') {
                 return;
             }
@@ -34,7 +34,7 @@ export const menuListen = (e) => {
             return clearTimeout(time);
         }
     }, 1500);
-    window.addEventListener('touchend', () => {
+    main.addEventListener('touchend', () => {
         if (menuTime === false) {
             clearTimeout(time);
         }
@@ -263,9 +263,9 @@ window.onload = () => {
 };
 window.addEventListener('scroll', scroll);
 window.addEventListener('resize', navlistSwitch);
-// main.addEventListener('touchstart', menuListen, { passive: false });
+main.addEventListener('touchstart', menuListen, { passive: false });
 agoraButton.addEventListener('click', () => {
-    // main.removeEventListener('touchstart', menuListen);
+    main.removeEventListener('touchstart', menuListen);
     chatDisplay();
 });
 closeChatBox.addEventListener('click', chatDisplay);
