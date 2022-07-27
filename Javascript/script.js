@@ -21,11 +21,11 @@ let newScroll;
 let menuTime;
 
 export const menuListen = (e) => {
-    e.preventDefault();
     menuTime = false;
     let time = setTimeout(() => {
         menuTime = true;
         if (e.touches > 1) {
+            e.preventDefault();
             if (hiddenMenu.style.top === '65%') {
                 return;
             }
