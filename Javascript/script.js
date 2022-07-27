@@ -28,7 +28,7 @@ export const menuListen = (e) => {
     }, 100)
     let time = setTimeout(() => {
         menuTime = true;
-        if (touchNum > 1) {
+        if (touchNum > 0) {
             if (hiddenMenu.style.top === '65%') {
                 return;
             }
