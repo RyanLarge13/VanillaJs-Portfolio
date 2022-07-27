@@ -50,7 +50,6 @@ const menuOpen = () => {
 dragLine.addEventListener('touchmove', (e) => {
     e.preventDefault();
     let top = e.touches[0].clientY;
-    console.log(top)
     if (top > 550 && top < 700) {
         hiddenMenu.style.transition = 'none';
         hiddenMenu.style.top = `${top}px`;
