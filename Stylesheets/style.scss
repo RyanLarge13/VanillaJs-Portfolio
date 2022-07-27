@@ -990,6 +990,154 @@ main {
     }
 }
 
+.sec-3 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    h2 {
+        position: absolute;
+        font-size: 3em;
+        z-index: 1;
+        top: 5%;   
+    }
+
+    .projects-container {
+        padding-left: 25%;
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: scroll;
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            transform: translateX(0);
+            transition: 700ms ease-out;
+        }
+        
+        .card-container:hover .card {
+            transform: scale(.8) translateY(-10em);
+            box-shadow: 0 .2em .5em 0 #000;
+        }
+        
+        .card-container:hover .card-bg {
+            opacity: 1;
+            transform: translateY(2em) scale(1);
+            transition: 150ms ease-in-out;
+        }
+        
+        .card {
+            position: relative;
+            margin: 2em;
+            height: 18em;
+            width: 13em;
+            background-color: #000;
+            border-radius: 1em;
+            cursor: pointer;
+            transition: 175ms ease-in-out;
+            box-shadow: 0 .3em .7em .1em #000;
+        }
+        
+        .card-link:focus .card {
+            transform: scale(.8) translateY(-5em);
+            box-shadow: 0 .2em .5em 0 #000;
+        }
+        
+        .card-link:focus ~ .card-bg {
+            opacity: 1;
+            transform: translateY(2em) scale(1);
+            transition: 150ms ease-in-out;
+        }
+        
+        .card-link:active .card {
+            transform: translateY(-4em) scale(.6);
+        }
+        
+        #card-one {
+            background-size: cover;
+            z-index: 0;
+        }
+        
+        #card-two {
+            background-position: 50% 35%;
+            z-index: 0;
+        }
+        
+        .card-bg {
+            position: absolute;
+            width: 15em;
+            height: 18em;
+            border-radius: 1em;
+            background-color: rgb(70, 70, 70);
+            opacity: 0;
+            transform: translateY(2em) scale(.6);
+            box-shadow: 0 .2em .5em 0 #000, inset 0 0 .2em 0 #000;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .banner {
+            position: absolute;
+            left: 3.5%;
+            background-color: #000;
+            box-shadow: 0 0 .3em 0 #000;
+            width: 1.3em;
+            height: 1.6em;
+            cursor: pointer;
+            border-radius: 0 0 .3em .3em;
+            display: flex;
+            justify-content: center;
+            nav-index: none;
+        }
+        
+        .banner p {
+            color: white;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        
+        .languageIconContainer {
+          filter: drop-shadow(0 .1em .2em #000);
+          margin: 0 .3em;
+        }
+        
+        .languageIcons {
+            font-size: 1.3em;
+            text-align: center;
+            margin-top: 80%;
+            bottom: 0;
+            background: linear-gradient(to right, #f857a6, #ff5858);
+            clip-path: polygon(50% 0%, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
+        }
+        
+        .languageIcons-2 {
+            font-size: 1.3em;
+            text-align: center;
+            margin-top: 80%;
+            bottom: 0;
+            background: linear-gradient(to right, #4776e6, #8e54e9);
+            clip-path: polygon(50% 0%, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
+        }
+        
+        .languageIcons i {
+            padding: 0 .2em;
+        }
+        
+        .card-p {
+            font-size: small;
+            text-align: center;
+            position: inherit;
+            bottom: 0;
+            color: white;
+            padding: .5em 3em 1.5em 3em;
+        }
+    }
+}
+
 .sec-4 {
     background-color: #eeeeee;
 }
