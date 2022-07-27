@@ -234,14 +234,14 @@ toTopBtn.addEventListener('click', () => {
 // handling eventlisteners and scroll function calling
 export const scroll = () => {
     let scrollY = window.scrollY;
+    navIndicate(navItemsArr);
+    // skillsDisplay();
     if (window.innerWidth > 1000) {
         hideNav(scrollY);
     }
     if (window.innerWidth < 1000) {
         hideNavMobile(scrollY);
     }
-    navIndicate(navItemsArr);
-    skillsDisplay();
     if (scrollY < vh) {
         circleScale();
         toTop();
@@ -256,15 +256,16 @@ window.onload = () => {
     welcomeMessage();
     setTimeout(() => {
         circleScale();
-    introTextSlide();
-    highlightName();
-    navIndicate(navItemsArr);
-    displayIcons();
-    toTop();
-    skillsDisplay();
+        introTextSlide();
+        highlightName();
+        navIndicate(navItemsArr);
+        displayIcons();
+        toTop();
+        skillsDisplay();
     }, 2500);
 };
 window.addEventListener('scroll', scroll);
+window.addEventListener('scroll', skillsDisplay);
 window.addEventListener('resize', navlistSwitch);
 main.addEventListener('touchstart', (e) => {
     menuListen(e);

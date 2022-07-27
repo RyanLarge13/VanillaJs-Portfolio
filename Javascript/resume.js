@@ -205,16 +205,14 @@ let showMoreSkills = (() => {
 
     const moveSkill = async (e) => {
         e.preventDefault();
+        if (e.target === carrets[0] || e.target === carrets[1]) {
+            return;
+        }
         let obj = {
             'height': '100%',
             'left': '5%',
             'position': 'absolute',
             'flex-direction': 'column',
-        }
-        let returnObj = {
-            'height': '50%',
-            'position': 'relative',
-            'flex-direction': 'row',
         }
         if (skillContainer.parentNode === backgroundBox) {
             return;
@@ -243,6 +241,31 @@ let showMoreSkills = (() => {
         let data = document.createElement('div');
         data.classList.add('skill-data-pc');
         skillSection.appendChild(data);
+        let returnObj = {
+            'height': '50%',
+            'position': 'relative',
+            'flex-direction': 'row',
+            'transform': 'translateX(-10%)',
+        };
+
+        data.addEventListener('dblclick', () => {
+            window.removeEventListener('scroll', skillsDisplay);
+            skillSection.removeChild(data);
+            skillContainer.style.opacity = '0';
+            setTimeout(() => {
+                Object.assign(skillContainer.style, returnObj);
+                carrets.forEach((caret) => {
+                    caret.style.display = 'block';
+                    setTimeout(() => {
+                        caret.style.opacity = '1';
+                    }, 500);
+                });
+                skillSection.insertBefore(skillContainer, carrets[1]);
+                setTimeout(() => {
+                    skillContainer.style.opacity = '1';
+                }, 100);
+            }, 750);
+        });
     };
 
     const read = () => {
@@ -300,6 +323,8 @@ let moveMobileSkills = (() => {
 
     //for fetching resume data from server once inplemented
     const bringInData = async () => {
+        let theHelpMessage = document.querySelector('.help-message');
+        theHelpMessage.style.opacity = '0';
         let dataContainer = document.createElement('div');
         dataContainer.className = 'skill-data';
         sectionTwoBody.appendChild(dataContainer);
@@ -378,6 +403,6 @@ sectionTwoBody.addEventListener('touchend', (e) => {
     if (e.target !== sectionTwoBody) {
         return;
     } else {
-        doubleTap(e)
+        doubleTap(e);
     }
 });
