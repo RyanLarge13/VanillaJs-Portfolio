@@ -28,7 +28,7 @@ export const menuListen = (e) => {
     }, 100);
     let time = setTimeout(() => {
         menuTime = true;
-        if (touchNum > 1) {
+        if (touchNum > 0) {
             if (hiddenMenu.style.top === '65%') {
                 return;
             }
@@ -54,16 +54,16 @@ const menuOpen = () => {
 dragLine.addEventListener('touchmove', (e) => {
     e.preventDefault();
     let top = e.touches[0].clientY;
-    if (top > 500 && top < 700) {
+    if (top > 600 && top < 775) {
         hiddenMenu.style.transition = 'none';
         hiddenMenu.style.top = `${top}px`;
     }
     dragLine.addEventListener('touchend', () => {
-        if (top <= 500) {
+        if (top <= 775) {
             hiddenMenu.style.transition = '250ms ease-in-out';
             hiddenMenu.style.top = '65%';
         } 
-        else if (top >= 700) {
+        else if (top >= 775) {
             hiddenMenu.style.transition = '250ms ease-in-out';
             window.navigator.vibrate(50);
             return hiddenMenu.style.top = `${top + 400}px`;
