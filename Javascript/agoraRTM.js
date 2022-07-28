@@ -7,12 +7,12 @@ let channelName;
 let memberTotal;
 let messageCount;
 
+export const chatBox = document.querySelector('.agora-chatbox');
 const messageContainer = document.querySelector('.messages');
 const userCountIndicator = document.querySelector('.messages p');
 const form = document.querySelector('.input-message-container');
 const userMessageContainer = document.querySelector('.input-message-container input');
 const sendButton = document.querySelector('.fa-paper-plane');
-export const chatBox = document.querySelector('.agora-chatbox');
 const agoraButton = document.querySelector('.agora-btn');
 const main = document.querySelector('main');
 const channelForm = document.querySelector('.channel-form');
@@ -275,5 +275,8 @@ const leaveChannel = async (channel, client) => {
 };
 
 window.addEventListener('beforeunload', () => {
+    if (uid === undefined) {
+        return;
+    }
     leaveChannel();
 });

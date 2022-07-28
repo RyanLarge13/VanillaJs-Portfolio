@@ -889,6 +889,22 @@ main .intro-container .intro-circle:nth-child(3) {
   display: flex;
   justify-content: center;
 }
+.sec-3 .left {
+  background-color: transparent;
+  width: 10%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 900;
+}
+.sec-3 .right {
+  background-color: transparent;
+  width: 10%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  z-index: 900;
+}
 .sec-3 h2 {
   position: absolute;
   font-size: 3em;
@@ -899,20 +915,44 @@ main .intro-container .intro-circle:nth-child(3) {
   padding-left: 25%;
   width: 100vw;
   height: 100vh;
-  background-color: white;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-x: scroll;
+  overflow-x: hidden;
+}
+.sec-3 .projects-container::-webkit-scrollbar {
+  display: none;
 }
 .sec-3 .projects-container .card-container {
   display: flex;
   justify-content: center;
-  transform: translateX(0);
   transition: 700ms ease-out;
+}
+.sec-3 .projects-container .card-container .card {
+  position: relative;
+  margin: 2em 4em;
+  height: 30em;
+  width: 20em;
+  background-color: #000;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: 175ms ease-in-out;
+  box-shadow: 0 0.3em 0.7em 0.1em #000;
+}
+@media screen and (max-width: 900px) {
+  .sec-3 .projects-container .card-container .card {
+    height: 20em;
+    width: 15em;
+    margin: 2em 2em;
+  }
 }
 .sec-3 .projects-container .card-container:hover .card {
   transform: scale(0.8) translateY(-10em);
+  box-shadow: 0 0.2em 0.5em 0 #000;
+}
+.sec-3 .projects-container .card-link:focus .card {
+  transform: scale(0.8) translateY(-5em);
   box-shadow: 0 0.2em 0.5em 0 #000;
 }
 .sec-3 .projects-container .card-container:hover .card-bg {
@@ -920,99 +960,80 @@ main .intro-container .intro-circle:nth-child(3) {
   transform: translateY(2em) scale(1);
   transition: 150ms ease-in-out;
 }
-.sec-3 .projects-container .card {
-  position: relative;
-  margin: 2em;
-  height: 18em;
-  width: 13em;
-  background-color: #000;
-  border-radius: 1em;
-  cursor: pointer;
-  transition: 175ms ease-in-out;
-  box-shadow: 0 0.3em 0.7em 0.1em #000;
-}
-.sec-3 .projects-container .card-link:focus .card {
-  transform: scale(0.8) translateY(-5em);
-  box-shadow: 0 0.2em 0.5em 0 #000;
-}
 .sec-3 .projects-container .card-link:focus ~ .card-bg {
   opacity: 1;
   transform: translateY(2em) scale(1);
   transition: 150ms ease-in-out;
 }
-.sec-3 .projects-container .card-link:active .card {
-  transform: translateY(-4em) scale(0.6);
-}
-.sec-3 .projects-container #card-one {
-  background-size: cover;
-  z-index: 0;
-}
-.sec-3 .projects-container #card-two {
-  background-position: 50% 35%;
-  z-index: 0;
-}
 .sec-3 .projects-container .card-bg {
   position: absolute;
-  width: 15em;
-  height: 18em;
+  width: 25em;
+  height: 35em;
   border-radius: 1em;
-  background-color: rgb(70, 70, 70);
+  background-color: rgba(0, 0, 0, 0.9);
   opacity: 0;
   transform: translateY(2em) scale(0.6);
   box-shadow: 0 0.2em 0.5em 0 #000, inset 0 0 0.2em 0 #000;
   overflow: hidden;
   z-index: -1;
 }
-.sec-3 .projects-container .banner {
+.sec-3 .projects-container .card-bg .banner {
+  padding: 2% 3%;
   position: absolute;
   left: 3.5%;
   background-color: #000;
   box-shadow: 0 0 0.3em 0 #000;
-  width: 1.3em;
-  height: 1.6em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   cursor: pointer;
   border-radius: 0 0 0.3em 0.3em;
   display: flex;
   justify-content: center;
   nav-index: none;
 }
-.sec-3 .projects-container .banner p {
+.sec-3 .projects-container .card-bg .banner p {
   color: white;
-  font-size: 1.2em;
+  font-size: 2em;
   font-weight: 700;
 }
-.sec-3 .projects-container .languageIconContainer {
+.sec-3 .projects-container .card-bg .languageIconContainer {
   filter: drop-shadow(0 0.1em 0.2em #000);
-  margin: 0 0.3em;
 }
-.sec-3 .projects-container .languageIcons {
+.sec-3 .projects-container .card-bg .languageIconContainer .languageIcons {
   font-size: 1.3em;
   text-align: center;
-  margin-top: 80%;
+  margin-top: 90%;
   bottom: 0;
   background: linear-gradient(to right, #f857a6, #ff5858);
   -webkit-clip-path: polygon(50% 0%, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
           clip-path: polygon(50% 0%, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
 }
-.sec-3 .projects-container .languageIcons-2 {
-  font-size: 1.3em;
-  text-align: center;
-  margin-top: 80%;
-  bottom: 0;
-  background: linear-gradient(to right, #4776e6, #8e54e9);
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
-          clip-path: polygon(50% 0%, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
+.sec-3 .projects-container .card-bg .languageIconContainer .languageIcons i {
+  font-size: 1.5em;
+  padding: 0.5em 0.1em;
 }
-.sec-3 .projects-container .languageIcons i {
-  padding: 0 0.2em;
+@media screen and (max-width: 900px) {
+  .sec-3 .projects-container .card-bg .languageIconContainer .languageIcons {
+    margin-top: 75%;
+  }
 }
-.sec-3 .projects-container .card-p {
-  font-size: small;
+.sec-3 .projects-container .card-bg .card-p {
+  margin-top: 1em;
+  font-size: larger;
   text-align: center;
-  position: inherit;
   bottom: 0;
   color: white;
   padding: 0.5em 3em 1.5em 3em;
+}
+@media screen and (max-width: 900px) {
+  .sec-3 .projects-container .card-bg {
+    height: 25em;
+    width: 20em;
+  }
 }
 
 .sec-4 {
