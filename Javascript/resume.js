@@ -7,11 +7,11 @@ const skillParent = document.querySelector('.skill-parent');
 const skillIcons = document.querySelectorAll('.skill-icon');
 const leftArrow = document.querySelector('.fa-caret-left');
 const rightArrow = document.querySelector('.fa-caret-right');
+const skillParagraphs = document.querySelectorAll('.skill-detail p');
+const width = skillIcons[0].clientWidth * 2;
 let count = 0;
-let width = skillIcons[0].clientWidth * 2;
 let start;
 let move;
-const skillParagraphs = document.querySelectorAll('.skill-detail p');
 
 export const displayIcons = () => {
     skillIcons[4].style.opacity = '1';
@@ -165,10 +165,10 @@ const sliderMobile = () => {
 
 //resume skills section scroll function
 export const skillsDisplay = () => {
-    let skillData = document.querySelector('.skill-data');
-    let height = vh - (vh / 2);
-    let resumeContainer = document.querySelector('.resume-container');
-    let carets = document.querySelectorAll('.caret');
+    const skillData = document.querySelector('.skill-data');
+    const height = vh - (vh / 2);
+    const resumeContainer = document.querySelector('.resume-container');
+    const carets = document.querySelectorAll('.caret');
     if (skillData !== null) {
         return;
     } // need to find a new condition that is more reliable
@@ -198,17 +198,17 @@ skillContainer.addEventListener('touchend', sliderMobile);
 const sectionTwoBody = document.querySelector('.sec-2');
 
 let showMoreSkills = (() => {
-    let skillSection = document.querySelector('.sec-2');
-    let backgroundBox = document.querySelector('.background-box');
-    let skillContainer = document.querySelector('.resume-container');
-    let carrets = document.querySelectorAll('.caret');
+    const skillSection = document.querySelector('.sec-2');
+    const backgroundBox = document.querySelector('.background-box');
+    const skillContainer = document.querySelector('.resume-container');
+    const carrets = document.querySelectorAll('.caret');
 
     const moveSkill = async (e) => {
         e.preventDefault();
         if (e.target === carrets[0] || e.target === carrets[1]) {
             return;
         }
-        let obj = {
+        const obj = {
             'height': '100%',
             'left': '5%',
             'position': 'absolute',
@@ -238,10 +238,10 @@ let showMoreSkills = (() => {
     };
 
     const appendData = async () => {
-        let data = document.createElement('div');
+        const data = document.createElement('div');
         data.classList.add('skill-data-pc');
         skillSection.appendChild(data);
-        let returnObj = {
+        const returnObj = {
             'height': '50%',
             'position': 'relative',
             'flex-direction': 'row',
@@ -269,7 +269,7 @@ let showMoreSkills = (() => {
     };
 
     const read = () => {
-        console.log(skillContainer.children);
+        // console.log(skillContainer.children);
     };
 
     return {
@@ -294,8 +294,8 @@ sectionTwoBody.addEventListener('dblclick', (e) => {
 // a double tap for the screen to view more information on skills
 
 let moveMobileSkills = (() => {
-    let backgroundBox = document.querySelector('.background-box');
-    let skillContainer = document.querySelector('.resume-container');
+    const backgroundBox = document.querySelector('.background-box');
+    const skillContainer = document.querySelector('.resume-container');
 
     const moveMobileSkillContainer = async () => {
         backgroundBox.style.transition = '250ms ease-in-out';
@@ -323,9 +323,9 @@ let moveMobileSkills = (() => {
 
     //for fetching resume data from server once inplemented
     const bringInData = async () => {
-        let theHelpMessage = document.querySelector('.help-message');
+        const theHelpMessage = document.querySelector('.help-message');
         theHelpMessage.style.opacity = '0';
-        let dataContainer = document.createElement('div');
+        const dataContainer = document.createElement('div');
         dataContainer.className = 'skill-data';
         sectionTwoBody.appendChild(dataContainer);
         
@@ -335,9 +335,9 @@ let moveMobileSkills = (() => {
     };
 
     const displayHelp = () => {
-        let theHelpMessage = document.querySelector('.help-message');
+        const theHelpMessage = document.querySelector('.help-message');
         if (theHelpMessage === null) {
-            let helpMessage = document.createElement('div');
+            const helpMessage = document.createElement('div');
             helpMessage.classList.add('help-message');
             helpMessage.innerHTML = 'double tap to view more about each skill';
             sectionTwoBody.appendChild(helpMessage);
@@ -363,9 +363,9 @@ let timeout;
 
 const doubleTap = async (e) => {
     e.preventDefault();
-    let dataContainer = document.querySelector('.skill-data');
-    let currentTime = new Date().getTime();
-    let tapLength = currentTime - lastTap;
+    const dataContainer = document.querySelector('.skill-data');
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTap;
 
     clearTimeout(timeout);
 
@@ -387,7 +387,7 @@ const doubleTap = async (e) => {
             timeout = setTimeout(() => {
                 moveMobileSkills.moveMobileSkillContainerBack(dataContainer).then(() => {
                     setTimeout(() => {
-                        // console.log('got it');
+
                     }, 500);
                 });
                 clearTimeout(timeout);

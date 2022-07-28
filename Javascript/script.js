@@ -15,8 +15,8 @@ const closeChatBox = document.querySelector('.agora-chatbox i');
 const hiddenMenu = document.querySelector('.hidden-menu');
 const dragLine = document.querySelector('.drag-line');
 const main = document.querySelector('main');
-let navItemsArr = Array.from(navListItems);
-let screenWidth = window.innerWidth;
+const navItemsArr = Array.from(navListItems);
+const screenWidth = window.innerWidth;
 let newScroll;
 let menuTime;
 
@@ -54,7 +54,6 @@ const menuOpen = () => {
 dragLine.addEventListener('touchmove', (e) => {
     e.preventDefault();
     let top = e.touches[0].clientY;
-    console.log(top);
     if (top > 600 && top < 800) {
         hiddenMenu.style.transition = 'none';
         hiddenMenu.style.top = `${top}px`;
@@ -71,6 +70,13 @@ dragLine.addEventListener('touchmove', (e) => {
         }
     })
 });
+
+const navHover = (e) => {
+    if (e.clientY <= nav.clientHeight) {
+        nav.style.transition = '500ms ease-in-out';
+        nav.style.opacity = '1';
+    }
+};
 
 const hideNav = (prevScroll) => {
     setTimeout(() => {
@@ -106,8 +112,8 @@ const hideNavMobile = (prevScroll) => {
 };
 
 const welcomeMessage = () => {
-    let messageContainer = document.querySelector('.intro-logo');
-    let message = document.querySelector('.intro-logo-text');
+    const messageContainer = document.querySelector('.intro-logo');
+    const message = document.querySelector('.intro-logo-text');
     messageContainer.style.transition = '500ms ease-in-out';
     message.style.transition = '500ms ease-in-out';
     setTimeout(() => {
@@ -186,8 +192,8 @@ const introTextSlide = () => {
 
 const navIndicate = (linksArray) => {
     for (let k = 0; k < sections.length; k++) {
-        let boundT = sections[k].getBoundingClientRect().top;
-        let boundB = sections[k].getBoundingClientRect().bottom;
+        const boundT = sections[k].getBoundingClientRect().top;
+        const boundB = sections[k].getBoundingClientRect().bottom;
         // console.log(`${sections[k]} = ${boundT} : ${boundB}`);
         if (boundT >= -vh && boundB > vh / 2 && boundB < vh * 1.5) {
             linksArray[sections.indexOf(sections[k])].firstChild.classList.add('highlight-menu');
@@ -237,9 +243,8 @@ toTopBtn.addEventListener('click', () => {
 
 // handling eventlisteners and scroll function calling
 export const scroll = () => {
-    let scrollY = window.scrollY;
+    const scrollY = window.scrollY;
     navIndicate(navItemsArr);
-    // skillsDisplay();
     if (window.innerWidth > 1000) {
         hideNav(scrollY);
     }
@@ -271,6 +276,7 @@ window.onload = () => {
 window.addEventListener('scroll', scroll);
 window.addEventListener('scroll', skillsDisplay);
 window.addEventListener('resize', navlistSwitch);
+window.addEventListener('mousemove', navHover);
 main.addEventListener('touchstart', (e) => {
     menuListen(e);
 }, { passive: false });

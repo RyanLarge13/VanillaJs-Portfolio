@@ -1,6 +1,6 @@
 import { menuListen } from './script.js'
 
-let appID = '496b46a298054d1194dfc43f4095393a';
+const appID = '496b46a298054d1194dfc43f4095393a';
 let uid;
 let token = null;
 let channelName;
@@ -8,7 +8,7 @@ let memberTotal;
 let messageCount;
 
 const messageContainer = document.querySelector('.messages');
-let userCountIndicator = document.querySelector('.messages p');
+const userCountIndicator = document.querySelector('.messages p');
 const form = document.querySelector('.input-message-container');
 const userMessageContainer = document.querySelector('.input-message-container input');
 const sendButton = document.querySelector('.fa-paper-plane');
@@ -65,8 +65,8 @@ const initiateRTM = async () => {
     
     await client.login({uid, token});
     await channel.join().then( async () => {
-        let name = uid;
-        let helloMessage = document.createElement('div');
+        const name = uid;
+        const helloMessage = document.createElement('div');
         helloMessage.className = 'welcome-message';
         helloMessage.innerHTML = `Welcome <strong>${name}</strong>!! To logout, type in <strong>"leave chat"</strong> or close the browser`;
         messageContainer.appendChild(helloMessage);
@@ -76,7 +76,7 @@ const initiateRTM = async () => {
 
     sendButton.addEventListener('click', async (e) => {
         e.preventDefault();
-        let message = userMessageContainer.value;
+        const message = userMessageContainer.value;
         if (message === 'leave chat' || message === 'Leave chat' || message === 'leavechat' || message === 'Leavechat') {
             return leaveChannelMessage(channel, client);
         } else {
@@ -86,7 +86,7 @@ const initiateRTM = async () => {
     });
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        let message = userMessageContainer.value;
+        const message = userMessageContainer.value;
         if (message === 'leave chat' || message === 'Leave chat' || message === 'leavechat' || message === 'Leavechat') {
             return leaveChannelMessage(channel, client);
         } else {
@@ -98,7 +98,7 @@ const initiateRTM = async () => {
         if (e.key === 'Enter') {
             return;
         } else {
-            let key = e.type;
+            const key = e.type;
             await channel.sendMessage({text: key, type: 'text'}).then(() => {
                 key = '45832927443';
                 sendMessage({text: key});
@@ -108,7 +108,7 @@ const initiateRTM = async () => {
 
     channel.on('MemberJoined', async () => {
         memberTotal = await channel.getMembers();
-        let name = memberTotal[0];
+        const name = memberTotal[0];
         welcome(memberTotal, name);
     });
     channel.on('ChannelMessage', handleChannelMessage);
@@ -140,7 +140,7 @@ const welcome = async (members, name) => {
     setTimeout(() => {
         userCountIndicator.style.opacity = '0';
     }, 5000);
-    let welcomeMessage = document.createElement('div');
+    const welcomeMessage = document.createElement('div');
     welcomeMessage.className = 'welcome-message';
     welcomeMessage.innerHTML = `<strong>${name}</strong> joined the channel!!`;
     messageContainer.insertAdjacentElement('afterbegin', welcomeMessage);
@@ -155,7 +155,7 @@ const sendMessage = async (message) => {
         return;
     }
     if (message.text !== undefined || message.text !== 'Enter') {
-        let myMessage = document.createElement('div');
+        const myMessage = document.createElement('div');
         myMessage.className = 'my-message';
         myMessage.innerHTML = `${message.text}`;
         messageContainer.insertAdjacentElement('afterbegin', myMessage);
@@ -173,8 +173,8 @@ const addMessageToDom = async (message, uid) => {
         return;
     }
     if (message !== null && message !== '') {
-        let memberMessage = document.createElement('div');
-        let messages = Array.from(document.querySelectorAll('.messages div'));
+        const memberMessage = document.createElement('div');
+        const messages = Array.from(document.querySelectorAll('.messages div'));
         memberMessage.className = 'user-message';
         memberMessage.innerHTML = `${message.text}<br><strong>${uid}</strong>`;
         messageContainer.insertAdjacentElement('afterbegin', memberMessage);
@@ -194,20 +194,30 @@ const addMessageToDom = async (message, uid) => {
     }
 };
 
+let typingCount = 1;
 const showTyping = async (messages) => {
-    let typingDiv = document.querySelector('.typing-indicator');
+    const typingDiv = document.querySelector('.typing-indicator');
     
-    if (messages !== undefined) {
-        typingDiv.style.display = 'none';
-    } 
-    if (typingDiv.style.display === 'flex') {
-        return;
+    if (messages === undefined) {
+        let newCount = typingCount;
+        typingCount++;
+        setTimeout(() => {
+            newCount += 2;
+            if (newCount === typingCount) {
+                typingDiv.style.display = 'none';
+            }
+        }, 2000);
+        if (typingDiv.style.display === 'flex') {
+            return;
+        }
+        setTimeout(() => {
+            messageContainer.insertAdjacentElement('afterbegin', typingDiv);
+            typingDiv.style.display = 'flex';
+        }, 10);
     }
-    messageContainer.insertAdjacentElement('afterbegin', typingDiv);
-    typingDiv.style.display = 'flex';
-    setTimeout(() => {
+    if (messages != undefined) {
         typingDiv.style.display = 'none';
-    }, 2000);
+    }
 };
 
 const memberLeft = async (uid, members) => {
@@ -221,7 +231,7 @@ const memberLeft = async (uid, members) => {
     setTimeout(() => {
         userCountIndicator.style.opacity = '0';
     }, 5000);
-    let memberleftMessage = document.createElement('div');
+    const memberleftMessage = document.createElement('div');
     memberleftMessage.className = 'user-left';
     memberleftMessage.innerHTML = `<strong>${uid}</strong> left the chat..`;
     messageContainer.insertAdjacentElement('afterbegin', memberleftMessage);
@@ -230,13 +240,13 @@ const memberLeft = async (uid, members) => {
 
 const leaveChannelMessage = (channel, client) => {
     form.reset();
-    let theLeaveBox = document.querySelector('.leave-channel');
+    const theLeaveBox = document.querySelector('.leave-channel');
     if (theLeaveBox !== null) {
         return;
     }
-    let leaveChannelBox = document.createElement('div');
-    let leaveButton = document.createElement('button');
-    let cancelButton = document.createElement('button');
+    const leaveChannelBox = document.createElement('div');
+    const leaveButton = document.createElement('button');
+    const cancelButton = document.createElement('button');
     leaveButton.className = 'leave-btn';
     cancelButton.className = 'cancel-btn';
     leaveChannelBox.className = 'leave-channel';
