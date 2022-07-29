@@ -55,7 +55,6 @@ dragLine.addEventListener('touchmove', (e) => {
     e.preventDefault();
     let height = screen.height;
     let top = (e.touches[0].clientY / height) * 100;
-    console.log(top)
     if (top > 65 && top < 90) {
         hiddenMenu.style.transition = 'none';
         hiddenMenu.style.top = `${top}%`;
@@ -196,7 +195,6 @@ const navIndicate = (linksArray) => {
     for (let k = 0; k < sections.length; k++) {
         const boundT = sections[k].getBoundingClientRect().top;
         const boundB = sections[k].getBoundingClientRect().bottom;
-        // console.log(`${sections[k]} = ${boundT} : ${boundB}`);
         if (boundT >= -vh && boundB > vh / 2 && boundB < vh * 1.5) {
             linksArray[sections.indexOf(sections[k])].firstChild.classList.add('highlight-menu');
             navDots[sections.indexOf(sections[k])].classList.add('navdot-indicator');

@@ -7,7 +7,7 @@
     padding: 0;
     font-family: 'Cormorant Garamond', serif;
     user-select: none;
-    // outline: 2px solid red;
+    // outline: 2px solid red
 }
 
 html {
@@ -1073,10 +1073,10 @@ main {
                 height: 30em;
                 width: 20em;
                 background-color: #fff;
-                border-radius: 1em;
+                border-radius: 1em 0 1em 0;
                 cursor: pointer;
                 transition: 175ms ease-in-out;
-                box-shadow: 0 .3em .7em .1em #000;
+                border: 1px solid #000;
 
                 @media screen and (max-width: 900px) {
                     height: 20em;
@@ -1089,21 +1089,9 @@ main {
         
         .card-container:hover .card {
             transform: scale(.8) translateY(-10em);
-            box-shadow: 0 .2em .5em 0 #000;
-        }
-        
-        .card-link:focus .card {
-            transform: scale(.8) translateY(-5em);
-            box-shadow: 0 .2em .5em 0 #000;
         }
 
         .card-container:hover .card-bg {
-            opacity: 1;
-            transform: translateY(2em) scale(1);
-            transition: 150ms ease-in-out;
-        }
-        
-        .card-link:focus ~ .card-bg {
             opacity: 1;
             transform: translateY(2em) scale(1);
             transition: 150ms ease-in-out;
@@ -1113,12 +1101,10 @@ main {
             position: absolute;
             width: 25em;
             height: 35em;
-            border-radius: 1em;
-            // background-color: rgba(0, 0, 0, .9);
-            background-color: #eee;
+            border-radius: 0 1em 0 1em;
+            background-image: linear-gradient($light-pink, white);
             opacity: 0;
             transform: translateY(2em) scale(.6);
-            box-shadow: inset 0 0 .2em 0 #000;
             overflow: hidden;
             z-index: -1;
 
@@ -1126,8 +1112,7 @@ main {
                 padding: 2% 3%;
                 position: absolute;
                 left: 3.5%;
-                background-color: $light-orange;
-                box-shadow: 0 0 .3em 0 #000;
+                background-image: linear-gradient($light-orange, white);
                 width: fit-content;
                 height: fit-content;
                 cursor: pointer;
@@ -1188,6 +1173,123 @@ main {
 
 .sec-4 {
     background-color: #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .me-information {
+        position: relative;
+        width: 80%;
+        height: 90%;
+        background-color: $light-orange;
+        display: flex;
+        flex-direction: column;
+
+        .side-bar {
+            width: 5%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+
+            p {
+                top: 0;
+                position: absolute;
+                padding: 1em 0;
+                font-size: 1.5em;
+                font-weight: 700;
+                width: 100%;
+            }
+
+            i {
+                padding: 1.5em 0;
+                font-size: 1.5em;
+                transition: $trans;
+
+                &:hover {
+                    cursor: pointer;
+                    color: $light-yellow;
+                }
+            }
+
+            @media screen and (max-width: 900px) {
+                position: absolute;
+                right: 7.5%;
+                
+                i {
+                    transform: translateY(3em);
+                }
+            }
+        }
+
+        .photo-and-social {
+            background-image: url(../images/aboutsection.jpg);
+            background-size: cover;
+            padding-top: 47.5%;
+            text-align: center;
+            position: absolute;
+            left: 5%;
+            top: -5%;
+            bottom: -5%;
+            width: 40%;
+            color: #fff;
+
+            h2 {
+                font-size: 2.5em;
+                text-shadow: 0 0 .1em #000;
+            }
+
+            h3 {
+                margin-bottom: 2em;
+                text-shadow: 0 0 .5em #000;
+            }
+
+            div {
+
+                i {
+                    padding: 0 .5em;
+                    font-size: 2em;
+                    margin: 0 .5em;
+                    transition: $trans;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: $light-orange;
+                        text-shadow: 0 0 .1em #000;
+                    }
+                }
+            }
+
+            @media screen and (max-width: 900px) {
+                top: -5%;
+                right: -5%;
+                left: -10%;
+                height: 25%;
+                width: 90%;
+                padding-top: 75%;
+            }
+        }
+
+        .info-grid-container {
+            position: absolute;
+            background-color: transparent;
+            right: 0;
+            width: 55%;
+            height: 100%;
+
+            @media screen and (max-width: 900px) {
+                left: 0;
+                bottom: 0;
+                height: 50%;
+                width: 85%;
+                outline: 1px solid red;
+            }
+        }
+    }
+
+
 }
 
 .to-top-btn {

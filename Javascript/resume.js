@@ -269,7 +269,7 @@ let showMoreSkills = (() => {
     };
 
     const read = () => {
-        // console.log(skillContainer.children);
+        
     };
 
     return {
