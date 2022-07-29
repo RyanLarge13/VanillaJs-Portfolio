@@ -1,9 +1,20 @@
 const cards = document.querySelectorAll('.card-container');
+const banners = document.querySelectorAll('.banner p');
 const left = document.querySelector('.left');
 const right = document.querySelector('.right');
 let intL;
 let intR;
 let count = 0;
+let bannerNum = 0;
+
+const increment = (banner) => {
+    bannerNum++;
+    banner.innerHTML = `${bannerNum}`;
+};
+
+banners.forEach((banner) => {
+    increment(banner);
+});
 
 
 left.addEventListener('pointerenter', (e) => {
@@ -42,7 +53,6 @@ cards[0].addEventListener('transitionrun', () => {
 
 cards[cards.length - 1].addEventListener('transitionrun', () => {
     let boundR = cards[cards.length - 1].getBoundingClientRect().right;
-    console.log(boundR)
     if (boundR < 500) {
         clearInterval(intR);
     }

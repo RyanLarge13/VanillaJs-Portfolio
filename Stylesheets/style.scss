@@ -995,6 +995,26 @@ main {
     display: flex;
     justify-content: center;
 
+    .orange-box {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30%;
+        height: 40%;
+        background-image: linear-gradient(100deg, white, $light-orange 90%);
+        z-index: -1;
+    }
+
+    .pink-box {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30%;
+        height: 40%;
+        background-image: linear-gradient(90deg, $light-pink, white);
+        z-index: -1;
+    }
+
     .left {
         background-color: transparent;
         width: 10%;
@@ -1002,6 +1022,10 @@ main {
         position: absolute;
         left: 0;
         z-index: 900;
+
+        @media screen and (max-width: 900px) {
+            width: 20%;
+        }
     }
 
     .right {
@@ -1011,6 +1035,10 @@ main {
         position: absolute;
         right: 0;
         z-index: 900;
+
+        @media screen and (max-width: 900px) {
+            width: 20%;
+        }
     }
 
     h2 {
@@ -1044,7 +1072,7 @@ main {
                 margin: 2em 4em;
                 height: 30em;
                 width: 20em;
-                background-color: #000;
+                background-color: #fff;
                 border-radius: 1em;
                 cursor: pointer;
                 transition: 175ms ease-in-out;
@@ -1086,10 +1114,11 @@ main {
             width: 25em;
             height: 35em;
             border-radius: 1em;
-            background-color: rgba(0, 0, 0, .9);
+            // background-color: rgba(0, 0, 0, .9);
+            background-color: #eee;
             opacity: 0;
             transform: translateY(2em) scale(.6);
-            box-shadow: 0 .2em .5em 0 #000, inset 0 0 .2em 0 #000;
+            box-shadow: inset 0 0 .2em 0 #000;
             overflow: hidden;
             z-index: -1;
 
@@ -1097,7 +1126,7 @@ main {
                 padding: 2% 3%;
                 position: absolute;
                 left: 3.5%;
-                background-color: #000;
+                background-color: $light-orange;
                 box-shadow: 0 0 .3em 0 #000;
                 width: fit-content;
                 height: fit-content;
@@ -1108,7 +1137,7 @@ main {
                 nav-index: none;
     
                 p {
-                    color: white;
+                    color: #000;
                     font-size: 2em;
                     font-weight: 700;
                 }
@@ -1119,11 +1148,13 @@ main {
               filter: drop-shadow(0 .1em .2em #000);
     
               .languageIcons {
-                  font-size: 1.3em;
+                  font-size: 1.2em;
                   text-align: center;
                   margin-top: 90%;
+                  margin-left: 1em;
+                  margin-right: 1em;
                   bottom: 0;
-                  background: linear-gradient(to right, #f857a6, #ff5858);
+                  background: linear-gradient(to right, $light-pink, $light-yellow);
                   clip-path: polygon(50% 0%, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
       
                   i {
@@ -1142,8 +1173,9 @@ main {
                 font-size: larger;
                 text-align: center;
                 bottom: 0;
-                color: white;
+                color: #000;
                 padding: .5em 3em 1.5em 3em;
+                font-weight: 700;
             }
 
             @media screen and (max-width: 900px) {
