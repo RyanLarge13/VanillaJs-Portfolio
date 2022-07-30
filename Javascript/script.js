@@ -121,6 +121,9 @@ const welcomeMessage = () => {
         message.style.opacity = '1';
     }, 500);
     setTimeout(() => {
+        message.style.opacity = '0';
+    }, 1500);
+    setTimeout(() => {
         messageContainer.style.opacity = '0';
     }, 2000);  
     setTimeout(() => {

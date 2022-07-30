@@ -99,6 +99,46 @@ html {
   background-color: #eeeeee;
   z-index: 998;
 }
+.agora-chatbox .in-channel-users {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+  background-color: #ffe259;
+  box-shadow: 0 0 0.5em 0.1em #000;
+  transform: translateX(-110%);
+  border-radius: 1em;
+  transition: 250ms ease-in-out;
+}
+.agora-chatbox .in-channel-users .the-user-container {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+.agora-chatbox .in-channel-users .the-user {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 1em;
+  margin: 2em 0 0.2em 0;
+  color: black;
+  width: 80%;
+  min-height: 15%;
+  max-height: 20%;
+}
+.agora-chatbox .in-channel-users .the-user .user-img {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background-color: #000;
+}
+.agora-chatbox .in-channel-users.transform-user {
+  transform: scale(0.2) translate(-400%, -200%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
 .agora-chatbox .channel-form {
   position: absolute;
   width: 100%;

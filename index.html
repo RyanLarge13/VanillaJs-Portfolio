@@ -33,6 +33,19 @@
     </div>
     <!-- Messaging platform with Ably API -->
     <div class="agora-chatbox">
+        <div class="in-channel-users">
+            <i class="fa-solid fa-circle-xmark user-x"></i>
+            <div class="the-user-container">
+                <div class="the-user">
+                    <div class="user-img"></div>
+                    <p>Bill</p>
+                </div>
+                <div class="the-user">
+                    <div class="user-img"></div>
+                    <p>Bill</p>
+                </div>
+            </div>
+        </div>
         <form class="channel-form">
             <label for="name">Name</label>
             <input autocomplete="off" type="text" id="name">
@@ -311,7 +324,10 @@
         </section>
 
         <section class="sec-5 sec" data-section id="contact">
-            
+            <form action="">
+                <label for="tel">Telephone</label>
+                <input type="tel">
+            </form>
         </section>
 
     </main>

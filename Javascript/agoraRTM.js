@@ -19,6 +19,9 @@ const channelForm = document.querySelector('.channel-form');
 const userName = document.querySelector('#name');
 const channelNumber = document.querySelector('#channel-number');
 const notify = document.querySelector('.notify');
+const userListContainer = document.querySelector('.in-channel-users');
+const usersList = document.querySelector('.the-user-container');
+const userListX = document.querySelector('.user-x');
 
 //simple chatbox display function for agora RTM 
 export const chatDisplay = () => {
@@ -39,8 +42,39 @@ export const chatDisplay = () => {
 main.addEventListener('click', () => {
     chatBox.classList.remove('scale');
     agoraButton.classList.remove('transform-zero');
+    decide();
     main.addEventListener('touchstart', menuListen, { passive: false });
 });
+
+const decide = () => {
+    if (userListContainer.classList.contains('transform-user')) {
+        return;
+    }
+    transUp();
+    chatDisplay();
+};
+
+const transUp = () => {
+    chatDisplay();
+    userListContainer.classList.add('transform-user');
+    userListContainer.removeChild(usersList);
+    userListContainer.removeChild(userListX);
+
+    setTimeout(() => {
+        if (userListContainer.classList.contains('transform-user')) {
+            userListContainer.addEventListener('click', transUser);   
+        }
+    }, 100);
+};
+
+const transUser = () => {
+    userListContainer.removeEventListener('click', transUser);
+    userListContainer.classList.remove('transform-user');
+    userListContainer.appendChild(usersList);
+    userListContainer.appendChild(userListX);
+};
+
+userListX.addEventListener('click', transUp);
 
 channelForm.addEventListener('submit', (e) => {
     e.preventDefault();
