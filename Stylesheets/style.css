@@ -1101,7 +1101,7 @@ main .intro-container .intro-circle:nth-child(3) {
     right: 7.5%;
   }
   .sec-4 .me-information .side-bar i {
-    transform: translateY(3em);
+    padding: 1em 0;
   }
 }
 .sec-4 .me-information .photo-and-social {
@@ -1144,6 +1144,9 @@ main .intro-container .intro-circle:nth-child(3) {
     width: 90%;
     padding-top: 75%;
   }
+  .sec-4 .me-information .photo-and-social div i {
+    margin: 0;
+  }
 }
 .sec-4 .me-information .info-grid-container {
   position: absolute;
@@ -1152,13 +1155,24 @@ main .intro-container .intro-circle:nth-child(3) {
   width: 55%;
   height: 100%;
 }
+.sec-4 .me-information .info-grid-container div {
+  display: none;
+}
 @media screen and (max-width: 900px) {
   .sec-4 .me-information .info-grid-container {
     left: 0;
     bottom: 0;
-    height: 50%;
+    max-height: 47.5%;
     width: 85%;
-    outline: 1px solid red;
+  }
+  .sec-4 .me-information .info-grid-container h2 {
+    padding: 0 0.75em;
+  }
+  .sec-4 .me-information .info-grid-container h3 {
+    padding: 0 1em;
+  }
+  .sec-4 .me-information .info-grid-container p {
+    padding: 0.5em 0.25em 1em 1em;
   }
 }
 

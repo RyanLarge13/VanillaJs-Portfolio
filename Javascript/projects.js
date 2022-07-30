@@ -44,16 +44,16 @@ right.addEventListener('pointerleave', (e) => {
     clearInterval(intR);
 });
 
-cards[0].addEventListener('transitionrun', () => {
-    let boundL = cards[0].getBoundingClientRect().left;
-    if (boundL > -200) {
-        clearInterval(intL);
-    }
-});
+// cards[0].addEventListener('transitionrun', () => {
+//     let boundL = cards[0].getBoundingClientRect().left;
+//     if (boundL > -200) {
+//         clearInterval(intL);
+//     }
+// });
 
-cards[cards.length - 1].addEventListener('transitionrun', () => {
-    let boundR = cards[cards.length - 1].getBoundingClientRect().right;
-    if (boundR < 500) {
-        clearInterval(intR);
-    }
-});
+// cards[cards.length - 1].addEventListener('transitionrun', () => {
+//     let boundR = cards[cards.length - 1].getBoundingClientRect().right;
+//     if (boundR < 500) {
+//         clearInterval(intR);
+//     }
+// });
