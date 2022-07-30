@@ -1129,6 +1129,7 @@ main .intro-container .intro-circle:nth-child(3) {
   font-size: 2em;
   margin: 0 0.5em;
   transition: 250ms ease-in-out;
+  color: #fff;
 }
 .sec-4 .me-information .photo-and-social div i:hover {
   cursor: pointer;
@@ -1156,7 +1157,10 @@ main .intro-container .intro-circle:nth-child(3) {
   height: 100%;
 }
 .sec-4 .me-information .info-grid-container div {
+  position: absolute;
   display: none;
+  opacity: 0;
+  transition: 750ms ease-in-out;
 }
 @media screen and (max-width: 900px) {
   .sec-4 .me-information .info-grid-container {
