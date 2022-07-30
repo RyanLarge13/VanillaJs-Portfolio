@@ -1,2 +1,5 @@
 /Stylesheets/style.scss
 /Stylesheets/style.css.map
+package-lock.json
+package.json
+/node_modules
