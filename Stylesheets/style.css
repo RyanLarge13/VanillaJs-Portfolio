@@ -110,11 +110,14 @@ html {
   transform: translateX(-110%);
   border-radius: 1em;
   transition: 250ms ease-in-out;
+  display: none;
+  opacity: 0;
 }
 .agora-chatbox .in-channel-users .the-user-container {
   height: 100%;
   width: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .agora-chatbox .in-channel-users .the-user {
   display: flex;
@@ -133,11 +136,22 @@ html {
   border-radius: 50%;
   background-color: #000;
 }
+@media screen and (max-width: 900px) {
+  .agora-chatbox .in-channel-users {
+    transform: translateX(100%);
+    z-index: 999;
+  }
+}
 .agora-chatbox .in-channel-users.transform-user {
   transform: scale(0.2) translate(-400%, -200%);
   width: 200px;
   height: 200px;
   border-radius: 50%;
+}
+@media screen and (max-width: 900px) {
+  .agora-chatbox .in-channel-users.transform-user {
+    transform: scale(0.2) translate(-350%, -200%);
+  }
 }
 .agora-chatbox .channel-form {
   position: absolute;
@@ -568,7 +582,7 @@ header nav ul li:nth-child(3) {
 }
 header nav ul li {
   margin: auto;
-  padding: 2em 0;
+  padding: 1.5em 0;
 }
 header nav ul li a {
   font-size: 1.5em;
