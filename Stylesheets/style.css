@@ -803,6 +803,27 @@ main .intro-container .intro-circle:nth-child(3) {
     top: 30%;
   }
 }
+@media screen and (max-width: 400px) {
+  main .intro-container .introduction {
+    margin-right: 7.5em;
+  }
+  main .intro-container .introduction h2 {
+    padding-left: 2em;
+  }
+  main .intro-container .introduction p {
+    padding: 0.1em 2em 0 5em;
+  }
+  main .intro-container .intro-circle:nth-child(4) {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+  }
+  main .intro-container .intro-circle:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    top: 5%;
+  }
+}
 
 .sec {
   width: 100vw;
@@ -981,6 +1002,15 @@ main .intro-container .intro-circle:nth-child(3) {
   }
   .sec-2 .resume-container .skill-detail-holder p {
     font-size: 1em;
+    width: 12em;
+  }
+}
+@media screen and (max-width: 400px) {
+  .sec-2 .resume-container .skill-holder .skill-parent i {
+    font-size: 8em;
+  }
+  .sec-2 .resume-container .skill-detail-holder p {
+    font-size: 0.75em;
     width: 12em;
   }
 }
