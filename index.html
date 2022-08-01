@@ -45,6 +45,7 @@
             <label for="channel-number">Channel</label>
             <!-- <input autocomplete="off" type="text" id="channel-number" required> -->
             <input autocomplete="off" type="text" id="channel-number" >
+            <label for="join-channel" class="no-display">Join Channel</label>
             <input type="submit" value="Join a Channel" id="join-channel">
         </form>
         <i class="fa-solid fa-circle-xmark" id="agoraX"></i>
@@ -60,11 +61,12 @@
             </div>
         </div>
         <form class="input-message-container">
-            <input type="text" placeholder="Message me!"/>
+            <label for="messaging-form" class="no-display">Message</label>
+            <input id="messaging-form" type="text" placeholder="Message me!"/>
             <i class="fa-regular fa-paper-plane"></i>
         </form>
     </div>
-    <div class="agora-btn"><i class="fa-solid fa-message"><div class="notify"></div></i></div>
+    <div class="agora-btn"><i class="fa-solid fa-message"></i><div class="notify"></div></div>
     <!-- navigation side dots -->
     <div class="nav-dot-container">
         <div class="nav-dot"></div>
@@ -83,14 +85,14 @@
             <span></span>
         </div>
         <!-- Desktop nav -->
-        <a href="#" class="skip-nav-link">Skip Nav</a>
+        <a href="#" class="skip-nav-link" alt="Skip Navigation" >Skip Nav</a>
         <nav>
             <ul>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#home"><strong>Ryan Large</strong></a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#resume" aria-label="Resume">Resume</a></li>
+                <li><a href="#projects" aria-label="Projects">Projects</a></li>
+                <li><a href="#home" aria-label="Home"><strong>Ryan Large</strong></a></li>
+                <li><a href="#contact" aria-label="Contact">Contact</a></li>
+                <li><a href="#about" aria-label="About">About</a></li>
             </ul>
         </nav>
     </header>
@@ -263,9 +265,9 @@
                     <h2>Ryan Large</h2>
                     <h3>Developer</h3>
                     <div class="links">
-                        <a href="https://www.facebook.com/ryan.large.984/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://github.com/RyanLarge13" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/ryan-large/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/ryan.large.984/" target="_blank" aria-label="Facebook Link"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://github.com/RyanLarge13" target="_blank" aria-label="Github Link"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/ryan-large/" target="_blank" aria-label="Linked-in Link"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="info-grid-container">
@@ -321,18 +323,18 @@
             <h2>Contact</h2>
             <form action="" class="contact-form">
                 <label for="tel">Telephone</label>
-                <input type="tel">
+                <input type="tel" id="tel">
                 <label for="email">Email</label>
-                <input type="email">
+                <input type="email" id="email">
                 <label for="text">Message</label>
                 <textarea name="text" id="text" cols="30" rows="10"></textarea>
             </form>
             <button class="form-submission">Send</button>
             <footer>
                 <p>All Rights Reserved @RyanLarge</p>
-                <a href="https://www.facebook.com/ryan.large.984/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://github.com/RyanLarge13" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/ryan-large/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/ryan.large.984/" target="_blank" aria-label="Facebook Link"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://github.com/RyanLarge13" target="_blank" aria-label="Github Link"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ryan-large/" target="_blank" aria-label="Linked-in Link"><i class="fa-brands fa-linkedin"></i></a>
             </footer>
         </section>
 
@@ -343,18 +345,18 @@
 
 
     <!-- main script -->
-    <script defer type="module" src="./Javascript/script.js"></script>
+    <script type="module" src="./Javascript/script.js"></script>
     <!-- resume script -->
-    <script defer type="module" src="./Javascript/resume.js"></script>
+    <script type="module" src="./Javascript/resume.js"></script>
     <!-- projects script -->
-    <script defer type="module" src="./Javascript/projects.js"></script>
+    <script type="module" src="./Javascript/projects.js"></script>
     <!-- about me script -->
-    <script defer type="module" src="./Javascript/aboutme.js"></script>
+    <script type="module" src="./Javascript/aboutme.js"></script>
     <!-- contact script -->
-    <script defer type="module" src="./Javascript/contact.js"></script>
+    <script type="module" src="./Javascript/contact.js"></script>
     <!--agora rtm -->
+    <script type="module" src="/Javascript/agoraRTM.js"></script>
     <script defer src="./Javascript/agora-rtm-sdk-1.4.5.js"></script>
-    <script defer type="module" src="/Javascript/agoraRTM.js"></script>
     <!-- link to font awesome -->
     <script defer src="https://kit.fontawesome.com/a673862905.js" crossorigin="anonymous"></script>
 </body>

@@ -30,6 +30,10 @@ html {
   background-size: 100% 0.15em;
 }
 
+.no-display {
+  display: none;
+}
+
 .intro-logo {
   position: fixed;
   width: 100vw;
@@ -499,11 +503,11 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1.5em;
-  height: 1.5em;
+  width: 2em;
+  height: 2em;
   border-radius: 50%;
   background-color: #f864ae;
-  transform: translate(-100%, -200%) scale(0);
+  transform: scale(0);
   transition: all 250ms ease-in-out;
   font-family: "Times New Roman", Times, serif;
   font-size: 0.6em;
@@ -1187,7 +1191,6 @@ main .intro-container .intro-circle:nth-child(3) {
   margin-top: 90%;
   margin-left: 1em;
   margin-right: 1em;
-  bottom: 0;
   background: linear-gradient(to right, #f864ae, #ffe259);
   -webkit-clip-path: polygon(50% 0%, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
           clip-path: polygon(50% 0%, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
@@ -1210,7 +1213,6 @@ main .intro-container .intro-circle:nth-child(3) {
   margin-top: 1em;
   font-size: larger;
   text-align: center;
-  bottom: 0;
   color: #000;
   padding: 0.5em 3em 1.5em 3em;
   font-weight: 700;

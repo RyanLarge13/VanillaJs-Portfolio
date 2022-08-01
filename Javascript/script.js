@@ -70,7 +70,7 @@ dragLine.addEventListener('touchmove', (e) => {
             return hiddenMenu.style.top = `${top + 400}%`;
         }
     })
-});
+}, { passive: true });
 
 const navHover = (e) => {
     if (e.clientY <= nav.clientHeight) {

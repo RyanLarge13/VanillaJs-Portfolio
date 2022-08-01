@@ -247,7 +247,7 @@ const addMessageToDom = async (message, uid) => {
         if (chatBox.classList.contains('scale')) {
             messageCount = null;
         } else {
-            notify.style.transform = 'translate(-90%, -180%) scale(1)';
+            notify.style.transform = 'translate(-100%, -100%) scale(1)';
             if (messageCount >= 9) {
                 return notify.innerHTML = `${9}+`;
             } else {
