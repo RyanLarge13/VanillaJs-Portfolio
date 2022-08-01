@@ -787,10 +787,10 @@ main .intro-container .intro-circle:nth-child(3) {
     margin-right: 7.5em;
   }
   main .intro-container .introduction h2 {
-    padding-left: 0.2em;
+    padding-left: 2em;
   }
   main .intro-container .introduction p {
-    padding: 0.1em 2em 0 0.5em;
+    padding: 0.1em 2em 0 5em;
   }
   main .intro-container .intro-circle:nth-child(4) {
     width: 300px;
@@ -800,7 +800,7 @@ main .intro-container .intro-circle:nth-child(3) {
   main .intro-container .intro-circle:nth-child(3) {
     width: 100px;
     height: 100px;
-    top: 30%;
+    top: 5%;
   }
 }
 @media screen and (max-width: 400px) {

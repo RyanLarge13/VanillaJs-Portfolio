@@ -9,7 +9,6 @@ let intL;
 let intR;
 let count = 0;
 let bannerNum = 0;
-console.log(window.innerWidth)
 const increment = (banner) => {
     bannerNum++;
     banner.innerHTML = `${bannerNum}`;
