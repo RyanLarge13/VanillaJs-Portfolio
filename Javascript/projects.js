@@ -1,7 +1,10 @@
 const cards = document.querySelectorAll('.card-container');
 const banners = document.querySelectorAll('.banner p');
+const cardTitles = document.querySelectorAll('.card-p');
 const left = document.querySelector('.left');
 const right = document.querySelector('.right');
+const searchBar = document.getElementById('search');
+const vw = screen.width;
 let intL;
 let intR;
 let count = 0;
@@ -16,17 +19,29 @@ banners.forEach((banner) => {
     increment(banner);
 });
 
-left.addEventListener('pointerenter', (e) => {
+const moveLeft = (e, card) => {
     e.preventDefault();
-    cards[0].addEventListener('transitionrun', () => {
-        let boundL = cards[0].getBoundingClientRect().left;
-        if (boundL > -200) {
+    let cardZero;
+    if (e.key === 'Backspace' || e.key === 'Shift' || e.key === 'Enter') {
+        return;
+    }
+    if (e.type === 'keyup') {
+        cardZero = card;
+    } 
+    if (card === undefined) {
+        cardZero = cards[0];
+    }
+    cardZero.addEventListener('transitionrun', () => {
+        const boundL = cardZero.getBoundingClientRect().left;
+        let l = (boundL / vw) * 100;
+        if (l > 0) {
             clearInterval(intL);
         }
     });  
-    cards[0].addEventListener('transitionstart', () => {
-        let boundL = cards[0].getBoundingClientRect().left;
-        if (boundL > -200) {
+    cardZero.addEventListener('transitionstart', () => {
+        const boundL = cardZero.getBoundingClientRect().left;
+        let l = (boundL / vw) * 100;
+        if (l > 0) {
             clearInterval(intL);
         }
     });
@@ -36,19 +51,31 @@ left.addEventListener('pointerenter', (e) => {
             card.style.transform = `translateX(${count}%)`;
         });
     }, 1);
-});
+};
 
-right.addEventListener('pointerenter', (e) => {
+const moveRight = (e, card) => {
     e.preventDefault();
-    cards[cards.length - 1].addEventListener('transitionstart', () => {
-        let boundR = cards[cards.length - 1].getBoundingClientRect().right;
-        if (boundR < 500) {
+    let lastCard;
+    if (e.key === 'Backspace' || e.key === 'Shift' || e.key === 'Enter') {
+        return;
+    }
+    if (e.type === 'keyup') {
+        lastCard = card;
+    } 
+    if (card === undefined) {
+        lastCard = cards[cards.length - 1]
+    }
+    lastCard.addEventListener('transitionstart', () => {
+        const boundR = lastCard.getBoundingClientRect().right;
+        let r = (boundR / vw) * 100;
+        if (r < 100) {
             clearInterval(intR);
         }
     });    
-    cards[cards.length - 1].addEventListener('transitionrun', () => {
-        let boundR = cards[cards.length - 1].getBoundingClientRect().right;
-        if (boundR < 500) {
+    lastCard.addEventListener('transitionrun', () => {
+        const boundR = lastCard.getBoundingClientRect().right;
+        let r = (boundR / vw) * 100;
+        if (r < 100) {
             clearInterval(intR);
         }
     });
@@ -58,7 +85,7 @@ right.addEventListener('pointerenter', (e) => {
             card.style.transform = `translateX(${count}%)`;
         });
     }, 1);
-});
+};
 
 left.addEventListener('pointerleave', (e) => {
     e.preventDefault();
@@ -69,3 +96,34 @@ right.addEventListener('pointerleave', (e) => {
     e.preventDefault();
     clearInterval(intR);
 });
+
+searchBar.addEventListener('keyup', (e) => {
+    let val = searchBar.value;
+    let firstParent;
+    let topParent;
+    cardTitles.forEach((title) => {
+        let text = title.innerHTML;
+        if (text.match(val)) {
+            firstParent = title.parentElement;
+            topParent = firstParent.parentElement;
+            cards.forEach((card) => {
+                if (val === '') {
+                    return card.style.opacity = '1';
+                }
+                card.style.opacity = '0';
+                topParent.style.opacity = '1';
+            });
+        }
+    });
+    let r = (topParent.getBoundingClientRect().right / vw) * 100;
+    let l = (topParent.getBoundingClientRect().left / vw) * 100;
+    if (r > 100) {
+        return moveRight(e, topParent);
+    }
+    if (l < 0) {
+        return moveLeft(e, topParent);
+    }
+});
+
+left.addEventListener('pointerenter', moveLeft);
+right.addEventListener('pointerenter', moveRight);

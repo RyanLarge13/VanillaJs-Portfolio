@@ -60,7 +60,7 @@ const decide = () => {
 const transDown = () => {
     chatDisplay();
     userListContainer.classList.add('transform-user');
-    userListContainer.removeChild(usersList);
+    usersList.style.display = 'none';
     userListX.style.display = 'none';
 
     setTimeout(() => {
@@ -73,7 +73,7 @@ const transDown = () => {
 const transUp = () => {
     userListContainer.removeEventListener('click', transUp);
     userListContainer.classList.remove('transform-user');
-    userListContainer.appendChild(usersList);
+    usersList.style.display = 'block';
     userListX.style.display = 'block';
 };
 

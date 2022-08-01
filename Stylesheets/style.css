@@ -943,6 +943,19 @@ main .intro-container .intro-circle:nth-child(3) {
   display: flex;
   justify-content: center;
 }
+.sec-3 #search {
+  width: 10%;
+  height: 5%;
+  position: absolute;
+  bottom: 5%;
+  padding: 1em;
+  border-radius: 1em 0 1em 0;
+  border: 1px solid #000;
+  transition: 250ms ease-in-out;
+}
+.sec-3 #search:hover {
+  background-color: #ffa751;
+}
 .sec-3 .orange-box {
   position: absolute;
   top: 0;
