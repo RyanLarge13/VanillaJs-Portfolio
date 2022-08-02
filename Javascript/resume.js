@@ -8,6 +8,7 @@ const skillIcons = document.querySelectorAll('.skill-icon');
 const leftArrow = document.querySelector('.fa-caret-left');
 const rightArrow = document.querySelector('.fa-caret-right');
 const skillParagraphs = document.querySelectorAll('.skill-detail p');
+const resumeSVGPaths = document.querySelectorAll('.res-svg path');
 const width = skillIcons[0].clientWidth * 2;
 let count = 0;
 let start;
@@ -18,6 +19,53 @@ export const displayIcons = () => {
     skillParagraphs[3].style.opacity = '1';
     skillParagraphs[3].style.transform = 'translateX(0) translateY(-50%)';
 }
+
+export const dblTapSVG = () => {
+    let arr = Array.from(resumeSVGPaths);
+    resumeSVGPaths.forEach((path) => {
+        if (path.style.transition === '500ms ease-in-out') {
+            return;
+        }
+        path.style.transition = '500ms ease-in-out';
+    });
+    setTimeout(() => {
+        arr[2].style.opacity = '1';
+        setTimeout(() => {
+            arr[2].style.perspective = '2em';
+            arr[2].style.transform = 'rotateX(-25deg) translateY(15%)';
+            arr[1].style.perspective = '2em';
+            arr[1].style.transform = 'rotateX(-25deg) translateY(15%)';
+            setTimeout(() => {
+                arr[1].style.opacity = '1';
+                arr[0].style.perspective = '2em';
+                arr[0].style.transform = 'rotateX(-25deg) translateY(15%)';
+                setTimeout(() => {
+                    arr[0].style.opacity = '1';
+                }, 200);
+            }, 500);
+        }, 200);
+    }, 500);
+    setTimeout(() => {
+        arr[1].style.opacity = '0';
+        arr[0].style.opacity = '0';
+        arr[2].style.transform = 'rotateX(0)';
+        setTimeout(() => {
+            arr[2].style.transform = 'rotateX(25deg) translateY(15%)';
+            setTimeout(() => {
+                arr[1].style.opacity = '1';
+                arr[0].style.opacity = '1';
+            }, 300);
+        }, 500);
+    }, 1500);
+    setTimeout(() => {
+        resumeSVGPaths.forEach((path) => {
+            path.style.opacity = '0';
+            setTimeout(() => {
+                path.style.display = 'none';
+            }, 500);
+        });
+    }, 3000);
+};
 
 const slider = (e) => {
     skillIcons.forEach(icon => {

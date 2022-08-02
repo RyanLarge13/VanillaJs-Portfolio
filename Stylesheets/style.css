@@ -706,6 +706,9 @@ main .intro-container {
   align-items: center;
   max-width: 95vw;
 }
+main .intro-container svg {
+  display: none;
+}
 main .intro-container .introduction {
   max-width: 95vw;
 }
@@ -731,7 +734,7 @@ main .intro-container .intro-circle {
   z-index: -1;
   transform: scale(0, 0);
 }
-main .intro-container .intro-circle:nth-child(4) {
+main .intro-container .intro-circle:nth-child(5) {
   width: 600px;
   height: 600px;
   border-radius: 50%;
@@ -739,7 +742,7 @@ main .intro-container .intro-circle:nth-child(4) {
   top: 0;
   right: 0;
 }
-main .intro-container .intro-circle:nth-child(3) {
+main .intro-container .intro-circle:nth-child(4) {
   width: 300px;
   height: 300px;
   border-radius: 50%;
@@ -754,6 +757,21 @@ main .intro-container .intro-circle:nth-child(3) {
     left: 50%;
     font-size: 3em;
     transform: translateX(-50%);
+  }
+  main .intro-container svg {
+    display: block;
+    position: absolute;
+    bottom: 10%;
+    left: 70%;
+  }
+  main .intro-container svg #p1 {
+    opacity: 0;
+  }
+  main .intro-container svg #p2 {
+    opacity: 0;
+  }
+  main .intro-container svg #p3 {
+    opacity: 0;
   }
   main .intro-container .introduction {
     position: absolute;
@@ -775,12 +793,12 @@ main .intro-container .intro-circle:nth-child(3) {
   main .intro-container .intro-circle {
     transform: scale(0);
   }
-  main .intro-container .intro-circle:nth-child(4) {
+  main .intro-container .intro-circle:nth-child(5) {
     width: 300px;
     height: 300px;
     top: 5%;
   }
-  main .intro-container .intro-circle:nth-child(3) {
+  main .intro-container .intro-circle:nth-child(4) {
     width: 100px;
     height: 100px;
     top: 0;
@@ -796,12 +814,12 @@ main .intro-container .intro-circle:nth-child(3) {
   main .intro-container .introduction p {
     padding: 0.1em 2em 0 5em;
   }
-  main .intro-container .intro-circle:nth-child(4) {
+  main .intro-container .intro-circle:nth-child(5) {
     width: 300px;
     height: 300px;
     top: 10%;
   }
-  main .intro-container .intro-circle:nth-child(3) {
+  main .intro-container .intro-circle:nth-child(4) {
     width: 100px;
     height: 100px;
     top: 10%;
@@ -842,6 +860,11 @@ main .intro-container .intro-circle:nth-child(3) {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.sec-2 svg {
+  display: none;
+  position: absolute;
+  z-index: 2;
 }
 .sec-2 .help-message {
   position: absolute;
@@ -951,6 +974,20 @@ main .intro-container .intro-circle:nth-child(3) {
   pointer-events: none;
 }
 @media (min-width: 200px) and (max-width: 900px) {
+  .sec-2 svg {
+    display: block;
+    left: 80%;
+    top: 25%;
+  }
+  .sec-2 svg #rp1 {
+    opacity: 0;
+  }
+  .sec-2 svg #rp2 {
+    opacity: 0;
+  }
+  .sec-2 svg #rp3 {
+    opacity: 0;
+  }
   .sec-2 h2 {
     top: 5%;
     font-size: 3em;
