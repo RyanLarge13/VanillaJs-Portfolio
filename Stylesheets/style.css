@@ -708,6 +708,7 @@ main .intro-container {
 }
 main .intro-container svg {
   display: none;
+  width: 100px;
 }
 main .intro-container .introduction {
   max-width: 95vw;
@@ -862,6 +863,7 @@ main .intro-container .intro-circle:nth-child(4) {
   justify-content: center;
 }
 .sec-2 svg {
+  position: absolute;
   display: none;
   position: absolute;
   z-index: 2;
@@ -975,6 +977,7 @@ main .intro-container .intro-circle:nth-child(4) {
 }
 @media (min-width: 200px) and (max-width: 900px) {
   .sec-2 svg {
+    position: absolute;
     display: block;
     left: 80%;
     top: 25%;

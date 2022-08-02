@@ -85,7 +85,6 @@ const menuOpen = () => {
 };
 
 dragLine.addEventListener('touchmove', (e) => {
-    e.preventDefault();
     let height = screen.height;
     let top = (e.touches[0].clientY / height) * 100;
     if (top > 65 && top < 90) {
