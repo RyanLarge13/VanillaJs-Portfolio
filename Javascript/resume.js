@@ -22,7 +22,6 @@ export const displayIcons = () => {
 }
 
 const dblTapSVG = () => {
-    sectionTwoBody.removeEventListener('touchend', handleSVG);
     let arr = Array.from(resumeSVGPaths);
     resumeSVGPaths.forEach((path) => {
         if (path.style.transition === '500ms ease-in-out') {
@@ -445,28 +444,23 @@ const doubleTap = async (e) => {
                     setTimeout(() => {
 
                     }, 500);
-                });
+                })
                 clearTimeout(timeout);
             }, 500);
         }
-    } else {
+    } if (e.target !== dataContainer) {
         moveMobileSkills.displayHelp();
     }
     lastTap = currentTime;
 };
 
-const handleDblTouch = (e) => {
-    if (e.target === skillParent) {
+sectionTwoBody.addEventListener('touchend', (e) => {
+    const skillData = document.querySelector('.skill-data');
+    if (e.target === skillParent || e.target === skillData) {
         return;
     } else {
         doubleTap(e);
+        dblTapSVG();
     }
-};
-
-const handleSVG = () => {
-    dblTapSVG();
-};
-
-sectionTwoBody.addEventListener('touchend', handleDblTouch);
-sectionTwoBody.addEventListener('touchend', handleSVG);
+});
 resumeSVG.addEventListener('click', moveMobileSkills.displayHelp);
