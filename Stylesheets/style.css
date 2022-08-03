@@ -8,7 +8,6 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  outline: 2px solid red;
 }
 
 html {
@@ -111,11 +110,28 @@ html {
   width: 50%;
   height: 50%;
   background-color: #ffe259;
-  box-shadow: 0 0 0.5em 0.1em #000;
   transform: translateX(-110%);
   border-radius: 1em;
   transition: 250ms ease-in-out;
   opacity: 0;
+  box-shadow: 0 0 0.5em 0.1em #000;
+}
+.agora-chatbox .in-channel-users:hover {
+  cursor: pointer;
+}
+.agora-chatbox .in-channel-users .fa-user {
+  font-size: 8em;
+  background-color: transparent;
+  transform: translateX(0.35em) translateY(0.2em);
+  display: none;
+  pointer-events: none;
+}
+.agora-chatbox .in-channel-users .fa-users {
+  font-size: 7em;
+  background-color: transparent;
+  transform: translateX(0.3em) translateY(0.3em);
+  display: none;
+  pointer-events: none;
 }
 .agora-chatbox .in-channel-users .the-user-container {
   height: 100%;

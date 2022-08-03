@@ -6,6 +6,7 @@ let token = null;
 let channelName;
 let memberTotal;
 let messageCount;
+let mems;
 
 export const chatBox = document.querySelector('.agora-chatbox');
 const messageContainer = document.querySelector('.messages');
@@ -22,6 +23,8 @@ const notify = document.querySelector('.notify');
 const userListContainer = document.querySelector('.in-channel-users');
 const usersList = document.querySelector('.the-user-container');
 const userListX = document.querySelector('.user-x');
+const oneUser = document.querySelector('.fa-user');
+const twoUsers = document.querySelector('.fa-users');
 const agoraChatBoxXMark = document.getElementById('agoraX');
 
 //simple chatbox display function for agora RTM 
@@ -53,15 +56,23 @@ const decide = () => {
     if (userListContainer.classList.contains('transform-user')) {
         return;
     }
-    transDown();
+    transDown(mems);
     chatDisplay();
 };
 
 const transDown = () => {
-    chatDisplay();
     userListContainer.classList.add('transform-user');
     usersList.style.display = 'none';
     userListX.style.display = 'none';
+    if (mems.length > 1) {
+        oneUser.style.display = 'none';
+        twoUsers.style.display = 'block';
+    }
+    if (mems.length <= 1) {
+        oneUser.style.display = 'block';
+        twoUsers.style.display = 'none';
+    }
+
 
     setTimeout(() => {
         if (userListContainer.classList.contains('transform-user')) {
@@ -75,12 +86,14 @@ const transUp = () => {
     userListContainer.classList.remove('transform-user');
     usersList.style.display = 'block';
     userListX.style.display = 'block';
+    oneUser.style.display = 'none';
+    twoUsers.style.display = 'none';
 };
 
 userListX.addEventListener('click', transDown);
 
 const appendUsers = async (channel) => {
-    let mems = await channel.getMembers();
+    mems = await channel.getMembers();
     let list = Array.from(document.querySelectorAll('.the-user'));
     list.find((user) => {
         mems.forEach((memb) => {
@@ -100,6 +113,7 @@ const appendUsers = async (channel) => {
         user.appendChild(userName);
         usersList.insertAdjacentElement('afterbegin', user);
     });
+    transDown();
 };
 
 channelForm.addEventListener('submit', (e) => {
@@ -180,6 +194,8 @@ const initiateRTM = async () => {
     channel.on('MemberLeft', async (uid) => {
         memberTotal = await channel.getMembers();
         memberLeft(uid, memberTotal);
+        mems = memberTotal;
+        transDown();
     });
 
 };
