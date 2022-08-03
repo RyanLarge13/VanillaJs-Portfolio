@@ -333,7 +333,7 @@ let showMoreSkills = (() => {
 })();
 
 sectionTwoBody.addEventListener('dblclick', (e) => {
-    if (e.type === 'touch') {
+    if (e.target === skillParent) {
         return;
     }
     showMoreSkills.moveSkill(e).then(() => {
@@ -456,7 +456,7 @@ const doubleTap = async (e) => {
 };
 
 const handleDblTouch = (e) => {
-    if (e.target !== sectionTwoBody) {
+    if (e.target === skillParent) {
         return;
     } else {
         doubleTap(e);
@@ -469,3 +469,4 @@ const handleSVG = () => {
 
 sectionTwoBody.addEventListener('touchend', handleDblTouch);
 sectionTwoBody.addEventListener('touchend', handleSVG);
+resumeSVG.addEventListener('click', moveMobileSkills.displayHelp);
