@@ -9,6 +9,7 @@ const leftArrow = document.querySelector('.fa-caret-left');
 const rightArrow = document.querySelector('.fa-caret-right');
 const skillParagraphs = document.querySelectorAll('.skill-detail p');
 const resumeSVGPaths = document.querySelectorAll('.res-svg path');
+const resumeSVG = document.querySelector('.res-svg');
 const width = skillIcons[0].clientWidth * 2;
 let count = 0;
 let start;
@@ -20,7 +21,8 @@ export const displayIcons = () => {
     skillParagraphs[3].style.transform = 'translateX(0) translateY(-50%)';
 }
 
-export const dblTapSVG = () => {
+const dblTapSVG = () => {
+    sectionTwoBody.removeEventListener('touchend', handleSVG);
     let arr = Array.from(resumeSVGPaths);
     resumeSVGPaths.forEach((path) => {
         if (path.style.transition === '500ms ease-in-out') {
@@ -65,6 +67,9 @@ export const dblTapSVG = () => {
             }, 500);
         });
     }, 3000);
+    setTimeout(() => {
+        resumeSVG.style.display = 'none';
+    }, 3500);
 };
 
 const slider = (e) => {
@@ -328,6 +333,9 @@ let showMoreSkills = (() => {
 })();
 
 sectionTwoBody.addEventListener('dblclick', (e) => {
+    if (e.type === 'touch') {
+        return;
+    }
     showMoreSkills.moveSkill(e).then(() => {
         setTimeout(() => {
             showMoreSkills.appendData(); 
@@ -447,10 +455,17 @@ const doubleTap = async (e) => {
     lastTap = currentTime;
 };
 
-sectionTwoBody.addEventListener('touchend', (e) => {
+const handleDblTouch = (e) => {
     if (e.target !== sectionTwoBody) {
         return;
     } else {
         doubleTap(e);
     }
-});
+};
+
+const handleSVG = () => {
+    dblTapSVG();
+};
+
+sectionTwoBody.addEventListener('touchend', handleDblTouch);
+sectionTwoBody.addEventListener('touchend', handleSVG);

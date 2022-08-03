@@ -1,5 +1,5 @@
 import { chatDisplay, chatBox } from './agoraRTM.js';
-import { skillsDisplay, displayIcons, dblTapSVG } from './resume.js';
+import { skillsDisplay, displayIcons } from './resume.js';
 
 const navToggle = document.querySelector('.nav-toggle-body');
 const spans = document.querySelectorAll('.nav-toggle-body span');
@@ -15,43 +15,10 @@ const closeChatBox = document.querySelector('.agora-chatbox i');
 const hiddenMenu = document.querySelector('.hidden-menu');
 const dragLine = document.querySelector('.drag-line');
 const main = document.querySelector('main');
-const svgPaths = document.querySelectorAll('.double-touch path');
 const navItemsArr = Array.from(navListItems);
 const screenWidth = window.innerWidth;
 let newScroll;
 let menuTime;
-
-const svg = () => {
-    let arr = Array.from(svgPaths);
-    svgPaths.forEach((path) => {
-        path.style.transition = '500ms ease-in-out';
-    });
-    setTimeout(() => {
-        arr[0].style.opacity = '1';
-        setTimeout(() => {
-            arr[0].style.perspective = '2em';
-            arr[0].style.transform = 'rotateX(-25deg) translateY(15%)';
-            arr[1].style.perspective = '2em';
-            arr[1].style.transform = 'rotateX(-25deg) translateY(15%)';
-            setTimeout(() => {
-                arr[1].style.opacity = '1';
-                arr[2].style.perspective = '2em';
-                arr[2].style.transform = 'rotateX(-25deg) translateY(15%)';
-                setTimeout(() => {
-                    arr[2].style.opacity = '1';
-                }, 200);
-            }, 500);
-        }, 200);
-    }, 500);
-    setTimeout(() => {
-        svgPaths.forEach((path) => {
-            path.style.opacity = '0';
-            setTimeout(() => {
-                path.style.display = 'none';
-            }, 500);
-        });
-    }, 3000);
-};
 
 export const menuListen = (e) => {
     let touchNum = e.targetTouches.length;
@@ -85,6 +52,7 @@ const menuOpen = () => {
 };
 
 dragLine.addEventListener('touchmove', (e) => {
+    e.preventDefault();
     let height = screen.height;
     let top = (e.touches[0].clientY / height) * 100;
     if (top > 65 && top < 90) {
@@ -102,7 +70,7 @@ dragLine.addEventListener('touchmove', (e) => {
             return hiddenMenu.style.top = `${top + 400}%`;
         }
     })
-}, { passive: true });
+});
 
 const navHover = (e) => {
     if (e.clientY <= nav.clientHeight) {
@@ -290,9 +258,6 @@ export const scroll = () => {
         circleScale();
         toTop();
     }
-    if (scrollY > vh / 2) {
-        dblTapSVG();
-    }
     if (scrollY > vh) {
         scaleScroll();
         toTop();
@@ -310,9 +275,6 @@ window.onload = () => {
         toTop();
         skillsDisplay();
     }, 2500);
-    setTimeout(() => {
-        svg();
-    }, 4000);
 };
 window.addEventListener('scroll', scroll);
 window.addEventListener('scroll', skillsDisplay);
