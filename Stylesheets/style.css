@@ -722,10 +722,6 @@ main .intro-container {
   align-items: center;
   max-width: 95vw;
 }
-main .intro-container svg {
-  display: none;
-  width: 100px;
-}
 main .intro-container .introduction {
   max-width: 95vw;
 }
@@ -774,21 +770,6 @@ main .intro-container .intro-circle:nth-child(4) {
     left: 50%;
     font-size: 3em;
     transform: translateX(-50%);
-  }
-  main .intro-container svg {
-    display: block;
-    position: absolute;
-    bottom: 10%;
-    left: 70%;
-  }
-  main .intro-container svg #p1 {
-    opacity: 0;
-  }
-  main .intro-container svg #p2 {
-    opacity: 0;
-  }
-  main .intro-container svg #p3 {
-    opacity: 0;
   }
   main .intro-container .introduction {
     position: absolute;
@@ -879,19 +860,31 @@ main .intro-container .intro-circle:nth-child(4) {
   justify-content: center;
 }
 .sec-2 svg {
+  pointer-events: none;
   position: absolute;
   display: none;
   z-index: 2;
 }
 .sec-2 .help-message {
+  opacity: 0;
+  font-weight: 700;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   position: absolute;
-  top: 0;
+  top: 40%;
   width: 70%;
   max-width: 400px;
-  height: 25%;
-  min-height: 300px;
+  height: 5%;
+  min-height: 100px;
+  transform: translateX(20em);
   transition: 500ms ease-in-out;
   pointer-events: none;
+  background-image: linear-gradient(45deg, #fff, #ffe259);
+  border-radius: 0.5em;
+  z-index: 900;
 }
 .sec-2 .skill-data-pc {
   position: absolute;
@@ -1078,6 +1071,27 @@ main .intro-container .intro-circle:nth-child(4) {
   position: relative;
   display: flex;
   justify-content: center;
+}
+.sec-3 .help-message {
+  opacity: 0;
+  font-weight: 700;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  width: 70%;
+  max-width: 400px;
+  height: 5%;
+  min-height: 100px;
+  transform: translateX(20em);
+  transition: 500ms ease-in-out;
+  pointer-events: none;
+  background-image: linear-gradient(45deg, #fff, #ffe259);
+  border-radius: 0.5em;
+  z-index: 900;
 }
 .sec-3 #search {
   width: 10%;

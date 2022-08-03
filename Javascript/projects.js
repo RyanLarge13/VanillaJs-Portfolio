@@ -1,3 +1,4 @@
+const projectsSection = document.querySelector('.sec-3');
 const cards = document.querySelectorAll('.card-container');
 const banners = document.querySelectorAll('.banner p');
 const cardTitles = document.querySelectorAll('.card-p');
@@ -123,6 +124,30 @@ searchBar.addEventListener('keyup', (e) => {
         return moveLeft(e, topParent);
     }
 });
+
+export const help = () => {
+    const message = document.querySelector('.sec-3 .help-message');
+    if (message === null) {
+        const helpMessage = document.createElement('div');
+            helpMessage.classList.add('help-message');
+            if (window.innerWidth > 1300) {
+                helpMessage.innerHTML = 'hover over the left or the right side of the screen to move through projects';
+            } 
+            if (window.innerWidth <= 1300) {
+                helpMessage.innerHTML = 'touch and hold on the left or the right side of the screen to move through projects';
+            }
+            projectsSection.appendChild(helpMessage);
+            setTimeout(() => {
+                helpMessage.style.opacity = '1';
+                helpMessage.style.transform = 'translateX(0)';
+            }, 100);
+            setTimeout(() => {
+                helpMessage.style.opacity = '0';
+            }, 4500);
+    } else {
+        return;
+    }
+};
 
 left.addEventListener('pointerenter', moveLeft);
 right.addEventListener('pointerenter', moveRight);

@@ -48,6 +48,9 @@ agoraChatBoxXMark.addEventListener('click', chatDisplay);
 main.addEventListener('click', () => {
     chatBox.classList.remove('scale');
     agoraButton.classList.remove('transform-zero');
+    if (channelName === undefined) {
+        return;
+    }
     decide();
     main.addEventListener('touchstart', menuListen, { passive: false });
 });

@@ -1,5 +1,6 @@
 import { chatDisplay, chatBox } from './agoraRTM.js';
 import { skillsDisplay, displayIcons } from './resume.js';
+import { help } from './projects.js';
 
 const navToggle = document.querySelector('.nav-toggle-body');
 const spans = document.querySelectorAll('.nav-toggle-body span');
@@ -261,6 +262,9 @@ export const scroll = () => {
     if (scrollY > vh) {
         scaleScroll();
         toTop();
+    }
+    if (scrollY > vh * 2) {
+        help();
     }
 };
 

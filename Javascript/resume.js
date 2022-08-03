@@ -1,4 +1,5 @@
 import { scroll } from "./script.js";
+import { chatBox } from "./agoraRTM.js";
 
 // going into script for Resume section
 const vh = document.querySelector('.intro-container').clientHeight;
@@ -390,15 +391,19 @@ let moveMobileSkills = (() => {
     };
 
     const displayHelp = () => {
-        const theHelpMessage = document.querySelector('.help-message');
+        const theHelpMessage = document.querySelector('.sec-2 .help-message');
         if (theHelpMessage === null) {
             const helpMessage = document.createElement('div');
             helpMessage.classList.add('help-message');
-            helpMessage.innerHTML = 'double tap to view more about each skill';
+            helpMessage.innerHTML = 'double tap anywhere on the gray body to view more about each skill';
             sectionTwoBody.appendChild(helpMessage);
             setTimeout(() => {
+                helpMessage.style.opacity = '1';
+                helpMessage.style.transform = 'translateX(0)';
+            }, 100);
+            setTimeout(() => {
                 helpMessage.style.opacity = '0';
-            }, 4000)
+            }, 4500);
         } else {
             return;
         }
@@ -458,6 +463,9 @@ sectionTwoBody.addEventListener('touchend', (e) => {
     const skillData = document.querySelector('.skill-data');
     if (e.target === skillParent || e.target === skillData) {
         return;
+    }
+    if (chatBox.classList.contains('scale')) {
+        chatBox.classList.remove('scale');
     } else {
         doubleTap(e);
         dblTapSVG();
