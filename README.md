@@ -13,19 +13,19 @@
 
 # Dependencies 
 For You:
- *Chrome 49 or later, 
- *Firefox 52 or later, 
- *Safari 9 or later, 
- *Internet Explorer 11 or later
+ * Chrome 49 or later, 
+ * Firefox 52 or later, 
+ * Safari 9 or later, 
+ * Internet Explorer 11 or later
 
 For App:
- *body-parser": "^1.20.0",
- *express": "^4.18.1",
- *mongodb": "^4.8.1",
- *morgan": "^1.10.0",
- *mysql": "^2.18.1",
- *path: "^0.12.7",
- *uuid: ^8.3.2
+ * body-parser": "^1.20.0",
+ * express": "^4.18.1",
+ * mongodb": "^4.8.1",
+ * morgan": "^1.10.0",
+ * mysql": "^2.18.1",
+ * path: "^0.12.7",
+ * uuid: ^8.3.2
 
  Javascript enabled on your browser, and the link!! 
  https://ryanlarge13.github.io/Personal_Portfolio/
