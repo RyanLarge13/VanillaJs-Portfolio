@@ -93,6 +93,10 @@ html {
   border-top: 1px solid black;
 }
 
+.agora-chatbox.dark-mode {
+  background-color: #000;
+}
+
 .agora-chatbox {
   transform: scale(0);
   transform-origin: bottom right;
@@ -107,6 +111,12 @@ html {
   box-shadow: 0 0 0.5em 0.1em #000;
   background-color: #eeeeee;
   z-index: 998;
+}
+.agora-chatbox .in-channel-users.dark-mode .the-user .user-img {
+  background-color: #fff;
+}
+.agora-chatbox .in-channel-users.dark-mode .the-user p {
+  color: #fff;
 }
 .agora-chatbox .in-channel-users {
   position: absolute;
@@ -178,6 +188,14 @@ html {
     transform: scale(0.2) translate(-350%, -200%);
   }
 }
+.agora-chatbox .channel-form.dark-mode {
+  background-image: none;
+  background-color: #000;
+}
+.agora-chatbox .channel-form.dark-mode input {
+  background-color: #fff;
+  color: #000;
+}
 .agora-chatbox .channel-form {
   position: absolute;
   width: 100%;
@@ -215,6 +233,10 @@ html {
 }
 .agora-chatbox .channel-form input:nth-child(4) {
   width: 30%;
+}
+.agora-chatbox .channel-form #join-channel.dark-mode {
+  background-color: #fff;
+  color: #000;
 }
 .agora-chatbox .channel-form #join-channel {
   all: unset;
@@ -260,6 +282,10 @@ html {
   transition: 750ms ease-in-out;
   cursor: pointer;
 }
+.agora-chatbox .chat-header.dark-mode h2 {
+  background-color: transparent;
+  color: #000;
+}
 .agora-chatbox .chat-header {
   display: flex;
   justify-content: flex-end;
@@ -280,6 +306,16 @@ html {
   border-radius: 1em;
   border: 5px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
+}
+.agora-chatbox .messages.dark-mode {
+  color: #000;
+}
+.agora-chatbox .messages.dark-mode strong {
+  background-color: transparent;
+  color: #000;
+}
+.agora-chatbox .messages.dark-mode p {
+  color: #000;
 }
 .agora-chatbox .messages {
   display: flex;
@@ -497,6 +533,10 @@ html {
   transform: scale(1);
 }
 
+.agora-btn.dark-mode i {
+  background-color: transparent;
+}
+
 .agora-btn {
   width: 3em;
   height: 3em;
@@ -532,6 +572,13 @@ html {
   transition: all 250ms ease-in-out;
   font-family: "Times New Roman", Times, serif;
   font-size: 0.6em;
+}
+
+.nav-dot-container.dark-mode {
+  background-color: transparent;
+}
+.nav-dot-container.dark-mode .nav-dot {
+  background-color: #fff;
 }
 
 .nav-dot-container {
@@ -593,6 +640,9 @@ header .skip-nav-link:focus {
   transform: translateY(5em) rotateZ(-25deg);
   z-index: 999;
 }
+header nav.dark-mode i {
+  background-color: transparent;
+}
 header nav {
   top: 3px;
   position: fixed;
@@ -609,6 +659,12 @@ header nav .fa-sun {
   top: 2.5%;
   right: 5%;
 }
+@media (min-width: 1300px) and (max-width: 2000px) {
+  header nav .fa-sun {
+    top: 30%;
+    right: 2.5%;
+  }
+}
 header nav .fa-moon {
   opacity: 0;
   font-size: 1.5em;
@@ -616,6 +672,12 @@ header nav .fa-moon {
   top: 2.5%;
   right: 5%;
   pointer-events: none;
+}
+@media (min-width: 1300px) and (max-width: 2000px) {
+  header nav .fa-moon {
+    top: 30%;
+    right: 2.5%;
+  }
 }
 header nav ul {
   display: flex;
@@ -670,6 +732,9 @@ header .progress-bar {
   }
   header nav ul li:nth-child(3) {
     display: none;
+  }
+  header .nav-toggle-body.dark-mode {
+    background-color: transparent;
   }
   header .nav-toggle-body {
     display: flex;
@@ -732,6 +797,12 @@ header .progress-bar {
 main h1 {
   margin: 30vh 0 0 0;
   display: none;
+}
+main .intro-container.dark-mode h2 {
+  background-color: transparent;
+}
+main .intro-container.dark-mode p {
+  background-color: transparent;
 }
 main .intro-container {
   width: 100vw;
@@ -869,6 +940,39 @@ main .intro-container .intro-circle:nth-child(4) {
   height: 100vh;
   max-width: 100%;
   overflow-x: hidden;
+}
+
+.sec-2.dark-mode {
+  background-color: #000;
+}
+.sec-2.dark-mode h2 {
+  background-color: transparent;
+}
+.sec-2.dark-mode .skill-data-pc {
+  background-color: #000;
+}
+.sec-2.dark-mode .skill-data {
+  background-color: #000;
+}
+.sec-2.dark-mode .resume-container {
+  background-image: none;
+  background-color: #000;
+  border-radius: 10em 0 10em 0;
+}
+.sec-2.dark-mode .caret {
+  background-color: transparent;
+}
+.sec-2.dark-mode svg {
+  display: none;
+}
+.sec-2.dark-mode .help-message {
+  color: #000;
+}
+.sec-2.dark-mode .skill-detail-holder {
+  background-color: transparent;
+}
+.sec-2.dark-mode .skill-detail-holder p {
+  background-color: transparent;
 }
 
 .sec-2 {
@@ -1084,6 +1188,13 @@ main .intro-container .intro-circle:nth-child(4) {
     font-size: 0.75em;
     width: 12em;
   }
+}
+
+.sec-3.dark-mode .help-message {
+  color: #000;
+}
+.sec-3.dark-mode #search {
+  background-color: white;
 }
 
 .sec-3 {
@@ -1318,6 +1429,36 @@ main .intro-container .intro-circle:nth-child(4) {
   }
 }
 
+.sec-4.dark-mode {
+  background-color: #000;
+}
+.sec-4.dark-mode .me-information .side-bar {
+  background-color: transparent;
+}
+.sec-4.dark-mode .me-information .side-bar p {
+  background-color: transparent;
+  color: #000;
+}
+.sec-4.dark-mode .me-information .side-bar i {
+  background-color: transparent;
+  color: #000;
+}
+.sec-4.dark-mode .me-information .photo-and-social {
+  background-color: transparent;
+}
+.sec-4.dark-mode .me-information .photo-and-social h2 {
+  background-color: transparent;
+}
+.sec-4.dark-mode .me-information .photo-and-social h3 {
+  background-color: transparent;
+}
+.sec-4.dark-mode .me-information .photo-and-social div {
+  background-color: transparent;
+}
+.sec-4.dark-mode .me-information .photo-and-social div i {
+  background-color: transparent;
+}
+
 .sec-4 {
   background-color: #eeeeee;
   display: flex;
@@ -1471,6 +1612,22 @@ main .intro-container .intro-circle:nth-child(4) {
   }
 }
 
+.sec-5.dark-mode form input {
+  border: 1px solid white;
+}
+.sec-5.dark-mode form textarea {
+  border: 1px solid white;
+}
+.sec-5.dark-mode button {
+  background-color: #000;
+}
+.sec-5.dark-mode footer {
+  background-color: #000;
+}
+.sec-5.dark-mode footer i {
+  color: #fff;
+}
+
 .sec-5 {
   display: flex;
   flex-direction: column;
@@ -1614,6 +1771,10 @@ main .intro-container .intro-circle:nth-child(4) {
   }
 }
 
+.to-top-btn.dark-mode {
+  background-color: transparent;
+}
+
 .to-top-btn {
   position: fixed;
   bottom: 0;
@@ -1621,5 +1782,4 @@ main .intro-container .intro-circle:nth-child(4) {
   padding: 1em;
   opacity: 0;
   cursor: pointer;
-  z-index: 999;
 }/*# sourceMappingURL=style.css.map */

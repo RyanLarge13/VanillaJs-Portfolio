@@ -403,7 +403,7 @@ let moveMobileSkills = (() => {
             }, 100);
             setTimeout(() => {
                 helpMessage.style.opacity = '0';
-            }, 4500);
+            }, 5000);
         } else {
             return;
         }
@@ -425,7 +425,6 @@ const doubleTap = async (e) => {
     if (typeof e.cancelable !== 'boolean' || e.cancelable) {
         e.preventDefault();
       }
-    // e.preventDefault();
     const dataContainer = document.querySelector('.skill-data');
     const currentTime = new Date().getTime();
     const tapLength = currentTime - lastTap;

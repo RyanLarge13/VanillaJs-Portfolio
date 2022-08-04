@@ -31,7 +31,6 @@ export const menuListen = (e) => {
         if (typeof e.cancelable !== 'boolean' || e.cancelable) {
             e.preventDefault();
           }
-        // e.preventDefault();
     }, 100);
     let time = setTimeout(() => {
         menuTime = true;

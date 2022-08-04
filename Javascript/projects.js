@@ -143,7 +143,7 @@ export const help = () => {
             }, 100);
             setTimeout(() => {
                 helpMessage.style.opacity = '0';
-            }, 4500);
+            }, 5000);
     } else {
         return;
     }
