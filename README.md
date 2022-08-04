@@ -6,10 +6,10 @@
  You will see ways to contact me, view the projects I have completed as well as an about me section. 
 
 # What is implimented? 
- *live form validation
- *connection to an external API and implementing a real time peer to peer messaging platform
- *backend server side execution through node.js for receiving data
- *many cool features to animate dynamically, and provide a fun accessible way to communicate
+ 1. live form validation
+ 2. connection to an external API and implementing a real time peer to peer messaging platform
+ 3. backend server side execution through node.js for receiving data
+ 4. many cool features to animate dynamically, and provide a fun accessible way to communicate
 
 # Dependencies 
 For You:
@@ -19,17 +19,17 @@ For You:
  * Internet Explorer 11 or later
 
 For App:
- * body-parser": "^1.20.0",
- * express": "^4.18.1",
- * mongodb": "^4.8.1",
- * morgan": "^1.10.0",
- * mysql": "^2.18.1",
+ * body-parser: "^1.20.0",
+ * express: "^4.18.1",
+ * mongodb: "^4.8.1",
+ * morgan: "^1.10.0",
+ * mysql: "^2.18.1",
  * path: "^0.12.7",
  * uuid: ^8.3.2
 
  Javascript enabled on your browser, and the link!! 
  https://ryanlarge13.github.io/Personal_Portfolio/
- --View the website by a click and give some feed back! Don't forget to run through some of the code
+  - View the website by a click and give some feed back! Don't forget to run through some of the code
 
 # Link to AgoraRTM API
  https://docs.agora.io/en/Real-time-Messaging/messaging_web?platform=Web

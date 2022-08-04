@@ -2,9 +2,12 @@ import { chatDisplay, chatBox } from './agoraRTM.js';
 import { skillsDisplay, displayIcons } from './resume.js';
 import { help } from './projects.js';
 
+const allElements = document.getElementsByTagName('*');
 const navToggle = document.querySelector('.nav-toggle-body');
 const spans = document.querySelectorAll('.nav-toggle-body span');
 const nav = document.querySelector('nav');
+const theSun = document.querySelector('.fa-sun');
+const theMoon = document.querySelector('.fa-moon');
 const navListItems = document.querySelectorAll('nav ul li');
 const introCircles = document.querySelectorAll('.intro-circle');
 const introText = Array.from(document.querySelector('.introduction').children);
@@ -25,7 +28,10 @@ export const menuListen = (e) => {
     let touchNum = e.targetTouches.length;
     menuTime = false;
     setTimeout(() => {
-        e.preventDefault();
+        if (typeof e.cancelable !== 'boolean' || e.cancelable) {
+            e.preventDefault();
+          }
+        // e.preventDefault();
     }, 100);
     let time = setTimeout(() => {
         menuTime = true;
@@ -160,6 +166,43 @@ navListItems.forEach(li => {
     li.firstChild.addEventListener('click', navDisplay);
 });
 
+theSun.addEventListener('click', () => {
+    theSun.style.transition = '500ms ease-in-out';
+    theSun.style.transform = 'rotateZ(360deg)';
+    setTimeout(() => {
+        theSun.style.pointerEvents = 'none';
+        theSun.style.opacity = '0';
+        allElements.forEach((element) => {
+            element.classList.add('dark-mode');
+        });
+        setTimeout(() => {
+            theMoon.style.transition = '500ms ease-in-out';
+            theMoon.style.opacity = '1';
+            theMoon.style.pointerEvents = 'all';
+            setTimeout(() => {
+                theSun.style.transform = 'rotateZ(0)';
+            }, 100);
+            theMoon.addEventListener('click', () => {
+                theMoon.style.transform = 'rotateZ(360deg)';
+                setTimeout(() => {
+                    theMoon.style.pointerEvents = 'none';
+                    theMoon.style.opacity = '0';
+                    allElements.forEach((element) => {
+                        element.classList.remove('dark-mode');
+                    });
+                    setTimeout(() => {
+                        theSun.style.opacity = '1';
+                        theSun.style.pointerEvents = 'all';
+                        setTimeout(() => {
+                            theMoon.style.transform = 'rotateZ(0)';
+                        }, 100);
+                    }, 250);
+                }, 500);
+            });
+        }, 250);
+    }, 500);
+});
+
 const highlightName = () => {
         navListItems[2].firstChild.classList.add('highlight-menu');
 };
@@ -263,7 +306,7 @@ export const scroll = () => {
         scaleScroll();
         toTop();
     }
-    if (scrollY > vh * 2) {
+    if (scrollY > (vh * 2) - 400) {
         help();
     }
 };

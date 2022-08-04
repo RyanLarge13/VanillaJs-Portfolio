@@ -422,7 +422,10 @@ let lastTap = 0;
 let timeout;
 
 const doubleTap = async (e) => {
-    e.preventDefault();
+    if (typeof e.cancelable !== 'boolean' || e.cancelable) {
+        e.preventDefault();
+      }
+    // e.preventDefault();
     const dataContainer = document.querySelector('.skill-data');
     const currentTime = new Date().getTime();
     const tapLength = currentTime - lastTap;

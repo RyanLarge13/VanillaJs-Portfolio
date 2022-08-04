@@ -10,6 +10,11 @@
           user-select: none;
 }
 
+*.dark-mode {
+  color: white;
+  background-color: #000;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -597,6 +602,20 @@ header nav {
           backdrop-filter: blur(50px);
   background-color: transparent;
   z-index: 998;
+}
+header nav .fa-sun {
+  font-size: 1.5em;
+  position: absolute;
+  top: 2.5%;
+  right: 5%;
+}
+header nav .fa-moon {
+  opacity: 0;
+  font-size: 1.5em;
+  position: absolute;
+  top: 2.5%;
+  right: 5%;
+  pointer-events: none;
 }
 header nav ul {
   display: flex;
