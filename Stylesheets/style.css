@@ -643,6 +643,15 @@ header .skip-nav-link:focus {
 header nav.dark-mode i {
   background-color: transparent;
 }
+header nav.dark-mode ul {
+  background-color: transparent;
+}
+header nav.dark-mode li {
+  background-color: transparent;
+}
+header nav.dark-mode a {
+  background-color: transparent;
+}
 header nav {
   top: 3px;
   position: fixed;
@@ -652,6 +661,9 @@ header nav {
           backdrop-filter: blur(50px);
   background-color: transparent;
   z-index: 998;
+}
+header nav i:hover {
+  cursor: pointer;
 }
 header nav .fa-sun {
   font-size: 1.5em;
@@ -798,11 +810,24 @@ main h1 {
   margin: 30vh 0 0 0;
   display: none;
 }
+main h1.dark-mode {
+  z-index: 2;
+  background-color: transparent;
+}
 main .intro-container.dark-mode h2 {
   background-color: transparent;
 }
 main .intro-container.dark-mode p {
   background-color: transparent;
+}
+main .intro-container.dark-mode .intro-circle {
+  z-index: 1;
+}
+main .intro-container.dark-mode .intro-circle:nth-child(3) {
+  background-image: linear-gradient(45deg, #000, #ffa751);
+}
+main .intro-container.dark-mode .intro-circle:nth-child(4) {
+  background-image: linear-gradient(45deg, #000, #ffe259);
 }
 main .intro-container {
   width: 100vw;
@@ -953,6 +978,9 @@ main .intro-container .intro-circle:nth-child(4) {
 }
 .sec-2.dark-mode .skill-data {
   background-color: #000;
+}
+.sec-2.dark-mode .background-box {
+  background-image: linear-gradient(to right, #000, #ffa751);
 }
 .sec-2.dark-mode .resume-container {
   background-image: none;
@@ -1195,6 +1223,39 @@ main .intro-container .intro-circle:nth-child(4) {
 }
 .sec-3.dark-mode #search {
   background-color: white;
+  z-index: 1;
+}
+.sec-3.dark-mode .orange-box {
+  z-index: 0;
+  background-image: linear-gradient(100deg, #000, #ffa751 90%);
+}
+.sec-3.dark-mode .pink-box {
+  z-index: 0;
+  background-image: linear-gradient(100deg, #000, #f864ae 90%);
+}
+.sec-3.dark-mode .projects-container .card-container {
+  background-color: transparent;
+}
+.sec-3.dark-mode .projects-container .card-bg {
+  background-image: linear-gradient(to top, #000, #f864ae);
+}
+.sec-3.dark-mode .projects-container .card-bg .banner {
+  background-image: linear-gradient(to top, #000, #ffa751);
+}
+.sec-3.dark-mode .projects-container .card-bg .banner p {
+  color: #fff;
+  background-color: transparent;
+}
+.sec-3.dark-mode .projects-container .card-bg .languageIconContainer {
+  background-color: transparent;
+}
+.sec-3.dark-mode .projects-container .card-bg .languageIconContainer .languageIcons i {
+  color: #000;
+  background-color: transparent;
+}
+.sec-3.dark-mode .projects-container .card-bg .card-p {
+  background-color: transparent;
+  color: #fff;
 }
 
 .sec-3 {
@@ -1432,6 +1493,9 @@ main .intro-container .intro-circle:nth-child(4) {
 .sec-4.dark-mode {
   background-color: #000;
 }
+.sec-4.dark-mode .me-information {
+  background-image: linear-gradient(to right, #000, #ffa751);
+}
 .sec-4.dark-mode .me-information .side-bar {
   background-color: transparent;
 }
@@ -1619,7 +1683,7 @@ main .intro-container .intro-circle:nth-child(4) {
   border: 1px solid white;
 }
 .sec-5.dark-mode button {
-  background-color: #000;
+  background-image: linear-gradient(to right, #000, #ffa751);
 }
 .sec-5.dark-mode footer {
   background-color: #000;
