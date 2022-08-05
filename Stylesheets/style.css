@@ -652,6 +652,9 @@ header nav.dark-mode li {
 header nav.dark-mode a {
   background-color: transparent;
 }
+header nav.dark-mode strong {
+  background-color: transparent;
+}
 header nav {
   top: 3px;
   position: fixed;
@@ -828,6 +831,9 @@ main .intro-container.dark-mode .intro-circle:nth-child(3) {
 }
 main .intro-container.dark-mode .intro-circle:nth-child(4) {
   background-image: linear-gradient(45deg, #000, #ffe259);
+}
+main .intro-container.dark-mode img {
+  z-index: 990;
 }
 main .intro-container {
   width: 100vw;
