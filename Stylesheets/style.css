@@ -130,6 +130,7 @@ html {
   transition: 250ms ease-in-out;
   opacity: 0;
   box-shadow: 0 0 0.5em 0.1em #000;
+  pointer-events: none;
 }
 .agora-chatbox .in-channel-users:hover {
   cursor: pointer;
@@ -1728,6 +1729,14 @@ main .intro-container .intro-circle:nth-child(4) {
   margin-top: -5em;
   transition: 250ms ease-in-out;
 }
+.sec-5 form .not-valid {
+  position: absolute;
+  align-self: center;
+  top: 15%;
+  opacity: 0;
+  pointer-events: none;
+  transition: 250ms ease-in-out;
+}
 @media (min-width: 200px) and (max-width: 900px) {
   .sec-5 form {
     margin-top: 5em;
@@ -1852,4 +1861,5 @@ main .intro-container .intro-circle:nth-child(4) {
   padding: 1em;
   opacity: 0;
   cursor: pointer;
+  z-index: 999;
 }/*# sourceMappingURL=style.css.map */

@@ -134,6 +134,7 @@ channelForm.addEventListener('submit', (e) => {
     channelForm.reset();
     initiateRTM();
     channelForm.style.display = 'none';
+    userListContainer.style.pointerEvents = 'all';
 });
 
 const initiateRTM = async () => {
