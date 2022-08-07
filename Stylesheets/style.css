@@ -1676,13 +1676,40 @@ main .intro-container .intro-circle:nth-child(4) {
     padding: 0 0.75em;
   }
   .sec-4 .me-information .info-grid-container h3 {
+    margin-top: 2em;
     padding: 0 1em;
   }
   .sec-4 .me-information .info-grid-container p {
     padding: 0.5em 1em 1em 1em;
   }
+  .sec-4 .me-information .info-grid-container p a {
+    color: #000;
+  }
+  .sec-4 .me-information .info-grid-container ul {
+    margin-left: 1.5em;
+    margin-right: 1em;
+  }
+  .sec-4 .me-information .info-grid-container ul li {
+    list-style-type: dot;
+  }
 }
 
+.sec-5.dark-mode .submission-conformation {
+  background-color: #000;
+}
+.sec-5.dark-mode .submission-conformation div {
+  background-color: #000;
+}
+.sec-5.dark-mode .submission-conformation div h3 {
+  color: #fff;
+}
+.sec-5.dark-mode .submission-conformation div p {
+  color: #fff;
+}
+.sec-5.dark-mode .submission-conformation .close-me {
+  background-image: linear-gradient(45deg, #000, #ffa751);
+  color: #fff;
+}
 .sec-5.dark-mode form input {
   border: 1px solid white;
 }
@@ -1705,6 +1732,47 @@ main .intro-container .intro-circle:nth-child(4) {
   align-items: center;
   position: relative;
   overflow: hidden;
+}
+.sec-5 .submission-conformation {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+  z-index: 999;
+}
+.sec-5 .submission-conformation div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.sec-5 .submission-conformation div h3 {
+  font-size: 2em;
+  padding: 1em;
+}
+.sec-5 .submission-conformation div p {
+  text-align: center;
+  font-weight: 700;
+  padding: 1em 2em 4em 2em;
+}
+.sec-5 .submission-conformation .close-me {
+  margin-top: 5em;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  font-weight: 700;
+  font-size: 1.5em;
+  background-color: #eee;
+  border: none;
+  transition: 250ms ease-in-out;
+}
+.sec-5 .submission-conformation .close-me:hover {
+  outline: 1px solid #000;
+  background-color: #ffa751;
 }
 .sec-5 h2 {
   font-size: 5em;
