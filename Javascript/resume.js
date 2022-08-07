@@ -400,7 +400,7 @@ let moveMobileSkills = (() => {
             setTimeout(() => {
                 helpMessage.style.opacity = '1';
                 helpMessage.style.transform = 'translateX(0)';
-            }, 100);
+            }, 1000);
             setTimeout(() => {
                 helpMessage.style.opacity = '0';
             }, 5000);

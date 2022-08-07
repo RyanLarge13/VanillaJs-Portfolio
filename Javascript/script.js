@@ -1,6 +1,8 @@
 import { chatDisplay, chatBox } from './agoraRTM.js';
 import { skillsDisplay, displayIcons } from './resume.js';
-import { help } from './projects.js';
+import { help, scrollProjects } from './projects.js';
+import { scrollAbout } from './aboutme.js';
+import { scrollContact } from './contact.js';
 
 const allElements = document.getElementsByTagName('*');
 const navToggle = document.querySelector('.nav-toggle-body');
@@ -307,6 +309,13 @@ export const scroll = () => {
     }
     if (scrollY > (vh * 2) - 400) {
         help();
+        scrollProjects();
+    }
+    if (scrollY > (vh * 3) - 400) {
+        scrollAbout();
+    }
+    if (scrollY > (vh * 4) - 400) {
+        scrollContact();
     }
 };
 

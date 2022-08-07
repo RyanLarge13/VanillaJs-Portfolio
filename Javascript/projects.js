@@ -5,11 +5,20 @@ const cardTitles = document.querySelectorAll('.card-p');
 const left = document.querySelector('.left');
 const right = document.querySelector('.right');
 const searchBar = document.getElementById('search');
+const orangeBox = document.querySelector('.orange-box');
+const pinkBox = document.querySelector('.pink-box');
 const vw = screen.width;
 let intL;
 let intR;
 let count = 0;
 let bannerNum = 0;
+
+export const scrollProjects = () => {
+    orangeBox.style.transform = 'translateX(0)';
+    pinkBox.style.transform = 'translateX(0)';
+    searchBar.style.transform = 'translateX(0)';
+};
+
 const increment = (banner) => {
     bannerNum++;
     banner.innerHTML = `${bannerNum}`;
@@ -140,7 +149,7 @@ export const help = () => {
             setTimeout(() => {
                 helpMessage.style.opacity = '1';
                 helpMessage.style.transform = 'translateX(0)';
-            }, 100);
+            }, 1000);
             setTimeout(() => {
                 helpMessage.style.opacity = '0';
             }, 5000);

@@ -1300,6 +1300,7 @@ main .intro-container .intro-circle:nth-child(4) {
   padding: 1em;
   border-radius: 1em 0 1em 0;
   border: 1px solid #000;
+  transform: translateX(100vw);
   transition: 250ms ease-in-out;
 }
 .sec-3 #search:hover {
@@ -1313,6 +1314,8 @@ main .intro-container .intro-circle:nth-child(4) {
   height: 40%;
   background-image: linear-gradient(100deg, white, #ffa751 90%);
   z-index: -1;
+  transition: 1s ease-in-out;
+  transform: translateX(100vw);
 }
 .sec-3 .pink-box {
   position: absolute;
@@ -1322,6 +1325,8 @@ main .intro-container .intro-circle:nth-child(4) {
   height: 40%;
   background-image: linear-gradient(90deg, #f864ae, white);
   z-index: -1;
+  transition: 1s ease-in-out;
+  transform: translateX(-100vw);
 }
 .sec-3 .left {
   background-color: transparent;
@@ -1561,11 +1566,14 @@ main .intro-container .intro-circle:nth-child(4) {
   font-size: 1.5em;
   font-weight: 700;
   width: 100%;
+  opacity: 0;
+  transition: 250ms ease-in-out;
 }
 .sec-4 .me-information .side-bar i {
   padding: 1.5em 0;
   font-size: 1.5em;
-  transition: 250ms ease-in-out;
+  transition: 500ms ease-in-out;
+  transform: translateX(30vw);
 }
 .sec-4 .me-information .side-bar i:hover {
   cursor: pointer;
@@ -1620,7 +1628,8 @@ main .intro-container .intro-circle:nth-child(4) {
   padding: 0 0.5em;
   font-size: 2em;
   margin: 0 0.5em;
-  transition: 250ms ease-in-out;
+  transition: 500ms ease-in-out;
+  transform: translateX(-50vw);
   color: #fff;
 }
 .sec-4 .me-information .photo-and-social div i:hover {
@@ -1820,6 +1829,8 @@ main .intro-container .intro-circle:nth-child(4) {
   font-style: italic;
   margin-top: 2.5em;
   margin-bottom: 0.5em;
+  opacity: 0;
+  transition: 1s ease-in-out;
 }
 .sec-5 form input {
   padding: 1em;
@@ -1827,6 +1838,8 @@ main .intro-container .intro-circle:nth-child(4) {
   font-weight: 600;
   border: none;
   border-bottom: 1px solid #000;
+  opacity: 0;
+  transition: 1s ease-in-out;
 }
 .sec-5 form input:focus {
   outline: 3px solid #ffa751;
@@ -1851,6 +1864,8 @@ main .intro-container .intro-circle:nth-child(4) {
   padding: 1em;
   font-size: 0.9em;
   font-weight: 600;
+  opacity: 0;
+  transition: 1s ease-in-out;
 }
 .sec-5 form textarea:focus {
   outline: 3px solid #ffa751;
@@ -1871,10 +1886,11 @@ main .intro-container .intro-circle:nth-child(4) {
   margin-top: 2em;
   padding: 0.6em 1.2em;
   font-size: 1.2em;
-  transition: 250ms ease-in-out;
+  transition: 1s ease-in-out;
   background-color: #eee;
   border-radius: 0.3em;
   font-weight: 600;
+  opacity: 0;
 }
 .sec-5 .form-submission:hover {
   background-color: #ffa751;

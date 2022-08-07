@@ -1,12 +1,34 @@
 const form = document.querySelector('.contact-form');
 const inputs = document.querySelectorAll('.contact-form input');
-const labels = document.querySelectorAll('contact-form label');
+const labels = document.querySelectorAll('.contact-form label');
+const textArea = document.querySelector('textarea');
 const submitBtn = document.querySelector('.form-submission');
 const tel = document.getElementById('tel');
 const email = document.getElementById('email');
 const text = document.getElementById('text');
 const notValid = document.querySelector('.not-valid');
 const contactSection = document.querySelector('.sec-5');
+
+export const scrollContact = () => {
+    for (let k = 0; k < labels.length; k++) {
+        setTimeout(() => {
+            labels[k].style.opacity = '1';
+        }, 100 * k);
+    }
+    for (let k = 0; k < inputs.length; k++) {
+        setTimeout(() => {
+            setTimeout(() => {
+                inputs[k].style.opacity = '1';
+            }, 200 * k);
+        }, 350);
+        setTimeout(() => {
+            textArea.style.opacity = '1';
+        }, 800);
+    }
+    setTimeout(() => {
+        submitBtn.style.opacity = '1';
+    }, 900);
+};
 
 tel.addEventListener('keyup', () => {
     const value = tel.value;
@@ -60,6 +82,10 @@ submitBtn.addEventListener('click', (e) => {
     if (conformation !== null && email.value === '' || tel.value === '' || text.value === '') {
         notValid.innerHTML = 'Please fill out the form before submission';
         notValid.style.opacity = '1';
+        setTimeout(() => {
+            notValid.style.opacity = '0';
+            notValid.innerHTML = 'Not Valid';
+        }, 5000);
     }
     e.preventDefault();
     if (notValid.style.opacity === '1') {
