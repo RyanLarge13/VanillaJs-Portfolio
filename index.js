@@ -1,8 +1,12 @@
-// const express = require('express'), morgan = require('morgan'), path = require('path'), bodyParser = require('body-parser'), uuid = require('uuid');
+// const express = require('express'), 
+// morgan = require('morgan'), 
+// path = require('path'), 
+// bodyParser = require('body-parser')
+
 // const app = express();
 
 // app.use(bodyParser.json());
-// app.use(express.static('public'));
+// app.use(express.static('docs'));
 // app.use(morgan('common'));
 
 // app.get('/', (req, res) => {
@@ -10,7 +14,7 @@
 //         if (err) {
 //             next(err);
 //         } else {
-//             console.log('Sent:', index.html)
+//             console.log('Sent:', index.html);
 //         }
 //     });
 // });
