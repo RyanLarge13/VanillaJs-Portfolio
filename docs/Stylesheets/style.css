@@ -4,10 +4,7 @@
   margin: 0;
   padding: 0;
   font-family: "Cormorant Garamond", serif;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 *.dark-mode {
@@ -358,36 +355,19 @@ html {
   height: 5px;
   background-color: #fff;
   border-radius: 50%;
-  -webkit-animation-name: type;
-          animation-name: type;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: type;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
   opacity: 0;
 }
 .agora-chatbox .messages .typing-indicator .dot:nth-child(1) {
-  -webkit-animation-delay: 250ms;
-          animation-delay: 250ms;
+  animation-delay: 250ms;
 }
 .agora-chatbox .messages .typing-indicator .dot:nth-child(2) {
-  -webkit-animation-delay: 500ms;
-          animation-delay: 500ms;
+  animation-delay: 500ms;
 }
 .agora-chatbox .messages .typing-indicator .dot:nth-child(3) {
-  -webkit-animation-delay: 750ms;
-          animation-delay: 750ms;
-}
-@-webkit-keyframes type {
-  0% {
-    opacity: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 0;
-  }
+  animation-delay: 750ms;
 }
 @keyframes type {
   0% {
@@ -404,11 +384,7 @@ html {
   max-width: 60%;
   text-align: center;
   align-self: center;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   padding: 0.8em;
   margin: 0.8em;
@@ -420,11 +396,7 @@ html {
 .agora-chatbox .messages .user-left {
   max-width: 60%;
   align-self: center;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   padding: 0.8em;
   margin: 0.8em;
@@ -435,8 +407,6 @@ html {
 }
 .agora-chatbox .messages .my-message {
   max-width: 60%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   padding: 0.8em;
   margin: 0.8em;
@@ -449,11 +419,7 @@ html {
 .agora-chatbox .messages .user-message {
   text-align: right;
   max-width: 60%;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   align-self: flex-end;
   padding: 0.8em;
@@ -551,10 +517,7 @@ html {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 .agora-btn i {
   font-size: 1.5em;
@@ -661,8 +624,7 @@ header nav {
   position: fixed;
   width: 100vw;
   box-shadow: 0 0.1em 0.5em 0 black;
-  -webkit-backdrop-filter: blur(50px);
-          backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
   background-color: transparent;
   z-index: 998;
 }
@@ -1437,11 +1399,7 @@ main .intro-container .intro-circle:nth-child(4) {
   position: absolute;
   left: 3.5%;
   background-image: linear-gradient(#ffa751, white);
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   cursor: pointer;
   border-radius: 0 0 0.3em 0.3em;
@@ -1464,8 +1422,7 @@ main .intro-container .intro-circle:nth-child(4) {
   margin-left: 1em;
   margin-right: 1em;
   background: linear-gradient(to right, #f864ae, #ffe259);
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
-          clip-path: polygon(50% 0%, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
+  clip-path: polygon(50% 0%, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
 }
 .sec-3 .projects-container .card-bg .languageIconContainer .languageIcons i {
   font-size: 1.5em;
@@ -1589,7 +1546,7 @@ main .intro-container .intro-circle:nth-child(4) {
   }
 }
 .sec-4 .me-information .photo-and-social {
-  background-image: url(../Images/aboutsection.jpg);
+  background-image: url(../images/aboutsection.jpg);
   background-size: cover;
   padding-top: 47.5%;
   text-align: center;
@@ -1946,4 +1903,6 @@ main .intro-container .intro-circle:nth-child(4) {
   opacity: 0;
   cursor: pointer;
   z-index: 999;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
