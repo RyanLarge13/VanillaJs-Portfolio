@@ -1,370 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="My Personal Portfolio">
-    <link rel="shortcut icon" href="./images/FB_IMG_1519453604508.jpg" >
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="My Personal Portfolio" />
+    <link rel="shortcut icon" href="./images/FB_IMG_1519453604508.jpg" />
     <!-- Link to style sheet -->
-    <link rel="stylesheet" type="text/css" href="./Stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="./Stylesheets/style.css" />
     <!-- link to google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <title>Ryan Large</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Intro logo -->
     <div class="intro-logo">
-        <p class="intro-logo-text">RL</p>
+      <p class="intro-logo-text">RL</p>
     </div>
     <!-- hidden menu -->
     <div class="hidden-menu">
-        <div class="drag-line"></div>
-        <div class="list-container">
-            <ul>
-                <li>Open Chat</li>
-                <li>Social</li>
-                <li>Get Connected</li>
-                <li>View Personal</li>
-            </ul>
-        </div>
+      <div class="drag-line"></div>
+      <div class="list-container">
+        <ul>
+          <li>Open Chat</li>
+          <li>Social</li>
+          <li>Get Connected</li>
+          <li>View Personal</li>
+        </ul>
+      </div>
     </div>
     <!-- Messaging platform with Ably API -->
     <div class="agora-chatbox">
-        <div class="in-channel-users">
-            <i class="fa-solid fa-users"></i>
-            <i class="fa-solid fa-user"></i>
-            <i class="fa-solid fa-circle-xmark user-x"></i>
-            <div class="the-user-container">
-                
-            </div>
+      <div class="in-channel-users">
+        <i class="fa-solid fa-users"></i>
+        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-circle-xmark user-x"></i>
+        <div class="the-user-container"></div>
+      </div>
+      <form class="channel-form">
+        <label for="name">Name</label>
+        <input autocomplete="off" type="text" id="name" />
+        <label for="channel-number">Channel</label>
+        <!-- <input autocomplete="off" type="text" id="channel-number" required> -->
+        <input autocomplete="off" type="text" id="channel-number" />
+        <label for="join-channel" class="no-display">Join Channel</label>
+        <input type="submit" value="Join a Channel" id="join-channel" />
+      </form>
+      <i class="fa-solid fa-circle-xmark" id="agoraX"></i>
+      <div class="chat-header">
+        <h2>Say, Hello!</h2>
+      </div>
+      <div class="messages">
+        <p></p>
+        <div class="typing-indicator">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
         </div>
-        <form class="channel-form">
-            <label for="name">Name</label>
-            <input autocomplete="off" type="text" id="name">
-            <label for="channel-number">Channel</label>
-            <!-- <input autocomplete="off" type="text" id="channel-number" required> -->
-            <input autocomplete="off" type="text" id="channel-number" >
-            <label for="join-channel" class="no-display">Join Channel</label>
-            <input type="submit" value="Join a Channel" id="join-channel">
-        </form>
-        <i class="fa-solid fa-circle-xmark" id="agoraX"></i>
-        <div class="chat-header">
-            <h2>Say, Hello!</h2>
-        </div>
-        <div class="messages">
-            <p></p>
-            <div class="typing-indicator">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </div>
-        <form class="input-message-container">
-            <label for="messaging-form" class="no-display">Message</label>
-            <input id="messaging-form" type="text" placeholder="Message me!"/>
-            <i class="fa-regular fa-paper-plane"></i>
-        </form>
+      </div>
+      <form class="input-message-container">
+        <label for="messaging-form" class="no-display">Message</label>
+        <input id="messaging-form" type="text" placeholder="Message me!" />
+        <i class="fa-regular fa-paper-plane"></i>
+      </form>
     </div>
-    <div class="agora-btn"><i class="fa-solid fa-message"></i><div class="notify"></div></div>
+    <div class="agora-btn">
+      <i class="fa-solid fa-message"></i>
+      <div class="notify"></div>
+    </div>
     <!-- navigation side dots -->
     <div class="nav-dot-container">
-        <div class="nav-dot"></div>
-        <div class="nav-dot"></div>
-        <div class="nav-dot"></div>
-        <div class="nav-dot"></div>
-        <div class="nav-dot"></div>
+      <div class="nav-dot"></div>
+      <div class="nav-dot"></div>
+      <div class="nav-dot"></div>
+      <div class="nav-dot"></div>
+      <div class="nav-dot"></div>
     </div>
     <!-- Header section with navigation links -->
     <header>
-        <div class="progress-bar"></div>
-        <!-- Mobile nav -->
-        <div class="nav-toggle-body">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <!-- Desktop nav -->
-        <a href="#" class="skip-nav-link" alt="Skip Navigation" >Skip Nav</a>
-        <nav>
-            <i class="fa-solid fa-sun"></i>
-            <i class="fa-solid fa-moon"></i>
-            <ul>
-                <li><a href="#resume" aria-label="Resume">Resume</a></li>
-                <li><a href="#projects" aria-label="Projects">Projects</a></li>
-                <li><a href="#home" aria-label="Home"><strong>Ryan Large</strong></a></li>
-                <li><a href="#contact" aria-label="Contact">Contact</a></li>
-                <li><a href="#about" aria-label="About">About</a></li>
-            </ul>
-        </nav>
+      <div class="progress-bar"></div>
+      <!-- Mobile nav -->
+      <div class="nav-toggle-body">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <!-- Desktop nav -->
+      <a href="#" class="skip-nav-link" alt="Skip Navigation">Skip Nav</a>
+      <nav>
+        <i class="fa-solid fa-sun"></i>
+        <i class="fa-solid fa-moon"></i>
+        <ul>
+          <li><a href="#resume" aria-label="Resume">Resume</a></li>
+          <li><a href="#projects" aria-label="Projects">Projects</a></li>
+          <li>
+            <a href="#home" aria-label="Home"><strong>Ryan Large</strong></a>
+          </li>
+          <li><a href="#contact" aria-label="Contact">Contact</a></li>
+          <li><a href="#about" aria-label="About">About</a></li>
+        </ul>
+      </nav>
     </header>
 
     <!-- Main content -->
     <main>
+      <h1>Ryan Large</h1>
+      <section class="intro-container" data-section id="home">
+        <div class="introduction">
+          <h2>Hello!</h2>
+          <p data-type-text>
+            Welcome to my profile. I am a fullstack UI/UX web developer...
+          </p>
+        </div>
+        <img src="./images/FB_IMG_1519453604508.jpg" alt="Me" />
+        <!-- design circles -->
+        <div class="intro-circle"></div>
+        <div class="intro-circle"></div>
+      </section>
 
-        <h1>Ryan Large</h1>
-        <section class="intro-container" data-section id="home">
-            <div class="introduction">
-                <h2>Hello!</h2>
-                <p data-type-text>Welcome to my profile. I am a fullstack UI/UX web developer...</p>
+      <section class="sec-2 sec" data-section id="resume">
+        <svg class="res-svg">
+          <g transform="translate(-214.3015,-182.92584)">
+            <path
+              style="fill: #000000; stroke-width: 0.0710874"
+              d="m 222.56094,193.97022 c -0.38983,-0.13598 -0.52617,-0.40732 -0.51247,-1.01994 0.075,-3.3538 2.66073,-6.21926 5.8796,-6.51559 3.49388,-0.32166 6.54036,2.22005 7.05033,5.88217 0.14562,1.0457 -0.005,1.529 -0.51987,1.66911 -0.30321,0.0825 -0.50242,0.0236 -0.73071,-0.21613 -0.1588,-0.16673 -0.20773,-0.2956 -0.23852,-0.6282 -0.14822,-1.60077 -0.5651,-2.61427 -1.46049,-3.55068 -0.63729,-0.66648 -1.21897,-1.04935 -2.01405,-1.32567 -0.49074,-0.17054 -0.66343,-0.19279 -1.49155,-0.19211 -0.8355,6.7e-4 -0.99643,0.0221 -1.49154,0.19874 -1.89488,0.67594 -3.24888,2.4393 -3.40523,4.43474 -0.0502,0.641 -0.1325,0.94404 -0.29935,1.10259 -0.19835,0.18848 -0.50348,0.25259 -0.76615,0.16097 z"
+              id="rp1"
+            />
+            <path
+              style="fill: #000000; stroke-width: 0.0710874"
+              d="m 219.58063,196.7467 c -0.28681,-0.15476 -0.41733,-0.42809 -0.59951,-1.25546 -0.51659,-2.34608 -0.18428,-4.93136 0.91252,-7.09918 2.23754,-4.42249 7.23819,-6.51212 11.75141,-4.91057 3.45578,1.22631 5.97151,4.35167 6.55776,8.1469 0.23499,1.52125 0.0443,3.87148 -0.38766,4.77724 -0.29985,0.6288 -1.19294,0.54623 -1.38535,-0.12807 -0.0659,-0.2308 -0.0549,-0.37591 0.0657,-0.87192 0.4918,-2.0225 0.28877,-4.10339 -0.58156,-5.96036 -1.08409,-2.31308 -2.99388,-3.948 -5.37887,-4.60471 -0.89596,-0.24671 -2.4483,-0.30899 -3.39334,-0.13615 -2.39708,0.4384 -4.45268,1.94626 -5.74529,4.21437 -1.03063,1.80843 -1.35945,4.31844 -0.84381,6.4411 0.18274,0.75229 0.14413,1.04148 -0.17298,1.29545 -0.24921,0.19958 -0.53739,0.23254 -0.79901,0.0914 z"
+              id="rp2"
+            />
+            <path
+              style="fill: #000000; stroke-width: 0.0710874"
+              d="m 233.34472,220.17807 c -1.97088,-0.15837 -3.22267,-0.39134 -4.48675,-0.83504 -3.36663,-1.18169 -5.27997,-3.52931 -5.96302,-7.31646 -0.18317,-1.01558 -0.26677,-3.89684 -0.13185,-4.54398 0.22429,-1.0758 0.95884,-2.06343 1.8925,-2.54455 l 0.46828,-0.2413 v -5.72716 c 0,-6.30749 -0.007,-6.19571 0.43385,-7.11801 0.24409,-0.51088 0.92957,-1.2599 1.36789,-1.49469 0.61936,-0.33177 1.04985,-0.44381 1.70715,-0.44429 1.46865,-0.001 2.72989,0.89637 3.29684,2.34585 0.0755,0.19309 0.10387,0.97737 0.13134,3.63343 l 0.035,3.3872 0.20813,-0.0364 c 0.11446,-0.02 0.50469,-0.0334 0.86717,-0.0298 0.75599,0.008 1.17627,0.14532 1.86014,0.60942 0.36053,0.24467 0.84835,0.78092 1.04354,1.14714 0.0527,0.099 0.11178,0.0982 0.55121,-0.007 1.45044,-0.34639 2.8552,0.1742 3.66174,1.35701 0.14362,0.21062 0.28157,0.40846 0.30655,0.43965 0.025,0.0312 0.2459,0.007 0.49092,-0.0536 0.87218,-0.21586 1.79439,-0.0819 2.53749,0.36845 0.46708,0.2831 1.13205,1.01188 1.35751,1.48777 0.39811,0.84031 0.41711,1.05054 0.38086,4.21529 -0.0294,2.56875 -0.049,2.96488 -0.17895,3.61345 -0.43134,2.15333 -1.244,3.76265 -2.56712,5.08374 -1.37826,1.37615 -3.2274,2.22516 -5.59362,2.56824 -0.74626,0.1082 -2.98767,0.19069 -3.67683,0.13531 z m 3.34986,-1.73927 c 2.72596,-0.37752 4.6421,-1.48911 5.82708,-3.38041 1.07058,-1.70872 1.36918,-3.34831 1.32156,-7.2567 -0.0228,-1.86887 -0.0319,-1.98489 -0.18329,-2.33098 -0.27966,-0.63928 -0.75633,-1.05001 -1.38212,-1.19093 -0.98014,-0.22071 -2.10927,0.4813 -2.21827,1.37917 -0.0215,0.17692 -0.0671,0.37903 -0.10145,0.44914 -0.0723,0.14778 -0.35402,0.1697 -0.45987,0.0358 -0.0404,-0.0512 -0.0825,-0.55804 -0.0952,-1.14728 -0.0205,-0.95273 -0.0394,-1.08994 -0.19434,-1.40833 -0.57727,-1.18669 -2.09352,-1.46574 -3.07045,-0.5651 -0.30429,0.28053 -0.53884,0.763 -0.53884,1.10839 0,0.13959 -0.0375,0.29314 -0.0832,0.34122 -0.10888,0.11432 -0.36601,0.11192 -0.45786,-0.004 -0.0404,-0.0512 -0.0825,-0.55804 -0.0952,-1.14727 -0.0205,-0.95274 -0.0395,-1.08995 -0.19433,-1.40834 -0.60429,-1.24222 -2.25163,-1.47146 -3.12108,-0.43432 -0.28147,0.33575 -0.48822,0.84624 -0.48822,1.20548 0,0.11569 -0.0323,0.27374 -0.0718,0.35124 -0.0803,0.15749 -0.34186,0.1873 -0.46931,0.0535 -0.0631,-0.0662 -0.0833,-1.27845 -0.0836,-5.00795 -2.8e-4,-3.16492 -0.026,-5.01734 -0.0722,-5.19185 -0.18082,-0.68362 -0.93428,-1.28609 -1.69077,-1.35197 -0.76722,-0.0668 -1.54931,0.42441 -1.88868,1.18623 l -0.16224,0.36421 -7e-4,7.76206 c -7.2e-4,8.2405 0.006,8.06247 -0.31744,7.99725 -0.12514,-0.0252 -0.1365,-0.11519 -0.16885,-1.33731 l -0.0347,-1.31028 -0.25847,0.0158 c -0.55789,0.0342 -1.2528,0.58516 -1.51962,1.2049 -0.15533,0.36078 -0.16421,0.46008 -0.16115,1.80225 0.004,1.54605 0.11785,2.52923 0.4224,3.63271 0.90092,3.26433 3.34941,5.07422 7.55131,5.58183 1.09297,0.13204 3.51457,0.1332 4.46094,0.002 z"
+              id="rp3"
+            />
+          </g>
+        </svg>
+        <h2>Skills</h2>
+        <div class="background-box"></div>
+        <i class="fa-solid caret fa-caret-left"></i>
+        <div class="resume-container">
+          <div class="skill-holder">
+            <div class="skill-parent">
+              <i class="fa-brands skill-icon fa-css3-alt" id="last-copy"></i>
+              <i class="fa-brands skill-icon fa-js-square"></i>
+              <i class="fa-brands skill-icon fa-react"></i>
+              <i class="fa-brands skill-icon fa-node"></i>
+              <i class="fa-brands skill-icon fa-python"></i>
+              <i class="fa-brands skill-icon fa-sass"></i>
+              <i class="fa-brands skill-icon fa-html5"></i>
+              <i class="fa-brands skill-icon fa-css3-alt"></i>
+              <i class="fa-brands skill-icon fa-js-square" id="first-copy"></i>
             </div>
-            <img src="./images/FB_IMG_1519453604508.jpg" alt="Me" />
-            <!-- design circles -->
-            <div class="intro-circle"></div>
-            <div class="intro-circle"></div>
-        </section>
-
-        <section class="sec-2 sec" data-section id="resume">
-            <svg class="res-svg">
-                <g transform="translate(-214.3015,-182.92584)">
-                  <path style="fill:#000000;stroke-width:0.0710874" d="m 222.56094,193.97022 c -0.38983,-0.13598 -0.52617,-0.40732 -0.51247,-1.01994 0.075,-3.3538 2.66073,-6.21926 5.8796,-6.51559 3.49388,-0.32166 6.54036,2.22005 7.05033,5.88217 0.14562,1.0457 -0.005,1.529 -0.51987,1.66911 -0.30321,0.0825 -0.50242,0.0236 -0.73071,-0.21613 -0.1588,-0.16673 -0.20773,-0.2956 -0.23852,-0.6282 -0.14822,-1.60077 -0.5651,-2.61427 -1.46049,-3.55068 -0.63729,-0.66648 -1.21897,-1.04935 -2.01405,-1.32567 -0.49074,-0.17054 -0.66343,-0.19279 -1.49155,-0.19211 -0.8355,6.7e-4 -0.99643,0.0221 -1.49154,0.19874 -1.89488,0.67594 -3.24888,2.4393 -3.40523,4.43474 -0.0502,0.641 -0.1325,0.94404 -0.29935,1.10259 -0.19835,0.18848 -0.50348,0.25259 -0.76615,0.16097 z" id="rp1"/>
-                  <path style="fill:#000000;stroke-width:0.0710874" d="m 219.58063,196.7467 c -0.28681,-0.15476 -0.41733,-0.42809 -0.59951,-1.25546 -0.51659,-2.34608 -0.18428,-4.93136 0.91252,-7.09918 2.23754,-4.42249 7.23819,-6.51212 11.75141,-4.91057 3.45578,1.22631 5.97151,4.35167 6.55776,8.1469 0.23499,1.52125 0.0443,3.87148 -0.38766,4.77724 -0.29985,0.6288 -1.19294,0.54623 -1.38535,-0.12807 -0.0659,-0.2308 -0.0549,-0.37591 0.0657,-0.87192 0.4918,-2.0225 0.28877,-4.10339 -0.58156,-5.96036 -1.08409,-2.31308 -2.99388,-3.948 -5.37887,-4.60471 -0.89596,-0.24671 -2.4483,-0.30899 -3.39334,-0.13615 -2.39708,0.4384 -4.45268,1.94626 -5.74529,4.21437 -1.03063,1.80843 -1.35945,4.31844 -0.84381,6.4411 0.18274,0.75229 0.14413,1.04148 -0.17298,1.29545 -0.24921,0.19958 -0.53739,0.23254 -0.79901,0.0914 z" id="rp2"/>
-                  <path style="fill:#000000;stroke-width:0.0710874" d="m 233.34472,220.17807 c -1.97088,-0.15837 -3.22267,-0.39134 -4.48675,-0.83504 -3.36663,-1.18169 -5.27997,-3.52931 -5.96302,-7.31646 -0.18317,-1.01558 -0.26677,-3.89684 -0.13185,-4.54398 0.22429,-1.0758 0.95884,-2.06343 1.8925,-2.54455 l 0.46828,-0.2413 v -5.72716 c 0,-6.30749 -0.007,-6.19571 0.43385,-7.11801 0.24409,-0.51088 0.92957,-1.2599 1.36789,-1.49469 0.61936,-0.33177 1.04985,-0.44381 1.70715,-0.44429 1.46865,-0.001 2.72989,0.89637 3.29684,2.34585 0.0755,0.19309 0.10387,0.97737 0.13134,3.63343 l 0.035,3.3872 0.20813,-0.0364 c 0.11446,-0.02 0.50469,-0.0334 0.86717,-0.0298 0.75599,0.008 1.17627,0.14532 1.86014,0.60942 0.36053,0.24467 0.84835,0.78092 1.04354,1.14714 0.0527,0.099 0.11178,0.0982 0.55121,-0.007 1.45044,-0.34639 2.8552,0.1742 3.66174,1.35701 0.14362,0.21062 0.28157,0.40846 0.30655,0.43965 0.025,0.0312 0.2459,0.007 0.49092,-0.0536 0.87218,-0.21586 1.79439,-0.0819 2.53749,0.36845 0.46708,0.2831 1.13205,1.01188 1.35751,1.48777 0.39811,0.84031 0.41711,1.05054 0.38086,4.21529 -0.0294,2.56875 -0.049,2.96488 -0.17895,3.61345 -0.43134,2.15333 -1.244,3.76265 -2.56712,5.08374 -1.37826,1.37615 -3.2274,2.22516 -5.59362,2.56824 -0.74626,0.1082 -2.98767,0.19069 -3.67683,0.13531 z m 3.34986,-1.73927 c 2.72596,-0.37752 4.6421,-1.48911 5.82708,-3.38041 1.07058,-1.70872 1.36918,-3.34831 1.32156,-7.2567 -0.0228,-1.86887 -0.0319,-1.98489 -0.18329,-2.33098 -0.27966,-0.63928 -0.75633,-1.05001 -1.38212,-1.19093 -0.98014,-0.22071 -2.10927,0.4813 -2.21827,1.37917 -0.0215,0.17692 -0.0671,0.37903 -0.10145,0.44914 -0.0723,0.14778 -0.35402,0.1697 -0.45987,0.0358 -0.0404,-0.0512 -0.0825,-0.55804 -0.0952,-1.14728 -0.0205,-0.95273 -0.0394,-1.08994 -0.19434,-1.40833 -0.57727,-1.18669 -2.09352,-1.46574 -3.07045,-0.5651 -0.30429,0.28053 -0.53884,0.763 -0.53884,1.10839 0,0.13959 -0.0375,0.29314 -0.0832,0.34122 -0.10888,0.11432 -0.36601,0.11192 -0.45786,-0.004 -0.0404,-0.0512 -0.0825,-0.55804 -0.0952,-1.14727 -0.0205,-0.95274 -0.0395,-1.08995 -0.19433,-1.40834 -0.60429,-1.24222 -2.25163,-1.47146 -3.12108,-0.43432 -0.28147,0.33575 -0.48822,0.84624 -0.48822,1.20548 0,0.11569 -0.0323,0.27374 -0.0718,0.35124 -0.0803,0.15749 -0.34186,0.1873 -0.46931,0.0535 -0.0631,-0.0662 -0.0833,-1.27845 -0.0836,-5.00795 -2.8e-4,-3.16492 -0.026,-5.01734 -0.0722,-5.19185 -0.18082,-0.68362 -0.93428,-1.28609 -1.69077,-1.35197 -0.76722,-0.0668 -1.54931,0.42441 -1.88868,1.18623 l -0.16224,0.36421 -7e-4,7.76206 c -7.2e-4,8.2405 0.006,8.06247 -0.31744,7.99725 -0.12514,-0.0252 -0.1365,-0.11519 -0.16885,-1.33731 l -0.0347,-1.31028 -0.25847,0.0158 c -0.55789,0.0342 -1.2528,0.58516 -1.51962,1.2049 -0.15533,0.36078 -0.16421,0.46008 -0.16115,1.80225 0.004,1.54605 0.11785,2.52923 0.4224,3.63271 0.90092,3.26433 3.34941,5.07422 7.55131,5.58183 1.09297,0.13204 3.51457,0.1332 4.46094,0.002 z" id="rp3"/>
-                </g>
-            </svg>
-            <h2>Skills</h2>
-            <div class="background-box"></div>
-            <i class="fa-solid caret fa-caret-left"></i>
-            <div class="resume-container">
-                <div class="skill-holder">
-                    <div class="skill-parent">
-                        <i class="fa-brands skill-icon fa-css3-alt" id="last-copy"></i>
-                        <i class="fa-brands skill-icon fa-js-square"></i>
-                        <i class="fa-brands skill-icon fa-react"></i>
-                        <i class="fa-brands skill-icon fa-node"></i>
-                        <i class="fa-brands skill-icon fa-python"></i>
-                        <i class="fa-brands skill-icon fa-sass"></i>
-                        <i class="fa-brands skill-icon fa-html5"></i>
-                        <i class="fa-brands skill-icon fa-css3-alt"></i>
-                        <i class="fa-brands skill-icon fa-js-square" id="first-copy"></i>
-                    </div>
-                </div>
-                <div class="skill-detail-holder">
-                    <div class="skill-detail">
-                        <p>This entire website was written all with vanilla JS. It is my favorite language, and I practice developing it every single day.</p>
-                        <p>React is my favorite framework. It is powerful with it's heavy use of JSX makes writting code at least a million times better</p>
-                        <p>Node.Js is a powerful and popular way to incorporate my favorite language in handling server side compontents and bringing all my hard work together</p>
-                        <p>Python is my favorite language. Did you know it got its name from a TV show the creator really liked? Monte Python</p>
-                        <p>Sass transforms your css into a work of art and shortens your code by miles when creating large websites. I LOVE SASS</p>
-                        <p>It is as simple as this... Without html5 there simply is no web.</p>
-                        <p>I already mentioned how Sass blows css out of the water? well, Sass means nothing without a parent.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="skill-detail-holder">
+            <div class="skill-detail">
+              <p>
+                This entire website was written all with vanilla JS. It is my
+                favorite language, and I practice developing it every single
+                day.
+              </p>
+              <p>
+                React is my favorite framework. It is powerful with it's heavy
+                use of JSX makes writting code at least a million times better
+              </p>
+              <p>
+                Node.Js is a powerful and popular way to incorporate my favorite
+                language in handling server side compontents and bringing all my
+                hard work together
+              </p>
+              <p>
+                Python is my favorite language. Did you know it got its name
+                from a TV show the creator really liked? Monte Python
+              </p>
+              <p>
+                Sass transforms your css into a work of art and shortens your
+                code by miles when creating large websites. I LOVE SASS
+              </p>
+              <p>
+                It is as simple as this... Without html5 there simply is no web.
+              </p>
+              <p>
+                I already mentioned how Sass blows css out of the water? well,
+                Sass means nothing without a parent.
+              </p>
             </div>
-            <i class="fa-solid caret fa-caret-right"></i>
-            <!-- we will consider this ...... <div class="sec-2-footer"></div> -->
-        </section>
+          </div>
+        </div>
+        <i class="fa-solid caret fa-caret-right"></i>
+        <!-- we will consider this ...... <div class="sec-2-footer"></div> -->
+      </section>
 
-        <section class="sec-3 sec" data-section id="projects">
-            <input type="search" id="search" placeholder="search">
-            <div class="orange-box"></div>
-            <div class="pink-box"></div>
+      <section class="sec-3 sec" data-section id="projects">
+        <input type="search" id="search" placeholder="search" />
+        <div class="orange-box"></div>
+        <div class="pink-box"></div>
 
-            <div class="left"></div>
-            <div class="right"></div>
-            <h2>Projects</h2>
-            <div class="projects-container">
-
-                <div class="card-container">
-                    <div class="card" id="card-one"></div>
-                    <div class="card-bg">
-                        <div class="banner"><p></p></div>
-                        <div class="languageIconContainer">
-                            <div class="languageIcons">
-                                <i class="fa-brands fa-html5"></i>
-                                <i class="fa-brands fa-css3-alt"></i>
-                                <i class="fa-brands fa-js-square"></i>
-                                <i class="fa-brands fa-php"></i>
-                                <i class="fa-brands fa-python"></i>
-                            </div>
-                        </div>
-                        <p class="card-p">Responive Website Design</p>
-                    </div>
-                </div>
-    
-                <div class="card-container">
-                    <div class="card"></div>
-                    <div class="card-bg">
-                        <div class="banner"><p></p></div>
-                        <div class="languageIconContainer">
-                            <div class="languageIcons">
-                                <i class="fa-brands fa-html5"></i>
-                                <i class="fa-brands fa-css3-alt"></i>
-                                <i class="fa-brands fa-js-square"></i>
-                            </div>
-                        </div>
-                        <p class="card-p">Calulator</p>
-                    </div>
-                </div>
-
-                <div class="card-container">
-                    <div class="card"></div>
-                    <div class="card-bg">
-                        <div class="banner"><p></p></div>
-                        <div class="languageIconContainer">
-                            <div class="languageIcons">
-                                <i class="fa-brands fa-html5"></i>
-                                <i class="fa-brands fa-css3-alt"></i>
-                                <i class="fa-brands fa-js-square"></i>
-                            </div>
-                        </div>
-                        <p class="card-p">Calulator</p>
-                    </div>
-                </div>
-
-                <div class="card-container">
-                    <div class="card"></div>
-                    <div class="card-bg">
-                        <div class="banner"><p></p></div>
-                        <div class="languageIconContainer">
-                            <div class="languageIcons">
-                                <i class="fa-brands fa-html5"></i>
-                                <i class="fa-brands fa-css3-alt"></i>
-                                <i class="fa-brands fa-js-square"></i>
-                            </div>
-                        </div>
-                        <p class="card-p">Calulator</p>
-                    </div>
-                </div>
-
-                <div class="card-container">
-                    <div class="card"></div>
-                    <div class="card-bg">
-                        <div class="banner"><p></p></div>
-                        <div class="languageIconContainer">
-                            <div class="languageIcons">
-                                <i class="fa-brands fa-html5"></i>
-                                <i class="fa-brands fa-css3-alt"></i>
-                                <i class="fa-brands fa-js-square"></i>
-                            </div>
-                        </div>
-                        <p class="card-p">Calulator</p>
-                    </div>
-                </div>
-
-                <div class="card-container">
-                    <div class="card"></div>
-                    <div class="card-bg">
-                        <div class="banner"><p></p></div>
-                        <div class="languageIconContainer">
-                            <div class="languageIcons">
-                                <i class="fa-brands fa-html5"></i>
-                                <i class="fa-brands fa-css3-alt"></i>
-                                <i class="fa-brands fa-js-square"></i>
-                            </div>
-                        </div>
-                        <p class="card-p">Calulator</p>
-                    </div>
-                </div>
-
+        <div class="left"></div>
+        <div class="right"></div>
+        <h2>Projects</h2>
+        <div class="projects-container">
+          <div class="card-container">
+            <div class="card" id="card-one">
+<img src="./images/Res-Design.jpg" />
             </div>
-        </section>
-
-        <section class="sec-4 sec" data-section id="about">
-            <div class="me-information">
-                <div class="side-bar">
-                    <p>RL</p>
-                    <i class="fa-solid fa-user"></i>
-                    <i class="fa-solid fa-phone"></i>
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                    <i class="fa-solid fa-briefcase"></i>
+            <div class="card-bg">
+              <div class="banner"><p></p></div>
+              <div class="languageIconContainer">
+                <div class="languageIcons">
+                  <i class="fa-brands fa-html5"></i>
+                  <i class="fa-brands fa-css3-alt"></i>
+                  <i class="fa-brands fa-js-square"></i>
+                  <i class="fa-brands fa-php"></i>
+                  <i class="fa-brands fa-python"></i>
                 </div>
-                <div class="photo-and-social">
-                    <h2>Ryan Large</h2>
-                    <h3>Developer</h3>
-                    <div class="links">
-                        <a href="https://www.facebook.com/ryan.large.984/" target="_blank" aria-label="Facebook Link"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://github.com/RyanLarge13" target="_blank" aria-label="Github Link"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/ryan-large/" target="_blank" aria-label="Linked-in Link"><i class="fa-brands fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="info-grid-container">
-                    <div class="about" id="fa-solid fa-user">
-                        <h2>About Me</h2>
-                        <p>My name is <strong>Ryan Large</strong>, I am a father of three children and have a beautiful family.
-                            I fell in love with <strong>coding</strong> while picking it up as a hobby and it has become an enormous part of my life.
-                        </p>
-                        <h3>Strong Suits</h3>
-                        <p>My most powerful language is <strong>Javascript</strong> and my most powerful attribute is <strong>Self Motivation</strong>.</p>
-                        <h3>History</h3>
-                        <p>My history with coding goes back to over a year ago. With 90% of my education from self teaching.
-                            <strong>CareerFoundry</strong> entails the other 10% and is by far not the least of my efforts.
-                        </p>
-                    </div>
-                    <div class="contact-me" id="fa-solid fa-phone">
-                        <h2>Contact</h2>
-                        <p>My personal number is <strong><a href="tel:702-981-1370">(702) 981-1270</a></strong>. You can contact me via telephone at this number anytime of the day.
-                        </p>
-                        <h3>Email</h3>
-                        <p><a href="mailto:ryanhudsonlarge13@gmail.com"><strong>ryanhudsonlarge13@gmail.com</strong></a> <br>
-                        <a href="mailto:ryanlarge100@gamil.com"><strong>ryanlarge100@gmail.com</strong></a></p>
-                        <h3>Discord</h3>
-                        <p><a href="https://discord.com/">RyanLarge#2307</a></p>
-                    </div>
-                    <div class="history" id="fa-solid fa-clock-rotate-left">
-                        <h2>History</h2>
-                        <h3>Education</h3>
-                        <p><strong>White Pine Highschool</strong></p>
-                        <p></p>
-                    </div>
-                    <div class="work" id="fa-solid fa-briefcase">
-                        <h2>Experience</h2>
-                        <h3><strong>Premier Magnesia</strong></h3>
-                        <p><strong>04-01-2021 - Present</strong></p>
-                        <ul>
-                            <li>Maintain machinery</li>
-                            <li>Secure quality ore</li>
-                            <li>Fix issues that occure with equipment</li>
-                            <li>Stay up to date with MSHA training and regulations</li>
-                        </ul>
-                        <h3>Mission Pines</h3>
-                        <p><strong>02-01-2020 - 04-01-2021</strong></p>
-                        <ul>
-                            <li>Cooked & preped meals for 140 residents</li>
-                            <li>Kept a clean kitchen</li>
-                            <li>Helped cook aids clean dishes</li>
-                            <li>Followed all standard saftey rules</li>
-                        </ul>
-                        <h3>Manic Mechanics</h3>
-                        <p><strong>11-01-2018 - 02-01-2020</strong></p>
-                        <ul>
-                            <li>Changed oil and replaced car/truck/semi tires</li>
-                            <li>Performed advanced mechanics on desiel engines</li>
-                            <li>In charge of tire and lube bay</li>
-                            <li>Periodically kept payroll records and managed accounting</li>
-                        </ul>
-                    </div>
-                </div>
+              </div>
+              <p class="card-p">Responive Website Design</p>
             </div>
-        </section>
+          </div>
 
-        <section class="sec-5 sec" data-section id="contact">
-            <h2>Contact</h2>
-            <form action="" class="contact-form">
-                <div class="not-valid"><strong>Not Valid</strong></div>
-                <label for="tel">Telephone</label>
-                <input type="tel" id="tel">
-                <label for="email">Email</label>
-                <input type="email" id="email">
-                <label for="text">Message</label>
-                <textarea name="text" id="text" cols="30" rows="10"></textarea>
-            </form>
-            <button class="form-submission">Send</button>
-            <footer>
-                <p>All Rights Reserved @RyanLarge!!!</p>
-                <a href="https://www.facebook.com/ryan.large.984/" target="_blank" aria-label="Facebook Link"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://github.com/RyanLarge13" target="_blank" aria-label="Github Link"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/ryan-large/" target="_blank" aria-label="Linked-in Link"><i class="fa-brands fa-linkedin"></i></a>
-            </footer>
-        </section>
+          <div class="card-container">
+            <div class="card"></div>
+            <div class="card-bg">
+              <div class="banner"><p></p></div>
+              <div class="languageIconContainer">
+                <div class="languageIcons">
+                  <i class="fa-brands fa-html5"></i>
+                  <i class="fa-brands fa-css3-alt"></i>
+                  <i class="fa-brands fa-js-square"></i>
+                </div>
+              </div>
+              <p class="card-p">Calulator</p>
+            </div>
+          </div>
 
+          <div class="card-container">
+            <div class="card">
+<img src="./images/Calng.jpg" />
+            </div>
+            <div class="card-bg">
+              <div class="banner"><p></p></div>
+              <div class="languageIconContainer">
+                <div class="languageIcons">
+                  <i class="fa-brands fa-html5"></i>
+                  <i class="fa-brands fa-css3-alt"></i>
+                  <i class="fa-brands fa-js-square"></i>
+                </div>
+              </div>
+              <p class="card-p">Calendar Next Gen</p>
+            </div>
+          </div>
+
+          <div class="card-container">
+            <div class="card"> 
+<img src="./images/Troy-Large.jpg" />
+            </div>
+            <div class="card-bg">
+              <div class="banner"><p></p></div>
+              <div class="languageIconContainer">
+                <div class="languageIcons">
+                  <i class="fa-brands fa-html5"></i>
+                  <i class="fa-brands fa-css3-alt"></i>
+                  <i class="fa-brands fa-js-square"></i>
+                </div>
+              </div>
+              <p class="card-p">Troy Large Pastel E-commerce</p>
+            </div>
+          </div>
+
+          <div class="card-container">
+            <div class="card">
+            	<img src="./images/My-Lists.jpg" />
+            </div>
+            <div class="card-bg">
+              <div class="banner"><p></p></div>
+              <div class="languageIconContainer">
+                <div class="languageIcons">
+                  <i class="fa-brands fa-html5"></i>
+                  <i class="fa-brands fa-css3-alt"></i>
+                  <i class="fa-brands fa-js-square"></i>
+                </div>
+              </div>
+              <p class="card-p">Android Todo's</p>
+            </div>
+          </div>
+
+          <div class="card-container">
+            <div class="card"><img src="./images/WAR.jpg" /></div>
+            <div class="card-bg">
+              <div class="banner"><p></p></div>
+              <div class="languageIconContainer">
+                <div class="languageIcons">
+                  <i class="fa-brands fa-html5"></i>
+                  <i class="fa-brands fa-css3-alt"></i>
+                  <i class="fa-brands fa-js-square"></i>
+                </div>
+              </div>
+              <p class="card-p">Weather App React</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec-4 sec" data-section id="about">
+        <div class="me-information">
+          <div class="side-bar">
+            <p>RL</p>
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-phone"></i>
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <div class="photo-and-social">
+            <h2>Ryan Large</h2>
+            <h3>Developer</h3>
+            <div class="links">
+              <a
+                href="https://www.facebook.com/ryan.large.984/"
+                target="_blank"
+                aria-label="Facebook Link"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a
+                href="https://github.com/RyanLarge13"
+                target="_blank"
+                aria-label="Github Link"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/ryan-large/"
+                target="_blank"
+                aria-label="Linked-in Link"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+          <div class="info-grid-container">
+            <div class="about" id="fa-solid fa-user">
+              <h2>About Me</h2>
+              <p>
+                My name is <strong>Ryan Large</strong>, I am a father of three
+                children and have a beautiful family. I fell in love with
+                <strong>coding</strong> while picking it up as a hobby and it
+                has become an enormous part of my life.
+              </p>
+              <h3>Strong Suits</h3>
+              <p>
+                My most powerful language is <strong>Javascript</strong> and my
+                most powerful attribute is <strong>Self Motivation</strong>.
+              </p>
+              <h3>History</h3>
+              <p>
+                My history with coding goes back to over a year ago. With 90% of
+                my education from self teaching.
+                <strong>CareerFoundry</strong> entails the other 10% and is by
+                far not the least of my efforts.
+              </p>
+            </div>
+            <div class="contact-me" id="fa-solid fa-phone">
+              <h2>Contact</h2>
+              <p>
+                My personal number is
+                <strong><a href="tel:702-981-1370">(702) 981-1270</a></strong
+                >. You can contact me via telephone at this number anytime of
+                the day.
+              </p>
+              <h3>Email</h3>
+              <p>
+                <a href="mailto:ryanhudsonlarge13@gmail.com"
+                  ><strong>ryanhudsonlarge13@gmail.com</strong></a
+                >
+                <br />
+                <a href="mailto:ryanlarge100@gamil.com"
+                  ><strong>ryanlarge100@gmail.com</strong></a
+                >
+              </p>
+              <h3>Discord</h3>
+              <p><a href="https://discord.com/">RyanLarge#2307</a></p>
+            </div>
+            <div class="history" id="fa-solid fa-clock-rotate-left">
+              <h2>History</h2>
+              <h3>Education</h3>
+              <p><strong>White Pine Highschool</strong></p>
+              <p></p>
+            </div>
+            <div class="work" id="fa-solid fa-briefcase">
+              <h2>Experience</h2>
+              <h3><strong>Premier Magnesia</strong></h3>
+              <p><strong>04-01-2021 - Present</strong></p>
+              <ul>
+                <li>Maintain machinery</li>
+                <li>Secure quality ore</li>
+                <li>Fix issues that occure with equipment</li>
+                <li>Stay up to date with MSHA training and regulations</li>
+              </ul>
+              <h3>Mission Pines</h3>
+              <p><strong>02-01-2020 - 04-01-2021</strong></p>
+              <ul>
+                <li>Cooked & preped meals for 140 residents</li>
+                <li>Kept a clean kitchen</li>
+                <li>Helped cook aids clean dishes</li>
+                <li>Followed all standard saftey rules</li>
+              </ul>
+              <h3>Manic Mechanics</h3>
+              <p><strong>11-01-2018 - 02-01-2020</strong></p>
+              <ul>
+                <li>Changed oil and replaced car/truck/semi tires</li>
+                <li>Performed advanced mechanics on desiel engines</li>
+                <li>In charge of tire and lube bay</li>
+                <li>
+                  Periodically kept payroll records and managed accounting
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec-5 sec" data-section id="contact">
+        <h2>Contact</h2>
+        <form action="" class="contact-form">
+          <div class="not-valid"><strong>Not Valid</strong></div>
+          <label for="tel">Telephone</label>
+          <input type="tel" id="tel" />
+          <label for="email">Email</label>
+          <input type="email" id="email" />
+          <label for="text">Message</label>
+          <textarea name="text" id="text" cols="30" rows="10"></textarea>
+        </form>
+        <button class="form-submission">Send</button>
+        <footer>
+          <p>All Rights Reserved @RyanLarge!!!</p>
+          <a
+            href="https://www.facebook.com/ryan.large.984/"
+            target="_blank"
+            aria-label="Facebook Link"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a
+            href="https://github.com/RyanLarge13"
+            target="_blank"
+            aria-label="Github Link"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/ryan-large/"
+            target="_blank"
+            aria-label="Linked-in Link"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </footer>
+      </section>
     </main>
 
     <!-- <i class="fa-solid fa-house to-top-btn"></i> -->
     <i class="fa-solid fa-arrow-turn-up to-top-btn"></i>
-
 
     <!-- main script -->
     <script type="module" src="./Javascript/script.js"></script>
@@ -380,6 +477,10 @@
     <script type="module" src="/Javascript/agoraRTM.js"></script>
     <script defer src="./Javascript/agora-rtm-sdk-1.4.5.js"></script>
     <!-- link to font awesome -->
-    <script defer src="https://kit.fontawesome.com/a673862905.js" crossorigin="anonymous"></script>
-</body>
+    <script
+      defer
+      src="https://kit.fontawesome.com/a673862905.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
